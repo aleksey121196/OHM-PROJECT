@@ -1,0 +1,26 @@
+<header>
+    <h1>OHM Power Solutions</h1>
+    <button (click)="logout()">logout</button>
+</header>
+
+<aside class="sidebar">
+    <nav>
+      <ul>
+        <li><a routerLink="personal-data">Personal Data</a></li>
+        <li><a routerLink="meal-order">Meal Order</a></li>
+        <li><a routerLink="transportation">Transportation</a></li>
+        <li><a routerLink="absence">Absence</a></li>
+        <li><a routerLink="overtime-register">Overtime Register</a></li>
+        <li><a routerLink="requests">Requests </a></li>
+        <li><a routerLink="task-status">Task Status</a></li>
+      </ul>
+    </nav>
+</aside>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+    <p>&copy; 2025 OHM Power Solutions. All rights reserved.</p>
+</footer>

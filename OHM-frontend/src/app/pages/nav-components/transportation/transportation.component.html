@@ -1,0 +1,27 @@
+<h2>Transportation Registration</h2>
+
+<form (ngSubmit)="submitTransportation()">
+  <label for="type"><strong>Transportation Type:</strong></label><br />
+  <select id="type" [(ngModel)]="transportationType" name="type" required>
+    <option value="One-Time">One-Time</option>
+    <option value="Permanent">Permanent</option>
+  </select>
+
+  <br /><br />
+
+  <label for="Date">Date:</label>
+  <input type="date" id="Date" name="Date" [(ngModel)]="Date" required>
+
+  <br /><br />
+
+  <label for="Time">Time:</label>
+  <input type="time" id="Time" name="Time" [(ngModel)]="Time" required>
+
+  <br /><br />
+
+  <label for="destination"><strong>Destination:</strong></label><br />
+  <input id="destination" name="destination" [(ngModel)]="destination" required />
+
+  <br /><br />
+  <button type="submit">Submit</button>
+</form>

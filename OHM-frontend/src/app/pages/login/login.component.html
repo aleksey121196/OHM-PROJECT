@@ -1,0 +1,20 @@
+<main class="login-container">
+  
+    <h2>Login</h2>
+  
+  <form (ngSubmit)="login()" autocomplete="off" >
+    <section>
+      <label for="username">userName:</label>
+      <input [(ngModel)]="UserName" name="UserName" id="username" required autocomplete="new-username" />
+    </section>
+    
+    <section>
+      <label for="password">password:</label>
+      <input [(ngModel)]="Password" name="Password" type="password" id="password" required autocomplete="new-password" />
+    </section>
+    
+    <button type="submit">Login</button>
+  </form>
+
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</main>

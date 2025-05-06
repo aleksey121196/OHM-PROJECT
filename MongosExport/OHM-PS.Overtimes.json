@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "681a45506044d011be492f23"
+  },
+  "FullName": "Aleksey Jan boo ti",
+  "Id": "327232138",
+  "Department": "Frontend",
+  "Date": "2025-05-07",
+  "ExitTime": "20:00",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681a46646044d011be492f2f"
+  },
+  "FullName": "tal malka",
+  "Id": "145236957",
+  "Department": "Frontend",
+  "Date": "2025-01-17",
+  "ExitTime": "17:00",
+  "__v": 0
+}]

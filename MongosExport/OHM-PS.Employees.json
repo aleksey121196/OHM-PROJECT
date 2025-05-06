@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "6800a84ad8623d8efdb5f899"
+  },
+  "FullName": "Aleksey Jan boo ti",
+  "Email": "iosydjan@gmail.com",
+  "Phone": "054-5246495",
+  "Address": "hamakim 7 st, kiryat bialik",
+  "Id": "327232138",
+  "JobTitle": "Softwear developer",
+  "EmploymentDate": "2026-01-01",
+  "Department": "Frontend",
+  "Status": "Active",
+  "UserName": "AlekseyJ",
+  "Role": "Employee",
+  "Password": "$2b$10$wk5i.Bp6LOjusW3m9o1X9u0Fx/b3DRiiFmBriOaUb/DBpfIM2XQaS",
+  "EmployerName": "OHM power solutions"
+},
+{
+  "_id": {
+    "$oid": "6800abe59782cda8460c72a1"
+  },
+  "FullName": "Alice Johnson",
+  "Email": "AliceJ@gmail.com",
+  "Phone": "050-1234567",
+  "Address": "green 10 st, tel aviv",
+  "Id": "125498755",
+  "JobTitle": "secretary",
+  "EmploymentDate": "2020-05-01",
+  "Department": "Administrative",
+  "Status": "Active",
+  "UserName": "AliceJ",
+  "Role": "Secretary",
+  "Password": "$2b$10$WalUPDyz7jP0dQKZwZj1GeYX4Azehi7pEeFtZfX4.vkIesocLNSgy",
+  "EmployerName": "OHM power solutions"
+},
+{
+  "_id": {
+    "$oid": "6803a47b44df2c6d45905a38"
+  },
+  "FullName": "tal malka",
+  "Email": "tal11@gmail.com",
+  "Phone": "054-5824716",
+  "Address": "hamakim 7 st, kiryat bialik",
+  "Id": "145236957",
+  "JobTitle": "Softwear Manager",
+  "EmploymentDate": "2020-01-07",
+  "Department": "Frontend",
+  "Status": "Active",
+  "UserName": "TalM",
+  "Role": "Manager",
+  "Password": "$2b$10$2YYefxi0dsLMoIOffu4cU.Agnr4WbUK0nHzzgl0AZYD9qYKPm0ItC",
+  "EmployerName": "OHM power solutions"
+}]

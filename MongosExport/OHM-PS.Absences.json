@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "681a45356044d011be492f21"
+  },
+  "FullName": "Aleksey Jan boo ti",
+  "Id": "327232138",
+  "Department": "Frontend",
+  "fromDate": "2025-05-01",
+  "toDate": "2025-05-06",
+  "absenceType": "Vacation",
+  "reason": "birth day....",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681a459f6044d011be492f28"
+  },
+  "FullName": "Alice Johnson",
+  "Id": "125498755",
+  "Department": "Administrative",
+  "fromDate": "2025-05-06",
+  "toDate": "2025-05-10",
+  "absenceType": "Personal",
+  "reason": "daughter performence",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681a464b6044d011be492f2d"
+  },
+  "FullName": "tal malka",
+  "Id": "145236957",
+  "Department": "Frontend",
+  "fromDate": "2025-05-01",
+  "toDate": "2025-05-06",
+  "absenceType": "Sick Leave",
+  "reason": "corona",
+  "__v": 0
+}]

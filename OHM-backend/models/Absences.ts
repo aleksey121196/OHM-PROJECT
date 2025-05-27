@@ -11,5 +11,4 @@ const AbsenceSchema = new mongoose.Schema({
   reason: { type: String, required: true }
 });
 
-// Third parameter 'Absences' forces Mongoose to use that exact collection name
 export default mongoose.model('Absences', AbsenceSchema, 'Absences');

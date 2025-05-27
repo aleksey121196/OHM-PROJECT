@@ -16,4 +16,10 @@ export class HomeComponent {
     this.router.navigate(['/login']);
 
   }
+
+  goToContact(){
+
+    this.router.navigate(['/contactUs']);
+
+  }
 }

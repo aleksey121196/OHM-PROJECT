@@ -15,7 +15,7 @@ const employeeSchema = new mongoose.Schema({
   Password: { type: String, required: true },
   EmployerName: String
 }, {
-  collection: 'Employees' // 👈 זה החלק שמכריח להשתמש באוסף בשם המדויק
+  collection: 'Employees'
 });
 
 export const Employee = mongoose.model('Employee', employeeSchema);

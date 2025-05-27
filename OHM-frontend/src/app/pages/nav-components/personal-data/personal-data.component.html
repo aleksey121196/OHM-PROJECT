@@ -1,70 +1,21 @@
 <section aria-labelledby="personal-data-heading">
     <h2 id="personal-data-heading">Personal Data</h2>
-    <dl *ngIf="user">
-      <dt>Full Name:</dt>
-      <dd>{{ user.FullName }}</dd>
-
-      <br /><br />
-
-      <dt>Email:</dt>
-      <dd>{{ user.Email }}</dd>
-
-      <br /><br />
-
-  
-      <dt>Phone:</dt>
-      <dd>{{ user.Phone }}</dd>
-
-      <br /><br />
-
-  
-      <dt>Address:</dt>
-      <dd>{{ user.Address }}</dd>
-
-      <br /><br />
-
-  
-      <dt>Id:</dt>
-      <dd>{{ user.Id }}</dd>
-
-      <br /><br />
-
-  
-      <dt>Job Title:</dt>
-      <dd>{{ user.JobTitle }}</dd>
-
-      <br /><br />
-
-  
-      <dt>Employment Date:</dt>
-      <dd>{{ user.EmploymentDate }}</dd>
-
-      <br /><br />
-
-  
-      <dt>Department:</dt>
-      <dd>{{ user.Department }}</dd>
-
-      <br /><br />
-
-  
-      <dt>Status:</dt>
-      <dd>{{ user.Status }}</dd>
-
-      <br /><br />
-
-  
-      <dt>Role:</dt>
-      <dd>{{ user.Role }}</dd>
-
-      <br /><br />
-
-  
-      <dt>Employer Name:</dt>
-      <dd>{{ user.EmployerName }}</dd>
-
-      <br /><br />
-
-    </dl>
+    <section *ngIf="user">
+      <article>
+        <header>
+          <p><strong>Full Name:</strong>{{ user.FullName }}</p>
+          <p><strong>Email:</strong>{{ user.Email }}</p>
+          <p><strong>Phone:</strong>{{ user.Phone }}</p>
+          <p><strong>Address:</strong>{{ user.Address }}</p>
+          <p><strong>Id:</strong>{{ user.Id }}</p>
+          <p><strong>Job Title:</strong>{{ user.JobTitle }}</p>
+          <p><strong>Employment Date:</strong>{{ user.EmploymentDate }}</p>
+          <p><strong>Department:</strong>{{ user.Department }}</p>
+          <p><strong>Status:</strong>{{ user.Status }}</p>
+          <p><strong>Role:</strong>{{ user.Role }}</p>
+          <p><strong>EmployeerName:</strong>{{ user.EmployerName }}</p>
+        </header>
+      </article>
+    </section>
   </section>
   

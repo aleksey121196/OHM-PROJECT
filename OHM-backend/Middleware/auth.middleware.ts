@@ -9,10 +9,8 @@ declare global{
   }
 }
 
-// SECRET JWT (כפי שהגדרת ב־.env)
 const JWT_SECRET = process.env.JWT_SECRET as string;
 
-// Middleware לאימות JWT
 export const authenticateJWT = (req: Request, res: Response, next: NextFunction): void => {
   
   const authHeader = req.headers['authorization'];

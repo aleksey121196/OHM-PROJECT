@@ -8,7 +8,9 @@ import employeeRoutes from './routes/employeeRoutes';
 import cors from 'cors';
 import transportationRoutes from './routes/transportationRoutes';
 import absenceRoutes from './routes/absenceRoutes';
-import overTimeRoutse from './routes/overTimeRoutes';
+import overTimeRoutes from './routes/overTimeRoutes';
+import requestRoutes from './routes/requestRoutes';
+import contactRouts from './routes/contactRouts';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,8 +20,14 @@ app.use(express.json());
 
 
 
+app.use('/api/employees', employeeRoutes);
+app.use('/api/transportation', transportationRoutes);
+app.use('/api/absence', absenceRoutes);
+app.use('/api/overTime', overTimeRoutes);
+app.use('/api/request', requestRoutes);
+app.use('/api/contactUs', contactRouts);
 
-// התחברות למסד הנתונים OHM-PS
+
 mongoose.connect('mongodb://localhost:27017/OHM-PS')
   .then(() => {
     console.log('Connected to MongoDB');
@@ -31,11 +39,3 @@ mongoose.connect('mongodb://localhost:27017/OHM-PS')
 
 
 
-// כל הבקשות שיתחילו ב־/api/employees ילכו ל־employeeRoutes
-app.use('/api/employees', employeeRoutes);
-//כל הבקשות של employee
-app.use('/api/transportation', transportationRoutes);
-//כל הבקשות של employee
-
-app.use('/api/absence', absenceRoutes);
-app.use('/api/overTime', overTimeRoutse);

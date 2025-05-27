@@ -20,6 +20,7 @@ import { TaskStatusComponent } from './pages/nav-components/task-status/task-sta
 import { TransportationComponent } from './pages/nav-components/transportation/transportation.component';
 import { WorkPlanComponent } from './pages/nav-components/work-plan/work-plan.component';
 import { EmployeeManagComponent } from './pages/nav-components/employee-manag/employee-manag.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 export const routes: Routes = [
     {
@@ -27,6 +28,9 @@ export const routes: Routes = [
     },
     {
         path : 'login', component: LoginComponent
+    },
+    {
+        path : 'contactUs', component: ContactUsComponent
     },
     {
         path: 'employee',

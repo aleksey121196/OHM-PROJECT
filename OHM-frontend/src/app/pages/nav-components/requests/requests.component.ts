@@ -1,11 +1,73 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RequestService } from '../../../services/request.service';
+import { EmployeeService } from '../../../services/employee.service';
 
 @Component({
   selector: 'app-requests',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './requests.component.html',
-  styleUrl: './requests.component.css'
+  styleUrls: ['./requests.component.css']
 })
-export class RequestsComponent {
+export class RequestsComponent implements OnInit {
 
+  Date: string = '';
+  RequestType: string = '';
+  RequestDescription: string = '';
+
+  reqdata: any[] = []; // store all requests here
+
+  constructor(private requestService: RequestService, private employeeService: EmployeeService) {}
+
+  ngOnInit(): void {
+    this.loadRequests();
+  }
+
+  loadRequests(): void {
+    this.requestService.getRequestsByUser().subscribe({
+      next: (data) => {
+        this.reqdata = data;
+      },
+      error: () => {
+        alert('Failed to load requests');
+      }
+    });
+  }
+
+  submitRequest(): void {
+    const user = this.employeeService.getUserFromToken();
+
+    if (!user) {
+      alert('User not authenticated');
+      return;
+    }
+
+    const requestData = {
+      UserId: user._id,
+      Id: user.Id,
+      FullName: user.FullName,
+      Department: user.Department,
+      Date: new Date(),  // use current date here
+      RequestType: this.RequestType,
+      RequestDescription: this.RequestDescription
+    };
+
+    this.requestService.addRequest(requestData).subscribe({
+      next: () => {
+        alert('Request submitted successfully');
+        this.clearForm();
+        this.loadRequests(); // refresh the list to show new request
+      },
+      error: () => {
+        alert('Failed to submit request');
+      }
+    });
+  }
+
+  clearForm() {
+    this.RequestType = '';
+    this.RequestDescription = '';
+  }
 }

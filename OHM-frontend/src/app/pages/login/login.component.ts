@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit{
       },
       error =>{
         this.errorMessage ="login fail";
-        console.error('Login failed:', error); // Add this!
+        console.error('Login failed:', error); 
       } 
     );
   }  

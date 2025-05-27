@@ -1,1 +1,48 @@
-<p>requests works!</p>
+<h2>Requests</h2>
+
+<section>
+
+  <form (ngSubmit)="submitRequest()">
+  <label for="Date">Date:</label>
+  <input type="date" id="Date" name="Date" [(ngModel)]="Date" required>
+
+  <br /><br />
+
+  <label for="RequestType">Request Type:</label>
+  <select id="RequestType" name="RequestType" [(ngModel)]="RequestType" required>
+    <option value="Equipment Problem">Equipment Problem</option>
+    <option value="Task Asistence">Task Asistence</option>
+    <option value="Personal">Personal</option>
+  </select>
+  <label for="RequestDescription">Reason:</label>
+  <textarea id="RequestDescription" name="RequestDescription" [(ngModel)]="RequestDescription" rows="4" required></textarea>
+  <button type="submit">Submit</button>
+</form>
+
+</section>
+
+<section >
+  <h2>My Requests</h2>
+  <table *ngIf="reqdata.length">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Manager Response</th>
+        <th>Response Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let req of reqdata">
+        <td>{{ req.Date | date:'short' }}</td>
+        <td>{{ req.RequestType }}</td>
+        <td>{{ req.RequestDescription }}</td>
+        <td>{{ req.Response?.Text || 'Not responded yet' }}</td>
+        <td>{{ req.Response?.ResDate ? (req.Response.ResDate | date:'short') : '-' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="reqdata.length === 0">You have no requests.</p>
+</section>
+

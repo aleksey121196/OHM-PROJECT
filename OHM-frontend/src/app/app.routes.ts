@@ -6,7 +6,7 @@ import { ManagerComponent } from './pages/manager/manager.component';
 import { SecretaryComponent } from './pages/secretary/secretary.component';
 import { authGuard } from './guards/auth.guard';
 import { AbsenceComponent } from './pages/nav-components/absence/absence.component';
-import { BusinessInqueriesComponent } from './pages/nav-components/business-inqueries/business-inqueries.component';
+import { MeetingsInqueriesComponent } from './pages/nav-components/meetings-inqueries/Meetings-inqueries.component';
 import { MealMenuComponent } from './pages/nav-components/meal-menu/meal-menu.component';
 import { MealOrderListComponent } from './pages/nav-components/meal-order-list/meal-order-list.component';
 import { MealOredrComponent } from './pages/nav-components/meal-oredr/meal-oredr.component';
@@ -80,7 +80,7 @@ export const routes: Routes = [
             { path: 'meal-oredr-list', component: MealOrderListComponent},
             { path: 'employee-manag', component: EmployeeManagComponent},
             { path: 'order-managment', component: OrdersManagmentComponent},
-            { path: 'business-inqueries', component: BusinessInqueriesComponent}
+            { path: 'Meetings-inqueries', component: MeetingsInqueriesComponent}
           ]
     }
 ];

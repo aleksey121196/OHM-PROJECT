@@ -11,6 +11,7 @@ import absenceRoutes from './routes/absenceRoutes';
 import overTimeRoutes from './routes/overTimeRoutes';
 import requestRoutes from './routes/requestRoutes';
 import contactRouts from './routes/contactRouts';
+import ordersRoutes from './routes/ordersRoutes';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -26,6 +27,8 @@ app.use('/api/absence', absenceRoutes);
 app.use('/api/overTime', overTimeRoutes);
 app.use('/api/request', requestRoutes);
 app.use('/api/contactUs', contactRouts);
+app.use('/api/orders', ordersRoutes);
+
 
 
 mongoose.connect('mongodb://localhost:27017/OHM-PS')

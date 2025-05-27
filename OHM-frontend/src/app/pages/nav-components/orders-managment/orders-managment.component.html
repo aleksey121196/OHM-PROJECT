@@ -1,1 +1,9 @@
-<p>orders-managment works!</p>
+<h2>Add New Order</h2>
+<form (ngSubmit)="submitOrder()">
+  <input type="text" placeholder="Full Name" [(ngModel)]="order.ClientFullName" name="ClientFullName" required />
+  <input type="email" placeholder="Email" [(ngModel)]="order.ClientEmail" name="ClientEmail" required />
+  <input type="text" placeholder="Phone" [(ngModel)]="order.ClientPhone" name="ClientPhone" required />
+  <input type="date" [(ngModel)]="order.MeetingDate" name="MeetingDate" />
+  <textarea placeholder="Order Details" [(ngModel)]="order.OrderDetails" name="OrderDetails" required></textarea>
+  <button type="submit">Submit Order</button>
+</form>

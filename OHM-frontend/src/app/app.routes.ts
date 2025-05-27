@@ -21,6 +21,9 @@ import { TransportationComponent } from './pages/nav-components/transportation/t
 import { WorkPlanComponent } from './pages/nav-components/work-plan/work-plan.component';
 import { EmployeeManagComponent } from './pages/nav-components/employee-manag/employee-manag.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { SetBusimessMeetingsComponent } from './pages/nav-components/set-busimess-meetings/set-busimess-meetings.component';
+import { SetDepartmentMeetingsComponent } from './pages/nav-components/set-department-meetings/set-department-meetings.component';
+import { OrdersListComponent } from './pages/nav-components/orders-list/orders-list.component';
 
 export const routes: Routes = [
     {
@@ -60,7 +63,7 @@ export const routes: Routes = [
             { path: 'overtime-register', component: OvertimeRegisterComponent },
             { path: 'requests-managment', component: RequestManagmentComponent },
             { path: 'create-work-plan', component: WorkPlanComponent},
-            { path: 'order-managment', component: OrdersManagmentComponent},
+            { path: 'orders-list', component:OrdersListComponent},
             { path: 'performence-traking', component: PerformenceTrackingComponent}
           ]
     },
@@ -80,7 +83,9 @@ export const routes: Routes = [
             { path: 'meal-oredr-list', component: MealOrderListComponent},
             { path: 'employee-manag', component: EmployeeManagComponent},
             { path: 'order-managment', component: OrdersManagmentComponent},
-            { path: 'Meetings-inqueries', component: MeetingsInqueriesComponent}
+            { path: 'Meetings-inqueries', component: MeetingsInqueriesComponent},
+            { path: 'set-business-meetings', component:SetBusimessMeetingsComponent},
+            { path: 'set-department-meetings', component:SetDepartmentMeetingsComponent}
           ]
     }
 ];

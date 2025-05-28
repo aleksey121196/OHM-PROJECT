@@ -19,4 +19,15 @@
   "Date": "2025-01-17",
   "ExitTime": "17:00",
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6828cd699957d3f7b0523c8c"
+  },
+  "FullName": "Aleksey Jan boo ti",
+  "Id": "327232138",
+  "Department": "Frontend",
+  "Date": "4653-06-05",
+  "ExitTime": "05:31",
+  "__v": 0
 }]

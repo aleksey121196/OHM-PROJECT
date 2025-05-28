@@ -15,7 +15,6 @@ export class PersonalDataComponent implements OnInit{
   constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
-    // קבלת פרטי המשתמש מה-token
     this.user = this.employeeService.getUserFromToken();
   }
 }

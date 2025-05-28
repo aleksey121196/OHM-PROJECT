@@ -51,4 +51,23 @@
   "Role": "Manager",
   "Password": "$2b$10$2YYefxi0dsLMoIOffu4cU.Agnr4WbUK0nHzzgl0AZYD9qYKPm0ItC",
   "EmployerName": "OHM power solutions"
+},
+{
+  "_id": {
+    "$oid": "6835a38b36b4e387d0d66957"
+  },
+  "FullName": "Boby Den",
+  "Email": "boby@gmail.com",
+  "Phone": "0545246499",
+  "Address": "Tel Aviv Bicur 7",
+  "Id": "7741",
+  "JobTitle": "Qa",
+  "EmploymentDate": "27/05/2025",
+  "Department": "Frontend",
+  "Status": "Active",
+  "UserName": "BOBD",
+  "Role": "Employee",
+  "Password": "$2b$10$mi3vdr1qL3OvBNs2.7H64OFXVZCfuz2lmwEf6fsPpb7FXONtxHmx2",
+  "EmployerName": "OHM power solutions",
+  "__v": 0
 }]

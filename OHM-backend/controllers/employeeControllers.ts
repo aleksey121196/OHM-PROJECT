@@ -11,7 +11,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
   try {
     const employee = await Employee.findOne({
-      UserName: { $regex: new RegExp(`^${UserName}$`, 'i') }, // לא רגיש לאותיות עבור UserName
+      UserName: { $regex: new RegExp(`^${UserName}$`, 'i') }, 
     });
 
     console.log('Employee found:', employee);
@@ -52,3 +52,25 @@ export const login = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
+
+
+export const addEmployee = async (req: Request, res: Response) => {
+  try {
+    const { Password, ...rest } = req.body;
+
+    // Hash the password before saving
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(Password, saltRounds);
+
+    const employee = new Employee({
+      ...rest,
+      Password: hashedPassword
+    });
+
+    await employee.save();
+    res.status(201).json({ message: 'Employee added successfully' });
+  } catch (error) {
+    console.error('Error adding employee:', error);
+    res.status(500).json({ message: 'Failed to add employee', error });
+  }
+};

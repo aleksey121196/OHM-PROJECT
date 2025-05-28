@@ -6,7 +6,7 @@ import { ManagerComponent } from './pages/manager/manager.component';
 import { SecretaryComponent } from './pages/secretary/secretary.component';
 import { authGuard } from './guards/auth.guard';
 import { AbsenceComponent } from './pages/nav-components/absence/absence.component';
-import { BusinessInqueriesComponent } from './pages/nav-components/business-inqueries/business-inqueries.component';
+import { MeetingsInqueriesComponent } from './pages/nav-components/meetings-inqueries/Meetings-inqueries.component';
 import { MealMenuComponent } from './pages/nav-components/meal-menu/meal-menu.component';
 import { MealOrderListComponent } from './pages/nav-components/meal-order-list/meal-order-list.component';
 import { MealOredrComponent } from './pages/nav-components/meal-oredr/meal-oredr.component';
@@ -20,6 +20,10 @@ import { TaskStatusComponent } from './pages/nav-components/task-status/task-sta
 import { TransportationComponent } from './pages/nav-components/transportation/transportation.component';
 import { WorkPlanComponent } from './pages/nav-components/work-plan/work-plan.component';
 import { EmployeeManagComponent } from './pages/nav-components/employee-manag/employee-manag.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { SetBusimessMeetingsComponent } from './pages/nav-components/set-busimess-meetings/set-busimess-meetings.component';
+import { SetDepartmentMeetingsComponent } from './pages/nav-components/set-department-meetings/set-department-meetings.component';
+import { OrdersListComponent } from './pages/nav-components/orders-list/orders-list.component';
 
 export const routes: Routes = [
     {
@@ -27,6 +31,9 @@ export const routes: Routes = [
     },
     {
         path : 'login', component: LoginComponent
+    },
+    {
+        path : 'contactUs', component: ContactUsComponent
     },
     {
         path: 'employee',
@@ -56,7 +63,7 @@ export const routes: Routes = [
             { path: 'overtime-register', component: OvertimeRegisterComponent },
             { path: 'requests-managment', component: RequestManagmentComponent },
             { path: 'create-work-plan', component: WorkPlanComponent},
-            { path: 'order-managment', component: OrdersManagmentComponent},
+            { path: 'orders-list', component:OrdersListComponent},
             { path: 'performence-traking', component: PerformenceTrackingComponent}
           ]
     },
@@ -76,7 +83,9 @@ export const routes: Routes = [
             { path: 'meal-oredr-list', component: MealOrderListComponent},
             { path: 'employee-manag', component: EmployeeManagComponent},
             { path: 'order-managment', component: OrdersManagmentComponent},
-            { path: 'business-inqueries', component: BusinessInqueriesComponent}
+            { path: 'Meetings-inqueries', component: MeetingsInqueriesComponent},
+            { path: 'set-business-meetings', component:SetBusimessMeetingsComponent},
+            { path: 'set-department-meetings', component:SetDepartmentMeetingsComponent}
           ]
     }
 ];

@@ -1,1 +1,35 @@
-<p>request-managment works!</p>
+<section>
+  <h2>Employee Requests</h2>
+
+  <p *ngIf="loading">Loading requests...</p>
+  <p *ngIf="error">{{ error }}</p>
+
+  <section *ngFor="let req of requests">
+    <article>
+      <header>
+        <p><strong>From:</strong> {{ req.FullName }} ({{ req.Department }})</p>
+        <p><strong>Date:</strong> {{ req.Date }}</p>
+        <p><strong>Type:</strong> {{ req.RequestType }}</p>
+      </header>
+
+      <section>
+        <p><strong>Description:</strong> {{ req.RequestDescription }}</p>
+      </section>
+
+      <section *ngIf="req.Response">
+        <p><strong>Response:</strong> {{ req.Response.Text }}</p>
+        <p>By {{ req.Response.Responder }} on {{ req.Response.ResDate | date:'short' }}</p>
+      </section>
+
+      <section *ngIf="!req.Response">
+        <label for="response-{{ req._id }}">Response</label>
+        <textarea
+          [(ngModel)]="responseTexts[req._id]"
+          id="response-{{ req._id }}"
+          rows="2"
+        ></textarea>
+        <button (click)="sendResponse(req._id)">Send Response</button>
+      </section>
+    </article>
+  </section>
+</section>

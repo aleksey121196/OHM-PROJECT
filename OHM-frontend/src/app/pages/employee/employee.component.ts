@@ -19,9 +19,8 @@ export class EmployeeComponent implements OnInit{
     if (!this.employeeService.isLoggedIn()) {
       this.router.navigate(['/login']);
     } else {
-      // Add this check to prevent navigating back to this page once logged out
       window.onpopstate = () => {
-        this.location.replaceState('/login');  // Force replace URL
+        this.location.replaceState('/login');
         window.location.reload();
       };
     }

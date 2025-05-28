@@ -1,0 +1,21 @@
+<header>
+    <h1>OHM Power Solutions</h1>
+    <button (click)="goToHome()">logout</button>
+</header>
+
+ <form (ngSubmit)="submitContact()">
+  <label for="fullName">Full Name:</label>
+  <input [(ngModel)]="FullName" name="fullName" id="fullName" required autocomplete="new-fullName" />
+
+  <label for="Email">Email:</label>
+  <input type="email" id="Email" name="Email" [(ngModel)]="Email" required>
+
+  <label for="Message">Message:</label>
+  <textarea id="Message" name="Message" [(ngModel)]="Message" rows="4" required></textarea>
+
+  <button type="submit">Submit</button>
+ </form>
+
+ <footer>
+    <p>&copy; 2025 OHM Power Solutions. All rights reserved.</p>
+</footer>

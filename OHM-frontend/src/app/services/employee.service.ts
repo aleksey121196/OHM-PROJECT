@@ -62,5 +62,15 @@ export class EmployeeService {
     return this.http.get('http://localhost:3000/api/employees/protected', {headers});
   }
 
+  addEmployee(employee: any): Observable<any> {
+  const token = this.getToken();
+  let headers = new HttpHeaders();
+
+  if (token) {
+    headers = headers.set('Authorization', `Bearer ${token}`);
+  }
+
+  return this.http.post('http://localhost:3000/api/employees/add', employee, { headers });
+}
   
 }

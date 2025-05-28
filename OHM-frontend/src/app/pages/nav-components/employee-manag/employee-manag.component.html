@@ -1,1 +1,19 @@
-<p>employee-manag works!</p>
+<h2 class="text-xl font-bold mb-4">Add New Employee</h2>
+
+<form (ngSubmit)="addEmployee()" class="space-y-4">
+  <input [(ngModel)]="newEmployee.FullName" name="FullName" placeholder="Full Name" required />
+  <input [(ngModel)]="newEmployee.Email" name="Email" placeholder="Email" required />
+  <input [(ngModel)]="newEmployee.Phone" name="Phone" placeholder="Phone" />
+  <input [(ngModel)]="newEmployee.Address" name="Address" placeholder="Address" />
+  <input [(ngModel)]="newEmployee.Id" name="Id" placeholder="Employee ID" required />
+  <input [(ngModel)]="newEmployee.JobTitle" name="JobTitle" placeholder="Job Title" />
+  <input [(ngModel)]="newEmployee.EmploymentDate" name="EmploymentDate" placeholder="Employment Date" />
+  <input [(ngModel)]="newEmployee.Department" name="Department" placeholder="Department" />
+  <input [(ngModel)]="newEmployee.Status" name="Status" placeholder="Status" />
+  <input [(ngModel)]="newEmployee.UserName" name="UserName" placeholder="Username" required autocomplete="new-username" />
+  <input [(ngModel)]="newEmployee.Role" name="Role" placeholder="Role" />
+  <input [(ngModel)]="newEmployee.Password" name="Password" placeholder="Password" type="password" required autocomplete="new-password" />
+  <input [(ngModel)]="newEmployee.EmployerName" name="EmployerName" placeholder="Employer Name" />
+
+  <button type="submit">Add Employee</button>
+</form>

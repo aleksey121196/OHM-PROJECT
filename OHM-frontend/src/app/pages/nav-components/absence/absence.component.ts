@@ -51,10 +51,11 @@ export class AbsenceComponent implements OnInit{
         this.clearForm();
       },
       error:() => {
-        alert('Failed to submit transportation request');
+        alert('Failed to submit Absence request');
       }
     });
   }
+  
    clearForm() {
     this.fromDate = '';
     this.toDate = '';

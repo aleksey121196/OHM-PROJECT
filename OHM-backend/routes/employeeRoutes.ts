@@ -1,11 +1,10 @@
-// routes/employeeRoutes.ts
 import express, { Router } from 'express';
 import { login } from '../controllers/employeeControllers';
 import { authenticateJWT } from '../Middleware/auth.middleware';
+import { addEmployee } from '../controllers/employeeControllers';
 
 const router = express.Router();
 
-// קריאה לפונקציית login
 router.post('/login', login);
 
 router.get('/protected', authenticateJWT, (req,res) =>{
@@ -14,5 +13,9 @@ router.get('/protected', authenticateJWT, (req,res) =>{
          user: (req as any).user
         });
 });
+
+
+router.post('/add', addEmployee);
+
 
 export default router;

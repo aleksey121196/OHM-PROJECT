@@ -1,0 +1,17 @@
+<section>
+  <h2>New Contact Requests</h2>
+
+  <p *ngIf="loading">Loading requests...</p>
+  <p *ngIf="error">{{ error }}</p>
+
+  <section *ngFor="let req of Businessrequests">
+    <article>
+      <header>
+        <p><strong>Client Name:</strong> {{ req.FullName }}</p>
+        <p><strong>Date:</strong> {{ req.Date }}</p>
+        <p><strong>Email:</strong> {{ req.Email}}</p>
+        <p><strong>Message:</strong> {{ req.Message }}</p>
+      </header>
+    </article>
+  </section>
+</section>

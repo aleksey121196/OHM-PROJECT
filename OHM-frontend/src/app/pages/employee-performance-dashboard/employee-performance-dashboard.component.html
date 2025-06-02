@@ -1,0 +1,14 @@
+<h2>My Performance</h2>
+
+<div *ngIf="performance">
+  <p>Total Tasks: {{ performance.totalTasks }}</p>
+  <p>Completed Tasks: {{ performance.completedTasks }}</p>
+  <p>Pending Tasks: {{ performance.pendingTasks }}</p>
+  <p>In Progress: {{ performance.inProgressTasks }}</p>
+  <p>On Hold: {{ performance.onHoldTasks }}</p>
+  <p>Overdue Tasks: {{ performance.overdueTasks }}</p>
+</div>
+
+<div *ngIf="!performance">
+  <p>Loading performance data...</p>
+</div>

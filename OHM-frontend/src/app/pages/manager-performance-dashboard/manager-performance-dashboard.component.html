@@ -1,0 +1,11 @@
+<h2>Department Performance Overview</h2>
+
+<div *ngFor="let dept of departments" class="department-summary">
+  <h3>{{ dept._id }}</h3>
+  <p>Total Tasks: {{ dept.totalTasks }}</p>
+  <p>Tasks Completed: {{ dept.completedTasks }}</p>
+  <p>Pending Tasks: {{ dept.pendingTasks }}</p>
+  <p>In Progress Tasks: {{ dept.inProgressTasks }}</p>
+  <p>On Hold Tasks: {{ dept.onHoldTasks }}</p>
+  <p>Overdue Tasks: {{ dept.overdueTasks }}</p>
+</div>

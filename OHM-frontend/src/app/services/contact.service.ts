@@ -14,4 +14,8 @@ export class ContactService {
   addContactData(contactData: any): Observable<any> {
     return this.http.post(this.apiUrl, contactData);
   }
+
+  getBusinessRequests(): Observable<any>{
+        return this.http.get(this.apiUrl);
+  }
 }

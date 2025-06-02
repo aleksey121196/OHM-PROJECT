@@ -24,6 +24,9 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { SetBusimessMeetingsComponent } from './pages/nav-components/set-busimess-meetings/set-busimess-meetings.component';
 import { SetDepartmentMeetingsComponent } from './pages/nav-components/set-department-meetings/set-department-meetings.component';
 import { OrdersListComponent } from './pages/nav-components/orders-list/orders-list.component';
+import { ContactRequestsComponent } from './pages/nav-components/contact-requests/contact-requests.component';
+import { EmployeePerformanceDashboardComponent } from './pages/employee-performance-dashboard/employee-performance-dashboard.component';
+import { ManagerPerformanceDashboardComponent } from './pages/manager-performance-dashboard/manager-performance-dashboard.component';
 
 export const routes: Routes = [
     {
@@ -41,6 +44,8 @@ export const routes: Routes = [
         canActivate: [authGuard],
         data:{roles: ['Employee']},
         children: [
+          { path: '', redirectTo: 'my-performance', pathMatch: 'full' },
+          { path: 'my-performance', component: EmployeePerformanceDashboardComponent }, 
           { path: 'personal-data', component: PersonalDataComponent },
           { path: 'meal-order', component: MealOredrComponent },
           { path: 'transportation', component: TransportationComponent },
@@ -56,6 +61,8 @@ export const routes: Routes = [
          canActivate: [authGuard],
          data:{roles: ['Manager']},
          children: [
+            { path: '', redirectTo: 'performence-traking', pathMatch: 'full' },
+            { path: 'performence-traking', component: ManagerPerformanceDashboardComponent },
             { path: 'personal-data', component: PersonalDataComponent },
             { path: 'meal-order', component: MealOredrComponent },
             { path: 'transportation', component: TransportationComponent },
@@ -64,7 +71,9 @@ export const routes: Routes = [
             { path: 'requests-managment', component: RequestManagmentComponent },
             { path: 'create-work-plan', component: WorkPlanComponent},
             { path: 'orders-list', component:OrdersListComponent},
-            { path: 'performence-traking', component: PerformenceTrackingComponent}
+            { path: 'performence-traking', component: PerformenceTrackingComponent},
+            { path: 'Meetings-inqueries', component: MeetingsInqueriesComponent},
+            { path: 'set-department-meetings', component:SetDepartmentMeetingsComponent}
           ]
     },
     {
@@ -78,14 +87,12 @@ export const routes: Routes = [
             { path: 'transportation', component: TransportationComponent },
             { path: 'absence', component: AbsenceComponent },
             { path: 'overtime-register', component: OvertimeRegisterComponent },
-            { path: 'requests', component: RequestsComponent },
             { path: 'meal-menu', component: MealMenuComponent},
             { path: 'meal-oredr-list', component: MealOrderListComponent},
             { path: 'employee-manag', component: EmployeeManagComponent},
             { path: 'order-managment', component: OrdersManagmentComponent},
-            { path: 'Meetings-inqueries', component: MeetingsInqueriesComponent},
             { path: 'set-business-meetings', component:SetBusimessMeetingsComponent},
-            { path: 'set-department-meetings', component:SetDepartmentMeetingsComponent}
+            { path: 'contact-requests', component:ContactRequestsComponent}
           ]
     }
 ];

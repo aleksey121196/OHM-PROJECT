@@ -1,1 +1,18 @@
-<p>business-inqueries works!</p>
+<section>
+  <h2>Meetings Reminder</h2>
+
+  <p *ngIf="loading">Loading requests...</p>
+  <p *ngIf="error">{{ error }}</p>
+
+  <section *ngFor="let req of meetings">
+    <article>
+      <header>
+        <p><strong>Client Name:</strong> {{ req.ClientName }}</p>
+        <p><strong>Date:</strong> {{ req.Date }}</p>
+        <p><strong>Secretary Name:</strong> {{ req.SecretaryName }}</p>
+        <p><strong>Meeting Time:</strong> {{ req.MeetingTime }}</p>
+        <p><strong>Topic:</strong> {{ req.Topic }}</p>
+      </header>
+    </article>
+  </section>
+</section>

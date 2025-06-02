@@ -1,1 +1,35 @@
-<p>set-busimess-meetings works!</p>
+<h2> Meetings Setup </h2>
+
+<section>
+
+  <form (ngSubmit)="submitBusinessMeeting()">
+  <label for="Date">Date:</label>
+  <input type="date" id="Date" name="Date" [(ngModel)]="Date" required>
+
+  <br /><br />
+
+  <label for="MeetingTime">Meeting Time:</label>
+  <input type="time" id="MeetingTime" name="MeetingTime" [(ngModel)]="MeetingTime" required>
+
+  <br /><br />
+
+  <label for="ClientName">Client Name:</label>
+  <input type="text" id="ClientName" name="ClientName" [(ngModel)]="ClientName" required>
+
+  <br /><br />
+
+  <label for="ManagerName">Manager Name:</label>
+  <input type="text" id="ManagerName" name="ManagerName" [(ngModel)]="ManagerName" required>
+
+  <br /><br />
+
+  <label for="Topic">Topic:</label>
+  <textarea id="Topic" name="Topic" [(ngModel)]="Topic" rows="4" required></textarea>
+
+  <br /><br />
+
+
+  <button type="submit">Submit</button>
+</form>
+
+</section>

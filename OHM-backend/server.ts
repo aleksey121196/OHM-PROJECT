@@ -12,6 +12,10 @@ import overTimeRoutes from './routes/overTimeRoutes';
 import requestRoutes from './routes/requestRoutes';
 import contactRouts from './routes/contactRouts';
 import ordersRoutes from './routes/ordersRoutes';
+import BusinessMeetingsRoutes from './routes/BusinessMeetingsRoutes';
+import DepartmentMeetingsRoutes from './routes/DepartmentMeetingsRoutes';
+import WorkPlanRoutes from './routes/WorkPlanRoutes';
+import performanceRoutes from './routes/performanceRoutes';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,6 +32,11 @@ app.use('/api/overTime', overTimeRoutes);
 app.use('/api/request', requestRoutes);
 app.use('/api/contactUs', contactRouts);
 app.use('/api/orders', ordersRoutes);
+app.use('/api/businessMeetings', BusinessMeetingsRoutes);
+app.use('/api/DepartmentMeetings', DepartmentMeetingsRoutes);
+app.use('/api/WorkPlan',WorkPlanRoutes);
+app.use("/api/performance", performanceRoutes);
+
 
 
 

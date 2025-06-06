@@ -1,1 +1,45 @@
-<p>meal-oredr works!</p>
+<h2> Food Order Form </h2>
+
+<section>
+
+    <form (ngSubmit)="submitFoodOrder()">
+
+        <label for="MainCourse">Main Course:</label>
+        <input type="text" id="MainCourse" name="MainCourse" [(ngModel)]="MainCourse" required>
+
+        <br /><br />
+
+        <label for="Fish">Fish:</label>
+        <input type="text" id="Fish" name="Fish" [(ngModel)]="Fish" required>
+
+        <br /><br />
+
+        <label for="Vegeterian">Vegeterian:</label>
+        <input type="text" id="Vegeterian" name="Vegeterian" [(ngModel)]="Vegeterian" required>
+
+        <br /><br />
+
+        <label for="Salad">Salad:</label>
+        <input type="text" id="Salad" name="Salad" [(ngModel)]="Salad" required>
+
+        <br /><br />
+
+        <label for="ToppingOne">Topping One:</label>
+        <textarea id="ToppingOne" name="ToppingOne" [(ngModel)]="ToppingOne" required></textarea>
+
+        <br /><br />
+
+        <label for="ToppingTwo">Topping Two:</label>
+        <textarea id="ToppingTwo" name="ToppingTwo" [(ngModel)]="ToppingTwo" required></textarea>
+
+        <br /><br />
+
+        <label for="Drink">Drink:</label>
+        <textarea id="Drink" name="Drink" [(ngModel)]="Drink" required></textarea>
+
+        <br /><br />
+
+        <button type="submit">Submit</button>
+    </form>
+
+</section>

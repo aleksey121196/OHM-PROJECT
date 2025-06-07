@@ -16,4 +16,8 @@ export class FoodOrderService {
     return this.http.post(this.apiUrl,FoodOrderData );
   }
 
+  getUserOrderHistory(userId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/history/${userId}`);
+  }
+
 }

@@ -11,6 +11,17 @@ export const AddNewFoodOrder = async (req: Request, res: Response) => {
     }
 };
 
+export const getUserOrderHistory = async (req: Request, res: Response) => {
+    try{
+        const userId = req.params.userId;
+        const orderHistory = await FoodOrder.find({EmployeeId: userId}).sort({createdAt: -1}).limit(10);
+        res.status(200).json(orderHistory);
+    }
+    catch(error){
+        res.status(500).json({message: 'Failed to fetch user order history', error});
+    }
+};
+
 /*export const getFoodOrder = async (req: Request, res: Response) => {
     try {
         const managername = req.user.FullName;

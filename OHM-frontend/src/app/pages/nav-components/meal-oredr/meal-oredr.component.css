@@ -1,0 +1,26 @@
+.recs-container{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.rec-card{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 22%;
+    text-align: center;
+}
+
+.rec-card h3{
+    margin-top: 0;
+}
+
+.rec-card ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.rec-card button{
+    margin-top: 10px;
+}

@@ -1,0 +1,15 @@
+<section>
+  <h2>Meetings Reminder</h2>
+
+  <section *ngFor="let req of departmentMeetings">
+    <article>
+      <header>
+        <p><strong>Manager Name:</strong> {{ req.ManagerName }}</p>
+        <p><strong>Date:</strong> {{ req.Date }}</p>
+        <p><strong>Department:</strong> {{ req.Department }}</p>
+        <p><strong>Meeting Time:</strong> {{ req.MeetingTime }}</p>
+        <p><strong>Topic:</strong> {{ req.Topic }}</p>
+      </header>
+    </article>
+  </section>
+</section>

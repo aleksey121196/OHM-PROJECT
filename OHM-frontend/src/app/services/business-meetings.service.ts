@@ -8,24 +8,24 @@ import { Observable } from 'rxjs';
 export class BusinessMeetingsService {
 
   private authHeader() {
-  const token = localStorage.getItem('token');
-  return {
-    Authorization: `Bearer ${token}`,
-  };
-}
+    const token = localStorage.getItem('token');
+    return {
+      Authorization: `Bearer ${token}`,
+    };
+  }
 
   private apiUrl = 'http://localhost:3000/api/businessMeetings'; // Adjust as needed
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   AddNewBusinessMeeting(BusinessMeetingData: any): Observable<any> {
-    return this.http.post(this.apiUrl,BusinessMeetingData );
+    return this.http.post(this.apiUrl, BusinessMeetingData);
   }
 
   getBusinesMeetingsByName(): Observable<any[]> {
-  return this.http.get<any[]>(`${this.apiUrl}/businessMeetings`, {
-    headers: this.authHeader()
-  });
-}
-  
+    return this.http.get<any[]>(`${this.apiUrl}/businessMeetings`, {
+      headers: this.authHeader()
+    });
+  }
+
 }

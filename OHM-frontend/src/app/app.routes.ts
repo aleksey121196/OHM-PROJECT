@@ -27,6 +27,7 @@ import { OrdersListComponent } from './pages/nav-components/orders-list/orders-l
 import { ContactRequestsComponent } from './pages/nav-components/contact-requests/contact-requests.component';
 import { EmployeePerformanceDashboardComponent } from './pages/employee-performance-dashboard/employee-performance-dashboard.component';
 import { ManagerPerformanceDashboardComponent } from './pages/manager-performance-dashboard/manager-performance-dashboard.component';
+import { DepartmentMeetingsComponent } from './pages/nav-components/department-meetings/department-meetings.component';
 
 export const routes: Routes = [
     {
@@ -52,7 +53,8 @@ export const routes: Routes = [
           { path: 'absence', component: AbsenceComponent },
           { path: 'overtime-register', component: OvertimeRegisterComponent },
           { path: 'requests', component: RequestsComponent },
-          { path: 'task-status', component: TaskStatusComponent }
+          { path: 'task-status', component: TaskStatusComponent },
+          { path: 'department-meetings', component: DepartmentMeetingsComponent}
         ]
       },
     {

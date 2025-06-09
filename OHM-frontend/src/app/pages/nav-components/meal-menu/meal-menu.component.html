@@ -1,1 +1,50 @@
-<p>meal-menu works!</p>
+<div class="meal-menu-container">
+    <h2>Create Meal Menu</h2>
+
+    <form (ngSubmit)="onSubmit()" #menuForm="ngForm">
+        <div class="form-group">
+            <label for="mainCourses">Main Course (separate with commas):</label>
+            <textarea type="text" id="mainCourses" name="mainCourses" [(ngModel)]="newMenu.mainCourses" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="fishes">Fishes (separate with commas):</label>
+            <textarea type="text" id="fishes" name="fishes" [(ngModel)]="newMenu.fishes" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="vegeterians">Vegeterians (separate with commas):</label>
+            <textarea type="text" id="vegeterians" name="vegeterians" [(ngModel)]="newMenu.vegeterians" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="toppings">Toppings (separate with commas):</label>
+            <textarea type="text" id="toppings" name="toppings" [(ngModel)]="newMenu.toppings" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="salads">Salads (separate with commas):</label>
+            <textarea type="text" id="salads" name="salads" [(ngModel)]="newMenu.salads" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="drinks">Drinks (separate with commas):</label>
+            <textarea type="text" id="drinks" name="drinks" [(ngModel)]="newMenu.drinks" required></textarea>
+        </div>
+
+        <button type="submit" [disabled]="!menuForm.form.valid">Create Menu</button>
+    </form>
+
+    <div class="current-menu" *ngIf="currentMenu">
+        <h3>Current Menu:</h3>
+        <ul>
+            <li>Main Courses: {{currentMenu.mainCourses.join(',')}}</li>
+            <li>Fishes: {{currentMenu.fishes.join(',')}}</li>
+            <li>Vegeterians: {{currentMenu.vegeterians.join(',')}}</li>
+            <li>Toppings: {{currentMenu.toppings.join(',')}}</li>
+            <li>Salads: {{currentMenu.salads.join(',')}}</li>
+            <li>Drinks: {{currentMenu.drinks.join(',')}}</li>
+        </ul>
+    </div>
+
+</div>

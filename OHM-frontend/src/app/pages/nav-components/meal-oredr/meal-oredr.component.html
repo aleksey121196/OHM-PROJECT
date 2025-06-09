@@ -18,44 +18,68 @@
         </div>
     </div>
 
-    <form (ngSubmit)="submitFoodOrder()">
+    <form (ngSubmit)="submitFoodOrder()" *ngIf="currentMenu">
 
         <label for="MainCourse">Main Course:</label>
-        <input type="text" id="MainCourse" name="MainCourse" [(ngModel)]="MainCourse" required>
+        <select id="MainCourse" name="MainCourse" [(ngModel)]="newOrder.MainCourse">
+            <option value=""></option>
+            <option *ngFor="let item of currentMenu.mainCourses" [value]="item">{{item}}</option>
+        </select>
 
         <br /><br />
 
         <label for="Fish">Fish:</label>
-        <input type="text" id="Fish" name="Fish" [(ngModel)]="Fish" required>
+        <select id="fish" name="fish" [(ngModel)]="newOrder.Fish">
+            <option value=""></option>
+            <option *ngFor="let item of currentMenu.fishes" [value]="item">{{item}}</option>
+        </select>
 
         <br /><br />
 
         <label for="Vegeterian">Vegeterian:</label>
-        <input type="text" id="Vegeterian" name="Vegeterian" [(ngModel)]="Vegeterian" required>
+        <select id="Vegeterian" name="Vegeterian" [(ngModel)]="newOrder.Vegeterian">
+            <option value=""></option>
+            <option *ngFor="let item of currentMenu.vegeterians" [value]="item">{{item}}</option>
+        </select>
 
         <br /><br />
 
         <label for="Salad">Salad:</label>
-        <input type="text" id="Salad" name="Salad" [(ngModel)]="Salad" required>
+        <select id="Salad" name="Salad" [(ngModel)]="newOrder.Salad">
+            <option value=""></option>
+            <option *ngFor="let item of currentMenu.salads" [value]="item">{{item}}</option>
+        </select>
 
         <br /><br />
 
         <label for="ToppingOne">Topping One:</label>
-        <textarea id="ToppingOne" name="ToppingOne" [(ngModel)]="ToppingOne" required></textarea>
+        <select id="ToppingOne" name="ToppingOne" [(ngModel)]="newOrder.ToppingOne">
+            <option value=""></option>
+            <option *ngFor="let item of currentMenu.toppings" [value]="item">{{item}}</option>
+        </select>
 
         <br /><br />
 
         <label for="ToppingTwo">Topping Two:</label>
-        <textarea id="ToppingTwo" name="ToppingTwo" [(ngModel)]="ToppingTwo" required></textarea>
+        <select id="ToppingTwo" name="ToppingTwo" [(ngModel)]="newOrder.ToppingTwo">
+            <option value=""></option>
+            <option *ngFor="let item of currentMenu.toppings" [value]="item">{{item}}</option>
+        </select>
 
         <br /><br />
 
         <label for="Drink">Drink:</label>
-        <textarea id="Drink" name="Drink" [(ngModel)]="Drink" required></textarea>
-
+        <select id="Drink" name="Drink" [(ngModel)]="newOrder.Drink">
+            <option value=""></option>
+            <option *ngFor="let item of currentMenu.drinks" [value]="item">{{item}}</option>
+        </select>
         <br /><br />
 
         <button type="submit">Submit</button>
     </form>
+
+    <div *ngIf="!currentMenu">
+        <p>No current menu</p>
+    </div>
 
 </section>

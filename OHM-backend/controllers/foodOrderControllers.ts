@@ -7,7 +7,7 @@ export const AddNewFoodOrder = async (req: Request, res: Response) => {
         await newFoodOrder.save();
         res.status(201).json(newFoodOrder);
     } catch (error) {
-        res.status(500).json({ error: 'Faild to add new Business Meeting. ' });
+        res.status(500).json({ error: 'Faild to add new Food Order. ' });
     }
 };
 

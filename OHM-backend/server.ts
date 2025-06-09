@@ -17,6 +17,7 @@ import DepartmentMeetingsRoutes from './routes/DepartmentMeetingsRoutes';
 import WorkPlanRoutes from './routes/WorkPlanRoutes';
 import performanceRoutes from './routes/performanceRoutes';
 import FoodOrderRoutes from './routes/FoodOrderRoutes';
+import mealMenuRoutes from './routes/mealMenuRoutes';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -38,6 +39,7 @@ app.use('/api/DepartmentMeetings', DepartmentMeetingsRoutes);
 app.use('/api/WorkPlan',WorkPlanRoutes);
 app.use("/api/performance", performanceRoutes);
 app.use("/api/foodOrders", FoodOrderRoutes);
+app.use("/api/mealMenus", mealMenuRoutes);
 
 
 

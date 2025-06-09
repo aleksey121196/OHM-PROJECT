@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FoodOrderService } from '../../../services/food-order.service';
-import { EmployeeService } from '../../../services/employee.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FoodOrderService } from '../../../services/food-order.service';
+import { EmployeeService } from '../../../services/employee.service';
+import { MealMenuService } from '../../../meal-menu.service';
+import { MealMenu } from '../../../models/meal-menu.model';
 
 interface Recommendations {
   mainCourse?: string;
@@ -14,6 +16,15 @@ interface Recommendations {
   drink?: string;
 }
 
+interface Menu {
+  mainCourses: string[];
+  fishes: string[];
+  vegeterians: string[];
+  toppings: string[];
+  salads: string[];
+  drinks: string[];
+}
+
 @Component({
   selector: 'app-meal-oredr',
   standalone: true,
@@ -23,25 +34,30 @@ interface Recommendations {
 })
 export class MealOredrComponent implements OnInit {
 
-  MainCourse: String = '';
-  Fish: String = '';
-  Vegeterian: String = '';
-  ToppingOne: String = '';
-  ToppingTwo: String = '';
-  Salad: String = '';
-  Drink: String = '';
+  newOrder = {
+    MainCourse: '',
+    Fish: '',
+    Vegeterian: '',
+    ToppingOne: '',
+    ToppingTwo: '',
+    Salad: '',
+    Drink: ''
+  }
 
   recommendations: Recommendations[] = [];
-
+  currentMenu: Menu | null = null;
+  isLoading: boolean = true;
   orderHistory: any[] = [];
 
   constructor(
     private foodOrderService: FoodOrderService,
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    private mealMenuService: MealMenuService
   ) { }
 
   ngOnInit(): void {
     this.getUserOrderHistory();
+    this.loadCurrentMenu();
   }
 
   getUserOrderHistory(): void {
@@ -64,6 +80,28 @@ export class MealOredrComponent implements OnInit {
     else {
       console.error('No user logged in');
     }
+  }
+
+  loadCurrentMenu() {
+    this.isLoading = true;
+    console.log('Fetching current menu');
+    this.mealMenuService.getMealMenu().subscribe(
+      (menus: MealMenu[]) => {
+        this.isLoading = false;
+        console.log('Menus:', menus);
+        if (menus && menus.length > 0) {
+          this.currentMenu = menus[menus.length - 1];
+          console.log('Current menu:', this.currentMenu);
+        }
+        else{
+          console.error('No menu found');
+        }
+      },
+      (error) => {
+        this.isLoading = false;
+        console.error('Error fetching menu: ', error);
+      }
+    )
   }
 
   generateRecomendations(): void {
@@ -150,13 +188,13 @@ export class MealOredrComponent implements OnInit {
   }
 
   applyRecomendation(recommendation: Recommendations): void {
-    this.MainCourse = recommendation.mainCourse || '';
-    this.Vegeterian = recommendation.vegeterian || '';
-    this.Fish = recommendation.fish || '';
-    this.ToppingOne = recommendation.toppingOne || '';
-    this.ToppingTwo = recommendation.toppingTwo || '';
-    this.Salad = recommendation.salad || '';
-    this.Drink = recommendation.drink || '';
+    this.newOrder.MainCourse = recommendation.mainCourse || '';
+    this.newOrder.Vegeterian = recommendation.vegeterian || '';
+    this.newOrder.Fish = recommendation.fish || '';
+    this.newOrder.ToppingOne = recommendation.toppingOne || '';
+    this.newOrder.ToppingTwo = recommendation.toppingTwo || '';
+    this.newOrder.Salad = recommendation.salad || '';
+    this.newOrder.Drink = recommendation.drink || '';
     //console.log('Main Course:', this.MainCourse);
   }
 
@@ -171,13 +209,13 @@ export class MealOredrComponent implements OnInit {
     const FoodOrderData = {
       EmployeeId: user.Id,
       FullName: user.FullName,
-      MainCourse: this.MainCourse,
-      Fish: this.Fish,
-      Vegeterian: this.Vegeterian,
-      ToppingOne: this.ToppingOne,
-      ToppingTwo: this.ToppingTwo,
-      Salad: this.Salad,
-      Drink: this.Drink
+      MainCourse: this.newOrder.MainCourse,
+      Fish: this.newOrder.Fish,
+      Vegeterian: this.newOrder.Vegeterian,
+      ToppingOne: this.newOrder.ToppingOne,
+      ToppingTwo: this.newOrder.ToppingTwo,
+      Salad: this.newOrder.Salad,
+      Drink: this.newOrder.Drink,
     };
 
     this.foodOrderService.AddNewFoodOrder(FoodOrderData).subscribe({
@@ -185,7 +223,8 @@ export class MealOredrComponent implements OnInit {
         alert('Your Meal Order has been submitted successfully! Bon Appetite!');
         this.clearForm();
       },
-      error: () => {
+      error: (error) => {
+        console.error('Error submitting food order', error);
         alert('Something wrong! Please try again.');
       }
     });
@@ -193,13 +232,17 @@ export class MealOredrComponent implements OnInit {
   }
 
   clearForm() {
-    this.MainCourse = '';
-    this.Fish = '';
-    this.Vegeterian = '';
-    this.ToppingOne = '';
-    this.ToppingTwo = '';
-    this.Salad = '';
-    this.Drink = '';
+
+    this.newOrder = {
+      MainCourse: '',
+      Fish: '',
+      Vegeterian: '',
+      ToppingOne: '',
+      ToppingTwo: '',
+      Salad: '',
+      Drink: ''
+    }
+
   }
 
 }

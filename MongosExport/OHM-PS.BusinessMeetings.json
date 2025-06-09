@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "683b5f1277bb36c208692eb8"
+  },
+  "ClientName": "test 1",
+  "ManagerName": "tal malka",
+  "SecretaryName": "Alice Johnson",
+  "Date": {
+    "$date": "2025-05-29T00:00:00.000Z"
+  },
+  "MeetingTime": "02:56",
+  "Topic": "test 2",
+  "__v": 0
+}]

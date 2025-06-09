@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "683b545b9b046327b04172bd"
+  },
+  "Date": {
+    "$date": "2025-06-03T00:00:00.000Z"
+  },
+  "MeetingTime": "14:00",
+  "Department": "Frontend",
+  "ManagerName": "tal malka",
+  "Topic": "test department meetings setup",
+  "__v": 0
+}]

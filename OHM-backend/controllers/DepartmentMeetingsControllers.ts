@@ -10,3 +10,13 @@ export const AddNewDepartmentMeeting = async (req: Request, res: Response) =>{
         res.status(500).json({error: 'Faild to add new Department Meeting. '});
     }
 };
+
+export const getMeetingsByDepartment = async (req: Request, res: Response) => {
+  try {
+    const  MeetingByDepartment= req.user.Department;
+    const DepMeetings = await DepartmentMeetings.find({ Department: MeetingByDepartment }); // ✅ FIXED
+    res.status(200).json(DepMeetings);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching Busines Meeting', error });
+  }
+};

@@ -1,1 +1,36 @@
-<p>meal-order-list works!</p>
+<div class="meal-order-list-container">
+    <h2>Meal Order List</h2>
+
+    <div class="controls">
+        <input type="date" [(ngModel)]="selectedDate" (change)="loadOrders()">
+        <button (click)="downloadPdf()">Download to PDF</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Order Date</th>
+                <th>Employee ID</th>
+                <th>Full Name</th>
+                <th>Order Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of mealOrders">
+                <td>{{ order.OrderDate | date:'short' }}</td>
+                <td>{{ order.EmployeeId }}</td>
+                <td>{{ order.FullName }}</td>
+                <td>
+                    <ul>
+                        <li>Main Course: {{ order.MainCourse }}</li>
+                        <li>Fish: {{ order.Fish }}</li>
+                        <li>Vegeterian: {{ order.Vegeterian }}</li>
+                        <li>Toppings: {{ order.ToppingOne }}, {{ order.ToppingTwo }}</li>
+                        <li>Salad: {{ order.Salad }}</li>
+                        <li>Drink: {{ order.Drink }}</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

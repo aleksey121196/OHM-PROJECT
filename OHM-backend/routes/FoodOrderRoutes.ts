@@ -7,8 +7,7 @@ const router = express.Router();
 
 router.post('/', AddNewFoodOrder);
 router.get('/history/:userId', authenticateJWT, getUserOrderHistory);
-//router.get('/', getMealOrders); //No overload matches this call error! TO FIX!!!
-//router.get('/businessMeetings',authenticateJWT, getBusinesMeetingsByName);
+router.get('/meal-orders', authenticateJWT, getMealOrders); //No overload matches this call error! TO FIX!!!
 
 
 export default router;

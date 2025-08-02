@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MealOrderListService } from '../../../meal-order-list.service';
-import { FoodOrder } from '../../../models/food-order.model';
 
 @Component({
   selector: 'app-meal-order-list',
@@ -12,25 +11,21 @@ import { FoodOrder } from '../../../models/food-order.model';
 })
 export class MealOrderListComponent implements OnInit {
 
-  mealOrders: FoodOrder[] = [];
+  mealOrders: any[] = [];
+
   selectedDate: string = new Date().toISOString().split('T')[0];
 
   constructor(private mealOrderListService: MealOrderListService) {}
 
   ngOnInit() {
-      this.loadOrders();
+      this.allOrders();
   }
 
-  loadOrders() {
-    this.mealOrderListService.getMealOrder(this.selectedDate).subscribe(
-      (orders) => {
-        console.log('Fetched meal orders:', orders);
-        this.mealOrders = orders;
-      },
-      (error) => {
-        console.error('Error fetching meal orders', error);
-      }
-    );
+  allOrders(): void{
+    this.mealOrderListService.getMealOrder(this.selectedDate).subscribe({
+      next: (data) => (this.mealOrders = data),
+      error: () => alert('Error fetching meal orders'),
+    });
   }
 
   downloadPdf() {

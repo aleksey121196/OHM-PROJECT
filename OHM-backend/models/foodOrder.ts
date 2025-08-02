@@ -11,8 +11,6 @@ const foodOrderSchema = new mongoose.Schema({
   ToppingTwo: { type: String, required: true },
   Salad: { type: String, required: true },
   Drink: { type: String, required: true },
-}, {
-  collection: 'FoodOrders'
 });
 
-export const FoodOrder = mongoose.model('Food Order', foodOrderSchema);
+export const FoodOrder = mongoose.model('FoodOrders', foodOrderSchema,'FoodOrders');

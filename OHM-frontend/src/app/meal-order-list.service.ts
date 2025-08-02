@@ -14,7 +14,7 @@ export class MealOrderListService {
     };
   }
 
-  private apiUrl = 'http://localhost:300/api/foodOrders';
+  private apiUrl = 'http://localhost:3000/api/foodOrders';
 
   constructor(private http: HttpClient) { }
 

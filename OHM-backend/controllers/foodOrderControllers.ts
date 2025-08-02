@@ -25,7 +25,18 @@ export const getUserOrderHistory = async (req: Request, res: Response) => {
 export const getMealOrders = async (req: Request, res: Response) => {
     try {
         const date = req.query.date as string;
-        const orders = await FoodOrder.find({OrderDate:date});
+        if (!date) {
+            res.status(400).json({ message: 'Date query parameter is required' });
+            return;
+        }
+        const orders = await FoodOrder.find({
+            $expr: {
+                $eq: [
+                    { $dateToString: { format: "%Y-%m-%d", date: "$OrderDate" } },
+                    date
+                ]
+            }
+        }).sort({ OrderDate: -1 });
         res.status(200).json(orders);
     } 
     catch (error) {

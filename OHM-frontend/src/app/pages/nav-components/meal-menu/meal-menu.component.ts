@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MealMenuService } from '../../../meal-menu.service';
+import { MealMenuService } from '../../../services/meal-menu.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 

@@ -1,20 +1,50 @@
-<main class="login-container">
-  
-    <h2>Login</h2>
-  
-  <form (ngSubmit)="login()" autocomplete="off" >
-    <section>
-      <label for="username">userName:</label>
-      <input [(ngModel)]="UserName" name="UserName" id="username" required autocomplete="new-username" />
-    </section>
-    
-    <section>
-      <label for="password">password:</label>
-      <input [(ngModel)]="Password" name="Password" type="password" id="password" required autocomplete="new-password" />
-    </section>
-    
-    <button type="submit">Login</button>
-  </form>
+<header class="app-header">
+  <h1>OHM Power Solutions</h1>
+  <button type="button" class="logout-btn" (click)="Home()">Home</button>
+</header>
 
-  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
-</main>
+<div class="content">
+  <main class="login-container">
+    <h2>Login</h2>
+
+    <form class="login-form" (ngSubmit)="login()" autocomplete="off">
+      
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input 
+          type="text"
+          id="username" 
+          name="UserName" 
+          [(ngModel)]="UserName" 
+          required 
+          autocomplete="off"
+          placeholder="Enter your username"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input 
+          type="password"
+          id="password" 
+          name="Password" 
+          [(ngModel)]="Password" 
+          required 
+          placeholder="Enter your password"
+        />
+      </div>
+
+      <div class="btn-center">
+        <button type="submit" class="primary-btn">Login</button>
+      </div>
+    </form>
+
+    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </main>
+</div>
+
+
+
+<footer class="app-footer">
+  <p>&copy; 2025 OHM Power Solutions. All rights reserved.</p>
+</footer>

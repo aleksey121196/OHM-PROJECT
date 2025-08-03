@@ -1,10 +1,21 @@
-<h2>Report Over Time</h2>
+<main class="main-content">
+  <section class="overtime-section">
+    <h2>Report Over Time</h2>
 
-<form (ngSubmit)="submitOverTime()">
+    <form class="overtime-form" (ngSubmit)="submitOverTime()" autocomplete="off">
+      <div class="form-group">
+        <label for="Date">Date:</label>
+        <input type="date" id="Date" name="Date" [(ngModel)]="Date" required />
+      </div>
 
-  <label for="Date">Date:</label>
-  <input type="date" id="Date" name="Date" [(ngModel)]="Date" required>
-  <label for="ExitTime">Time:</label>
-  <input type="time" id="ExitTime" name="ExitTime" [(ngModel)]="ExitTime" required>
-  <button type="submit">Submit</button>
-</form>
+      <div class="form-group">
+        <label for="ExitTime">Time:</label>
+        <input type="time" id="ExitTime" name="ExitTime" [(ngModel)]="ExitTime" required />
+      </div>
+
+      <div class="btn-right">
+        <button type="submit" class="primary-btn">Submit</button>
+      </div>
+    </form>
+  </section>
+</main>

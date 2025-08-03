@@ -1,77 +1,66 @@
-<form (ngSubmit)="submitWorkPlan()">
-  <fieldset>
-    <legend>Create Weekly Work Plan</legend>
+<div class="content">
+  <form (ngSubmit)="submitWorkPlan()" class="workplan-form">
 
-    <label for="plan-title">Plan Title:</label>
-    <input type="text" id="plan-title" name="planTitle" [(ngModel)]="PlanTitle" required />
+    <section>
+      <h2>Create Weekly Work Plan</h2>
 
-    <br /><br />
+      <label for="plan-title">Plan Title:</label>
+      <input type="text" id="plan-title" name="planTitle" [(ngModel)]="PlanTitle" required autocomplete="off" />
 
-    <label for="week-start">Week Start Date:</label>
-    <input type="date" id="week-start" name="weekStart" [(ngModel)]="WeekStartDate" required />
+      <label for="week-start">Week Start Date:</label>
+      <input type="date" id="week-start" name="weekStart" [(ngModel)]="WeekStartDate" required />
 
-    <br /><br />
+      <label for="notes">Notes (optional):</label>
+      <textarea id="notes" name="notes" rows="2" [(ngModel)]="Notes" autocomplete="off"></textarea>
+    </section>
 
-    <label for="notes">Notes (optional):</label>
-    <textarea id="notes" name="notes" rows="2" [(ngModel)]="Notes"></textarea>
-  </fieldset>
+    <ng-container *ngFor="let task of Tasks; let i = index">
+      <section class="task-fieldset">
+        <h2>Task {{ i + 1 }}</h2>
 
-  <br />
+        <section aria-label="Task Details">
+          <label for="task-name-{{i}}">Task Name:</label>
+          <input type="text" id="task-name-{{i}}" name="taskName{{i}}" [(ngModel)]="task.TaskName" required
+            autocomplete="off" />
 
-  <ng-container *ngFor="let task of Tasks; let i = index">
-    <fieldset>
-      <legend>Task {{ i + 1 }}</legend>
+          <label for="task-desc-{{i}}">Task Description:</label>
+          <textarea id="task-desc-{{i}}" name="taskDesc{{i}}" [(ngModel)]="task.TaskDescription" rows="3"
+            autocomplete="off"></textarea>
 
-      <section aria-label="Task Details">
-        <label for="task-name-{{i}}">Task Name:</label>
-        <input type="text" id="task-name-{{i}}" name="taskName{{i}}" [(ngModel)]="task.TaskName" required />
+          <label for="due-date-{{i}}">Due Date:</label>
+          <input type="date" id="due-date-{{i}}" name="dueDate{{i}}" [(ngModel)]="task.DueDate" required />
 
-        <br /><br />
+          <label for="assignment-{{i}}">Assignment Type:</label>
+          <select id="assignment-{{i}}" name="assignmentType{{i}}" [(ngModel)]="task.AssignmentType">
+            <option value="individual">Individual</option>
+            <option value="group">Group</option>
+          </select>
 
-        <label for="task-desc-{{i}}">Task Description:</label>
-        <textarea id="task-desc-{{i}}" name="taskDesc{{i}}" [(ngModel)]="task.TaskDescription"></textarea>
+          <label for="assigned-to-{{i}}">Assigned To:</label>
+          <input type="text" id="assigned-to-{{i}}" name="assignedTo{{i}}" [(ngModel)]="task.AssignedTo" required
+            autocomplete="off" />
 
-        <br /><br />
+          <label for="group-leader-{{i}}">Group Leader:</label>
+          <input type="text" id="group-leader-{{i}}" name="groupLeader{{i}}" [(ngModel)]="task.GroupLeader"
+            autocomplete="off" />
 
-        <label for="due-date-{{i}}">Due Date:</label>
-        <input type="date" id="due-date-{{i}}" name="dueDate{{i}}" [(ngModel)]="task.DueDate" required />
+          <label for="status-{{i}}">Task Status:</label>
+          <select id="status-{{i}}" name="status{{i}}" [(ngModel)]="task.Status">
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Blocked">Blocked</option>
+          </select>
 
-        <br /><br />
+        </section>
+        <button type="button" class="btn-delete" (click)="removeTask(i)">Delete Task</button>
 
-        <label for="assignment-{{i}}">Assignment Type:</label>
-        <select id="assignment-{{i}}" name="assignmentType{{i}}" [(ngModel)]="task.AssignmentType">
-          <option value="individual">Individual</option>
-          <option value="group">Group</option>
-        </select>
-
-        <br /><br />
-
-        <label for="assigned-to-{{i}}">Assigned To:</label>
-        <input type="text" id="assigned-to-{{i}}" name="assignedTo{{i}}" [(ngModel)]="task.AssignedTo" required />
-
-        <br /><br />
-
-        <label for="group-leader-{{i}}">Group Leader:</label>
-        <input type="text" id="group-leader-{{i}}" name="groupLeader{{i}}" [(ngModel)]="task.GroupLeader" />
-
-        <br /><br />
-
-        <label for="status-{{i}}">Task Status:</label>
-        <select id="status-{{i}}" name="status{{i}}" [(ngModel)]="task.Status">
-          <option value="Pending">Pending</option>
-          <option value="In Progress">In Progress</option>
-          <option value="Completed">Completed</option>
-          <option value="Blocked">Blocked</option>
-        </select>
-
-        <br /><br />
-
-        <button type="button" (click)="removeTask(i)">Delete Task</button>
       </section>
-    </fieldset>
-    <br />
-  </ng-container>
+    </ng-container>
 
-  <button type="button" (click)="addTask()">Add Task</button>
-  <button type="submit">Submit Work Plan</button>
-</form>
+    <div class="form-buttons">
+      <button type="button" class="btn-add" (click)="addTask()">Add Task</button>
+      <button type="submit" class="btn-submit">Submit Work Plan</button>
+    </div>
+  </form>
+</div>

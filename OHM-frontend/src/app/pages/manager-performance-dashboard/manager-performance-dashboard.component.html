@@ -1,11 +1,17 @@
-<h2>Department Performance Overview</h2>
+<div class="content">
+  <main class="main-content">
+    <h2>Department Performance Overview</h2>
 
-<div *ngFor="let dept of departments" class="department-summary">
-  <h3>{{ dept._id }}</h3>
-  <p>Total Tasks: {{ dept.totalTasks }}</p>
-  <p>Tasks Completed: {{ dept.completedTasks }}</p>
-  <p>Pending Tasks: {{ dept.pendingTasks }}</p>
-  <p>In Progress Tasks: {{ dept.inProgressTasks }}</p>
-  <p>On Hold Tasks: {{ dept.onHoldTasks }}</p>
-  <p>Overdue Tasks: {{ dept.overdueTasks }}</p>
+    <div class="department-card" *ngFor="let dept of departments">
+      <h3 class="department-title">{{ dept._id }}</h3>
+      <ul class="department-stats">
+        <li><strong>Total Tasks:</strong> {{ dept.totalTasks }}</li>
+        <li><strong>Tasks Completed:</strong> {{ dept.completedTasks }}</li>
+        <li><strong>Pending Tasks:</strong> {{ dept.pendingTasks }}</li>
+        <li><strong>In Progress Tasks:</strong> {{ dept.inProgressTasks }}</li>
+        <li><strong>On Hold Tasks:</strong> {{ dept.onHoldTasks }}</li>
+        <li><strong>Overdue Tasks:</strong> {{ dept.overdueTasks }}</li>
+      </ul>
+    </div>
+  </main>
 </div>

@@ -1,15 +1,15 @@
-<section>
-  <h2>Meetings Reminder</h2>
+<main class="main-content">
+  <section class="meetings-section">
+    <h2>Meetings Reminder</h2>
 
-  <section *ngFor="let req of departmentMeetings">
-    <article>
-      <header>
+    <div class="meeting-card" *ngFor="let req of departmentMeetings">
+      <header class="meeting-header">
         <p><strong>Manager Name:</strong> {{ req.ManagerName }}</p>
         <p><strong>Date:</strong> {{ req.Date }}</p>
         <p><strong>Department:</strong> {{ req.Department }}</p>
         <p><strong>Meeting Time:</strong> {{ req.MeetingTime }}</p>
         <p><strong>Topic:</strong> {{ req.Topic }}</p>
       </header>
-    </article>
+    </div>
   </section>
-</section>
+</main>

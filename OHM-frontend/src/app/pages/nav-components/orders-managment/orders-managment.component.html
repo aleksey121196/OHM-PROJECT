@@ -1,9 +1,58 @@
-<h2>Add New Order</h2>
-<form (ngSubmit)="submitOrder()">
-  <input type="text" placeholder="Full Name" [(ngModel)]="order.ClientFullName" name="ClientFullName" required />
-  <input type="email" placeholder="Email" [(ngModel)]="order.ClientEmail" name="ClientEmail" required />
-  <input type="text" placeholder="Phone" [(ngModel)]="order.ClientPhone" name="ClientPhone" required />
-  <input type="date" [(ngModel)]="order.MeetingDate" name="MeetingDate" />
-  <textarea placeholder="Order Details" [(ngModel)]="order.OrderDetails" name="OrderDetails" required></textarea>
-  <button type="submit">Submit Order</button>
-</form>
+<main class="main-content">
+  <section class="order-form-section">
+    <h2>Add New Order</h2>
+
+    <form class="order-form" (ngSubmit)="submitOrder()" autocomplete="off">
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Full Name"
+          [(ngModel)]="order.ClientFullName"
+          name="ClientFullName"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="email"
+          placeholder="Email"
+          [(ngModel)]="order.ClientEmail"
+          name="ClientEmail"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Phone"
+          [(ngModel)]="order.ClientPhone"
+          name="ClientPhone"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="date"
+          [(ngModel)]="order.MeetingDate"
+          name="MeetingDate"
+        />
+      </div>
+
+      <div class="form-group">
+        <textarea
+          placeholder="Order Details"
+          [(ngModel)]="order.OrderDetails"
+          name="OrderDetails"
+          required
+        ></textarea>
+      </div>
+
+      <div class="btn-right">
+        <button type="submit" class="primary-btn">Submit Order</button>
+      </div>
+    </form>
+  </section>
+</main>

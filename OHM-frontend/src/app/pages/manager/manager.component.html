@@ -1,30 +1,32 @@
-<header>
-    <h1>OHM Power Solutions</h1>
-    <button (click)="logout()">logout</button>
+<header class="app-header">
+  <h1>OHM Power Solutions</h1>
+  <button type="button" class="logout-btn" (click)="logout()">Logout</button>
 </header>
 
-<aside class="sidebar">
-  <nav>
-    <ul>
-      <li><a routerLink="performence-traking">Performance Tracking</a></li>
-      <li><a routerLink="personal-data">Personal Data</a></li>
-      <li><a routerLink="meal-order">Meal Order</a></li>        
-      <li><a routerLink="transportation">Transportation</a></li>
-      <li><a routerLink="absence">Absence</a></li>
-      <li><a routerLink="overtime-register">Overtime Register</a></li>
-      <li><a routerLink="requests-managment">Requests Managment </a></li>
-      <li><a routerLink="orders-list">Orders list</a></li>
-      <li><a routerLink="create-work-plan">Create Work Plan</a></li>
-      <li><a routerLink="Meetings-inqueries">Meetings Inqueries</a></li>
-      <li><a routerLink="set-department-meetings">Set Department Meetings</a></li>
-    </ul>
-  </nav>
-</aside>
+<div class="content">
+  <aside class="sidebar">
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a routerLink="performence-traking">Performance Tracking</a></li>
+        <li><a routerLink="personal-data">Personal Data</a></li>
+        <li><a routerLink="meal-order">Meal Order</a></li>
+        <li><a routerLink="transportation">Transportation</a></li>
+        <li><a routerLink="absence">Absence</a></li>
+        <li><a routerLink="overtime-register">Overtime Register</a></li>
+        <li><a routerLink="requests-managment">Requests Management</a></li>
+        <li><a routerLink="orders-list">Orders List</a></li>
+        <li><a routerLink="create-work-plan">Create Work Plan</a></li>
+        <li><a routerLink="Meetings-inqueries">Meetings Inquiries</a></li>
+        <li><a routerLink="set-department-meetings">Set Department Meetings</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-<main>
-<router-outlet></router-outlet>
-</main>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
 
-<footer>
-    <p>&copy; 2025 OHM Power Solutions. All rights reserved.</p>
+<footer class="app-footer">
+  <p>&copy; 2025 OHM Power Solutions. All rights reserved.</p>
 </footer>

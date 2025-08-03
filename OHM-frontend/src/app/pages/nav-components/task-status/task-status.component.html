@@ -1,32 +1,39 @@
-<section aria-labelledby="tasks-heading">
+<main class="main-content">
+  <section aria-labelledby="tasks-heading" class="tasks-section">
     <h2 id="tasks-heading">My Assigned Tasks</h2>
 
-    <section *ngIf="tasks && tasks.length > 0; else noTasks">
-        <article *ngFor="let task of tasks" [attr.aria-label]="'Task: ' + task.TaskName">
-            <header>
-                <p><strong>Task Name:</strong> {{ task.TaskName }}</p>
+    <section *ngIf="tasks && tasks.length > 0; else noTasks" class="tasks-list">
+      <article *ngFor="let task of tasks" [attr.aria-label]="'Task: ' + task.TaskName" class="task-item">
+        <header class="task-header">
+          <p><strong>Task Name:</strong> {{ task.TaskName }}</p>
 
-                <p>
-                    <select [value]="task.Status" (change)="onStatusChange(task, getSelectedValue($event))"
-                        [attr.aria-label]="'Change status for ' + task.TaskName">
-                        <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
-                    </select>
-                </p>
+          <p>
+            <select
+              [value]="task.Status"
+              (change)="onStatusChange(task, getSelectedValue($event))"
+              [attr.aria-label]="'Change status for ' + task.TaskName"
+              class="status-select"
+            >
+              <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+            </select>
+          </p>
 
-                <p><strong>Description:</strong> {{ task.TaskDescription || 'N/A' }}</p>
-                <p><strong>Due Date:</strong> {{ task.DueDate | date }}</p>
-                <p><strong>Assignment Type:</strong> {{ task.AssignmentType }}</p>
-                <p><strong>Assigned To:</strong> {{ task.AssignedTo }}</p>
-                <p *ngIf="task.AssignmentType === 'group'"><strong>Group Leader:</strong> {{ task.GroupLeader || 'N/A'
-                    }}</p>
-                <p><strong>Plan Title:</strong> {{ task.PlanTitle }}</p>
-                <p><strong>Week Start:</strong> {{ task.WeekStartDate | date }}</p>
-                <p><strong>Department:</strong> {{ task.Department }}</p>
-            </header>
-        </article>
+          <p><strong>Description:</strong> {{ task.TaskDescription || 'N/A' }}</p>
+          <p><strong>Due Date:</strong> {{ task.DueDate | date }}</p>
+          <p><strong>Assignment Type:</strong> {{ task.AssignmentType }}</p>
+          <p><strong>Assigned To:</strong> {{ task.AssignedTo }}</p>
+          <p *ngIf="task.AssignmentType === 'group'">
+            <strong>Group Leader:</strong> {{ task.GroupLeader || 'N/A' }}
+          </p>
+          <p><strong>Plan Title:</strong> {{ task.PlanTitle }}</p>
+          <p><strong>Week Start:</strong> {{ task.WeekStartDate | date }}</p>
+          <p><strong>Department:</strong> {{ task.Department }}</p>
+        </header>
+      </article>
     </section>
 
     <ng-template #noTasks>
-        <p>No tasks assigned.</p>
+      <p class="no-tasks-msg">No tasks assigned.</p>
     </ng-template>
-</section>
+  </section>
+</main>

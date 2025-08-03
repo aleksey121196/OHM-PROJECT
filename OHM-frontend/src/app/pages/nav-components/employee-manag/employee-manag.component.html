@@ -1,19 +1,63 @@
-<h2 class="text-xl font-bold mb-4">Add New Employee</h2>
+<main class="main-content">
+  <h2>Add New Employee</h2>
 
-<form (ngSubmit)="addEmployee()" class="space-y-4">
-  <input [(ngModel)]="newEmployee.FullName" name="FullName" placeholder="Full Name" required />
-  <input [(ngModel)]="newEmployee.Email" name="Email" placeholder="Email" required />
-  <input [(ngModel)]="newEmployee.Phone" name="Phone" placeholder="Phone" />
-  <input [(ngModel)]="newEmployee.Address" name="Address" placeholder="Address" />
-  <input [(ngModel)]="newEmployee.Id" name="Id" placeholder="Employee ID" required />
-  <input [(ngModel)]="newEmployee.JobTitle" name="JobTitle" placeholder="Job Title" />
-  <input [(ngModel)]="newEmployee.EmploymentDate" name="EmploymentDate" placeholder="Employment Date" />
-  <input [(ngModel)]="newEmployee.Department" name="Department" placeholder="Department" />
-  <input [(ngModel)]="newEmployee.Status" name="Status" placeholder="Status" />
-  <input [(ngModel)]="newEmployee.UserName" name="UserName" placeholder="Username" required autocomplete="new-username" />
-  <input [(ngModel)]="newEmployee.Role" name="Role" placeholder="Role" />
-  <input [(ngModel)]="newEmployee.Password" name="Password" placeholder="Password" type="password" required autocomplete="new-password" />
-  <input [(ngModel)]="newEmployee.EmployerName" name="EmployerName" placeholder="Employer Name" />
+  <form class="employee-form" (ngSubmit)="addEmployee()" autocomplete="off">
 
-  <button type="submit">Add Employee</button>
-</form>
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.FullName" name="FullName" placeholder="Full Name" required />
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.Email" name="Email" placeholder="Email" required />
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.Phone" name="Phone" placeholder="Phone" />
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.Address" name="Address" placeholder="Address" />
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.Id" name="Id" placeholder="Employee ID" required />
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.JobTitle" name="JobTitle" placeholder="Job Title" />
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.EmploymentDate" name="EmploymentDate" placeholder="Employment Date" />
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.Department" name="Department" placeholder="Department" />
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.Status" name="Status" placeholder="Status" />
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.UserName" name="UserName" placeholder="Username" required autocomplete="new-username" />
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.Role" name="Role" placeholder="Role" />
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.Password" name="Password" placeholder="Password" type="password" required autocomplete="new-password" />
+    </div>
+
+    <div class="form-group">
+      <input [(ngModel)]="newEmployee.EmployerName" name="EmployerName" placeholder="Employer Name" />
+    </div>
+
+    <div class="btn-right">
+      <button type="submit" class="primary-btn">Add Employee</button>
+    </div>
+    
+  </form>
+</main>

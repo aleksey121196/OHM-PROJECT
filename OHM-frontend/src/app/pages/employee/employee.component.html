@@ -1,10 +1,11 @@
-<header>
-    <h1>OHM Power Solutions</h1>
-    <button (click)="logout()">logout</button>
+<header class="app-header">
+  <h1>OHM Power Solutions</h1>
+  <button type="button" class="logout-btn" (click)="logout()">Logout</button>
 </header>
 
-<aside class="sidebar">
-    <nav>
+<div class="content">
+  <aside class="sidebar">
+    <nav class="sidebar-nav">
       <ul>
         <li><a routerLink="my-performance">My Performance</a></li>
         <li><a routerLink="personal-data">Personal Data</a></li>
@@ -12,17 +13,18 @@
         <li><a routerLink="transportation">Transportation</a></li>
         <li><a routerLink="absence">Absence</a></li>
         <li><a routerLink="overtime-register">Overtime Register</a></li>
-        <li><a routerLink="requests">Requests </a></li>
+        <li><a routerLink="requests">Requests</a></li>
         <li><a routerLink="task-status">Task Status</a></li>
         <li><a routerLink="department-meetings">Department Meetings</a></li>
       </ul>
     </nav>
-</aside>
+  </aside>
 
-<main>
-  <router-outlet></router-outlet>
-</main>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
 
-<footer>
-    <p>&copy; 2025 OHM Power Solutions. All rights reserved.</p>
+<footer class="app-footer">
+  <p>&copy; 2025 OHM Power Solutions. All rights reserved.</p>
 </footer>

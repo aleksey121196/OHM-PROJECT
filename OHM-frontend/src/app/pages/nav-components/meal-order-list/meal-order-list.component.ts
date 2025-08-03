@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MealOrderListService } from '../../../meal-order-list.service';
-
+import { MealOrderListService } from '../../../services/meal-order-list.service';
 @Component({
   selector: 'app-meal-order-list',
   imports: [CommonModule, FormsModule],

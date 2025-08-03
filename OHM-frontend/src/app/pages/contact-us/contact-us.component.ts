@@ -52,10 +52,8 @@ export class ContactUsComponent implements OnInit{
     
   }
 
-  goToHome(){
-
+   Home(){
     this.router.navigate(['/']);
-
   }
   
 }

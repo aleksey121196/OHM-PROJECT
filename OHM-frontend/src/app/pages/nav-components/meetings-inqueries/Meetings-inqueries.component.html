@@ -1,18 +1,18 @@
-<section>
-  <h2>Meetings Reminder</h2>
+<main class="main-content">
+  <section class="meetings-section">
+    <h2>Meetings Reminder</h2>
 
-  <p *ngIf="loading">Loading requests...</p>
-  <p *ngIf="error">{{ error }}</p>
+    <p class="loading-text" *ngIf="loading">Loading requests...</p>
+    <p class="error-message" *ngIf="error">{{ error }}</p>
 
-  <section *ngFor="let req of meetings">
-    <article>
-      <header>
+    <div class="meeting-card" *ngFor="let req of meetings">
+      <header class="meeting-header">
         <p><strong>Client Name:</strong> {{ req.ClientName }}</p>
         <p><strong>Date:</strong> {{ req.Date }}</p>
         <p><strong>Secretary Name:</strong> {{ req.SecretaryName }}</p>
         <p><strong>Meeting Time:</strong> {{ req.MeetingTime }}</p>
         <p><strong>Topic:</strong> {{ req.Topic }}</p>
       </header>
-    </article>
+    </div>
   </section>
-</section>
+</main>

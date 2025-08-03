@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FoodOrderService } from '../../../services/food-order.service';
 import { EmployeeService } from '../../../services/employee.service';
-import { MealMenuService } from '../../../meal-menu.service';
+import { MealMenuService } from '../../../services/meal-menu.service';
 import { MealMenu } from '../../../models/meal-menu.model';
 
 interface Recommendations {

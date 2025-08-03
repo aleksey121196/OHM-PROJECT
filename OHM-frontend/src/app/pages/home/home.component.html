@@ -1,32 +1,38 @@
-<header>
-  <h1>Welcome to OHM Power Solutions</h1>
-  <p>Your trusted partner for energy solutions.</p>
-  <button (click)="goToLogin()">Login</button>
+<header class="app-header">
+  <div class="header-text">
+    <h1>Welcome to OHM Power Solutions</h1>
+    <p>Your trusted partner for energy solutions.</p>
+  </div>
+  <button type="button" class="primary-btn" (click)="goToLogin()">Login</button>
 </header>
 
-<main>
-  <section id="about">
-    <h2>About Us</h2>
-    <p>OHM Power Solutions is dedicated to providing cutting-edge energy solutions...</p>
-  </section>
+<div class="content">
+  <main class="main-content">
+    <section id="about" class="section-block">
+      <h2>About Us</h2>
+      <p>
+        OHM Power Solutions is dedicated to providing cutting-edge energy solutions...
+      </p>
+    </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li>Energy Audits</li>
-      <li>Solar Solutions</li>
-      <li>Smart Grid Solutions</li>
-      <li>Consulting & Support</li>
-    </ul>
-  </section>
+    <section id="services" class="section-block">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Energy Audits</li>
+        <li>Solar Solutions</li>
+        <li>Smart Grid Solutions</li>
+        <li>Consulting & Support</li>
+      </ul>
+    </section>
 
-  <section id="contact">
-  <h2>Contact Us</h2>
-  <p>If you have any questions, feel free to reach out to us!</p>
-  <button (click)="goToContact()">Contact Us</button>
-</section>
-</main>
+    <section id="contact" class="section-block">
+      <h2>Contact Us</h2>
+      <p>If you have any questions, feel free to reach out to us!</p>
+      <button type="button" class="primary-btn" (click)="goToContact()">Contact Us</button>
+    </section>
+  </main>
+</div>
 
-<footer>
+<footer class="app-footer">
   <p>&copy; 2025 OHM Power Solutions. All rights reserved.</p>
 </footer>

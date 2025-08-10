@@ -12,7 +12,6 @@ import { MealOrderListComponent } from './pages/nav-components/meal-order-list/m
 import { MealOredrComponent } from './pages/nav-components/meal-oredr/meal-oredr.component';
 import { OrdersManagmentComponent } from './pages/nav-components/orders-managment/orders-managment.component';
 import { OvertimeRegisterComponent } from './pages/nav-components/overtime-register/overtime-register.component';
-import { PerformenceTrackingComponent } from './pages/nav-components/performence-tracking/performence-tracking.component';
 import { PersonalDataComponent } from './pages/nav-components/personal-data/personal-data.component';
 import { RequestManagmentComponent } from './pages/nav-components/request-managment/request-managment.component';
 import { RequestsComponent } from './pages/nav-components/requests/requests.component';
@@ -30,71 +29,71 @@ import { ManagerPerformanceDashboardComponent } from './pages/manager-performanc
 import { DepartmentMeetingsComponent } from './pages/nav-components/department-meetings/department-meetings.component';
 
 export const routes: Routes = [
-    {
-        path : '', component: HomeComponent
-    },
-    {
-        path : 'login', component: LoginComponent
-    },
-    {
-        path : 'contactUs', component: ContactUsComponent
-    },
-    {
-        path: 'employee',
-        component: EmployeeComponent,
-        canActivate: [authGuard],
-        data:{roles: ['Employee']},
-        children: [
-          { path: '', redirectTo: 'my-performance', pathMatch: 'full' },
-          { path: 'my-performance', component: EmployeePerformanceDashboardComponent }, 
-          { path: 'personal-data', component: PersonalDataComponent },
-          { path: 'meal-order', component: MealOredrComponent },
-          { path: 'transportation', component: TransportationComponent },
-          { path: 'absence', component: AbsenceComponent },
-          { path: 'overtime-register', component: OvertimeRegisterComponent },
-          { path: 'requests', component: RequestsComponent },
-          { path: 'task-status', component: TaskStatusComponent },
-          { path: 'department-meetings', component: DepartmentMeetingsComponent}
-        ]
-      },
-    {
-        path : 'manager', 
-         component: ManagerComponent, 
-         canActivate: [authGuard],
-         data:{roles: ['Manager']},
-         children: [
-            { path: '', redirectTo: 'performence-traking', pathMatch: 'full' },
-            { path: 'performence-traking', component: ManagerPerformanceDashboardComponent },
-            { path: 'personal-data', component: PersonalDataComponent },
-            { path: 'meal-order', component: MealOredrComponent },
-            { path: 'transportation', component: TransportationComponent },
-            { path: 'absence', component: AbsenceComponent },
-            { path: 'overtime-register', component: OvertimeRegisterComponent },
-            { path: 'requests-managment', component: RequestManagmentComponent },
-            { path: 'create-work-plan', component: WorkPlanComponent},
-            { path: 'orders-list', component:OrdersListComponent},
-            { path: 'performence-traking', component: PerformenceTrackingComponent},
-            { path: 'Meetings-inqueries', component: MeetingsInqueriesComponent},
-            { path: 'set-department-meetings', component:SetDepartmentMeetingsComponent}
-          ]
-    },
-    {
-        path : 'secretary', 
-         component: SecretaryComponent, 
-         canActivate: [authGuard],
-         data:{roles: ['Secretary']},
-         children: [
-            { path: 'personal-data', component: PersonalDataComponent },
-            { path: 'meal-order', component: MealOredrComponent },
-            { path: 'transportation', component: TransportationComponent },
-            { path: 'absence', component: AbsenceComponent },
-            { path: 'overtime-register', component: OvertimeRegisterComponent },
-            { path: 'meal-menu', component: MealMenuComponent},
-            { path: 'meal-oredr-list', component: MealOrderListComponent},
-            { path: 'employee-manag', component: EmployeeManagComponent},
-            { path: 'order-managment', component: OrdersManagmentComponent},
-            { path: 'set-business-meetings', component:SetBusimessMeetingsComponent},
-            { path: 'contact-requests', component:ContactRequestsComponent}
-          ]
-    }
+  {
+    path: '', component: HomeComponent
+  },
+  {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: 'contactUs', component: ContactUsComponent
+  },
+  {
+    path: 'employee',
+    component: EmployeeComponent,
+    canActivate: [authGuard],
+    data: { roles: ['Employee'] },
+    children: [
+      { path: '', redirectTo: 'my-performance', pathMatch: 'full' },
+      { path: 'my-performance', component: EmployeePerformanceDashboardComponent },
+      { path: 'personal-data', component: PersonalDataComponent },
+      { path: 'meal-order', component: MealOredrComponent },
+      { path: 'transportation', component: TransportationComponent },
+      { path: 'absence', component: AbsenceComponent },
+      { path: 'overtime-register', component: OvertimeRegisterComponent },
+      { path: 'requests', component: RequestsComponent },
+      { path: 'task-status', component: TaskStatusComponent },
+      { path: 'department-meetings', component: DepartmentMeetingsComponent }
+    ]
+  },
+  {
+    path: 'manager',
+    component: ManagerComponent,
+    canActivate: [authGuard],
+    data: { roles: ['Manager'] },
+    children: [
+      { path: '', redirectTo: 'performence-traking', pathMatch: 'full' },
+      { path: 'performence-traking', component: ManagerPerformanceDashboardComponent },
+      { path: 'personal-data', component: PersonalDataComponent },
+      { path: 'meal-order', component: MealOredrComponent },
+      { path: 'transportation', component: TransportationComponent },
+      { path: 'absence', component: AbsenceComponent },
+      { path: 'overtime-register', component: OvertimeRegisterComponent },
+      { path: 'requests-managment', component: RequestManagmentComponent },
+      { path: 'create-work-plan', component: WorkPlanComponent },
+      { path: 'orders-list', component: OrdersListComponent },
+      { path: 'Meetings-inqueries', component: MeetingsInqueriesComponent },
+      { path: 'set-department-meetings', component: SetDepartmentMeetingsComponent }
+    ]
+  },
+  {
+    path: 'secretary',
+    component: SecretaryComponent,
+    canActivate: [authGuard],
+    data: { roles: ['Secretary'] },
+    children: [
+      { path: '', redirectTo: 'personal-data', pathMatch: 'full' },
+      { path: 'personal-data', component: PersonalDataComponent },
+      { path: 'meal-order', component: MealOredrComponent },
+      { path: 'transportation', component: TransportationComponent },
+      { path: 'absence', component: AbsenceComponent },
+      { path: 'overtime-register', component: OvertimeRegisterComponent },
+      { path: 'meal-menu', component: MealMenuComponent },
+      { path: 'meal-oredr-list', component: MealOrderListComponent },
+      { path: 'employee-manag', component: EmployeeManagComponent },
+      { path: 'order-managment', component: OrdersManagmentComponent },
+      { path: 'set-business-meetings', component: SetBusimessMeetingsComponent },
+      { path: 'contact-requests', component: ContactRequestsComponent }
+    ]
+  }
 ];

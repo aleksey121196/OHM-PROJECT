@@ -1,25 +1,50 @@
-
 <main class="main-content">
-  <section class="personal-data-section" *ngIf="user">
+  <section class="personal-data-section" *ngIf="user" aria-label="User personal data">
     <h2>Personal Data</h2>
 
     <div class="personal-data-card">
       <article>
         <header class="personal-data-header">
           <p><strong>Full Name:</strong> {{ user.FullName }}</p>
-          <p><strong>Email:</strong> {{ user.Email }}</p>
-          <p><strong>Phone:</strong> {{ user.Phone }}</p>
+          <p><strong>Email:</strong> <a href="mailto:{{ user.Email }}">{{ user.Email }}</a></p>
+          <p><strong>Phone:</strong> <a href="tel:{{ user.Phone }}">{{ user.Phone }}</a></p>
         </header>
 
         <section class="personal-data-details">
-          <p><strong>Address:</strong> {{ user.Address }}</p>
-          <p><strong>ID:</strong> {{ user.Id }}</p>
-          <p><strong>Job Title:</strong> {{ user.JobTitle }}</p>
-          <p><strong>Employment Date:</strong> {{ user.EmploymentDate }}</p>
-          <p><strong>Department:</strong> {{ user.Department }}</p>
-          <p><strong>Status:</strong> {{ user.Status }}</p>
-          <p><strong>Role:</strong> {{ user.Role }}</p>
-          <p><strong>Employer Name:</strong> {{ user.EmployerName }}</p>
+          <dl>
+            <div>
+              <dt>Address</dt>
+              <dd>{{ user.Address }}</dd>
+            </div>
+            <div>
+              <dt>ID</dt>
+              <dd>{{ user.Id }}</dd>
+            </div>
+            <div>
+              <dt>Job Title</dt>
+              <dd>{{ user.JobTitle }}</dd>
+            </div>
+            <div>
+              <dt>Employment Date</dt>
+              <dd>{{ user.EmploymentDate | date:'mediumDate' }}</dd>
+            </div>
+            <div>
+              <dt>Department</dt>
+              <dd>{{ user.Department }}</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>{{ user.Status }}</dd>
+            </div>
+            <div>
+              <dt>Role</dt>
+              <dd>{{ user.Role }}</dd>
+            </div>
+            <div>
+              <dt>Employer Name</dt>
+              <dd>{{ user.EmployerName }}</dd>
+            </div>
+          </dl>
         </section>
       </article>
     </div>

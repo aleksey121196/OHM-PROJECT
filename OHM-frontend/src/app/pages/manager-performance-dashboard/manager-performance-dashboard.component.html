@@ -1,17 +1,39 @@
 <div class="content">
-  <main class="main-content">
+  <main class="main-content" aria-label="Department performance overview">
     <h2>Department Performance Overview</h2>
 
-    <div class="department-card" *ngFor="let dept of departments">
-      <h3 class="department-title">{{ dept._id }}</h3>
-      <ul class="department-stats">
-        <li><strong>Total Tasks:</strong> {{ dept.totalTasks }}</li>
-        <li><strong>Tasks Completed:</strong> {{ dept.completedTasks }}</li>
-        <li><strong>Pending Tasks:</strong> {{ dept.pendingTasks }}</li>
-        <li><strong>In Progress Tasks:</strong> {{ dept.inProgressTasks }}</li>
-        <li><strong>On Hold Tasks:</strong> {{ dept.onHoldTasks }}</li>
-        <li><strong>Overdue Tasks:</strong> {{ dept.overdueTasks }}</li>
-      </ul>
-    </div>
+    <section class="departments-list">
+      <article *ngFor="let dept of departments" class="department-card" [attr.aria-labelledby]="'dept-' + dept._id">
+        <h3 id="{{ 'dept-' + dept._id }}" class="department-title">{{ dept._id }}</h3>
+
+        <dl class="department-stats">
+          <div>
+            <dt>Total Tasks</dt>
+            <dd>{{ dept.totalTasks }}</dd>
+          </div>
+          <div>
+            <dt>Tasks Completed</dt>
+            <dd>{{ dept.completedTasks }}</dd>
+          </div>
+          <div>
+            <dt>Pending Tasks</dt>
+            <dd>{{ dept.pendingTasks }}</dd>
+          </div>
+          <div>
+            <dt>In Progress Tasks</dt>
+            <dd>{{ dept.inProgressTasks }}</dd>
+          </div>
+          <div>
+            <dt>On Hold Tasks</dt>
+            <dd>{{ dept.onHoldTasks }}</dd>
+          </div>
+          <div>
+            <dt>Overdue Tasks</dt>
+            <dd>{{ dept.overdueTasks }}</dd>
+          </div>
+        </dl>
+      </article>
+    </section>
   </main>
 </div>
+

@@ -1,14 +1,29 @@
-<h2>My Performance</h2>
+<div class="employee-dashboard">
+  <h2>My Performance</h2>
 
-<div *ngIf="performance">
-  <p>Total Tasks: {{ performance.totalTasks }}</p>
-  <p>Completed Tasks: {{ performance.completedTasks }}</p>
-  <p>Pending Tasks: {{ performance.pendingTasks }}</p>
-  <p>In Progress: {{ performance.inProgressTasks }}</p>
-  <p>On Hold: {{ performance.onHoldTasks }}</p>
-  <p>Overdue Tasks: {{ performance.overdueTasks }}</p>
-</div>
+  <section class="summary-boxes">
+    <div class="summary-box">Tasks This Week: {{ performance.totalTasks }}</div>
+    <div class="summary-box">Completed: {{ performance.completedTasks }}</div>
+    <div class="summary-box">In Progress: {{ performance.inProgressTasks }}</div>
+    <div class="summary-box">Overdue: {{ performance.overdueTasks }}</div>
+    <div class="summary-box">Pending Tasks: {{ performance.pendingTasks }}</div>
+    <div class="summary-box">On Hold: {{ performance.onHoldTasks }}</div>
+  </section>
 
-<div *ngIf="!performance">
-  <p>Loading performance data...</p>
+  <section class="progress-section">
+    <p>Weekly Completion: {{ performance.completionRate }}%</p>
+    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" [attr.aria-valuenow]="performance.completionRate">
+      <div class="progress-fill" [style.width.%]="performance.completionRate"></div>
+    </div>
+  </section>
+
+  <section class="task-list">
+    <h3>Your Tasks for This Week</h3>
+    <ul>
+      <li *ngFor="let task of performance">
+        <strong>{{ task.title }}</strong> - <em>{{ task.status }}</em>
+        <span *ngIf="task.dueDate">| Due: {{ task.dueDate | date:'shortDate' }}</span>
+      </li>
+    </ul>
+  </section>
 </div>

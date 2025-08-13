@@ -1,6 +1,5 @@
-import mongoose from 'mongoose';
-
-const { Schema, model, Types } = mongoose;
+import mongoose from "mongoose";
+const { Schema, model } = mongoose;
 
 // Task schema
 const TaskSchema = new Schema({
@@ -12,18 +11,19 @@ const TaskSchema = new Schema({
   GroupLeader: { type: String, default: '', trim: true },
   Status: { 
     type: String, 
-    enum: ['Pending', 'In Progress', 'Completed', 'On Hold'], // Better control of statuses
+    enum: ['Pending', 'In Progress', 'Completed', 'On Hold'],
     default: 'Pending' 
-  }
+  },
+  CompletedAt: { type: Date } // שדה חדש לזמן סיום בפועל
 }, { _id: true });
 
 // Weekly work plan schema
 const WeeklyWorkPlanSchema = new Schema({
   PlanTitle: { type: String, required: true, trim: true },
   WeekStartDate: { type: Date, required: true },
-  Notes: { type: String, default: '', trim: true },
   Department: { type: String, required: true, trim: true },
-  Tasks: { type: [TaskSchema], default: [] }
-}, { timestamps: true });
+  Tasks: [TaskSchema],
+  Notes: { type: String, trim: true }
+});
 
 export default model('WeeklyWorkPlans', WeeklyWorkPlanSchema, 'WeeklyWorkPlans');

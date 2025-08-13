@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import WorkPlan from "../models/WorkPlan";
+import moment from "moment";
 
 // Department-level performance summary
 export const getDepartmentPerformanceSummary = async (req: Request, res: Response) => {
@@ -65,7 +66,7 @@ export const getDepartmentPerformanceSummary = async (req: Request, res: Respons
   }
 };
 
-// Employee-level performance summary
+
 export const getEmployeePerformance = async (req: Request, res: Response) => {
   try {
     if (!req.user || !req.user.FullName) {
@@ -74,12 +75,15 @@ export const getEmployeePerformance = async (req: Request, res: Response) => {
     }
 
     const userFullName = req.user.FullName.trim();
-    const today = new Date();
+    const now = moment();
+    const startOfMonth = now.clone().startOf('month').toDate();
+    const endOfMonth = now.clone().endOf('month').toDate();
 
     const stats = await WorkPlan.aggregate([
       { $unwind: "$Tasks" },
       {
         $match: {
+          WeekStartDate: { $gte: startOfMonth, $lte: endOfMonth },
           $or: [
             { "Tasks.AssignedTo": new RegExp(`^${userFullName}$`, "i") },
             { "Tasks.GroupLeader": new RegExp(`^${userFullName}$`, "i") }
@@ -87,8 +91,14 @@ export const getEmployeePerformance = async (req: Request, res: Response) => {
         }
       },
       {
+        $addFields: {
+          week: { $isoWeek: "$WeekStartDate" }
+        }
+      },
+      {
         $group: {
-          _id: null,
+          _id: "$week",
+          week: { $first: { $isoWeek: "$WeekStartDate" } },
           totalTasks: { $sum: 1 },
           completedTasks: {
             $sum: {
@@ -100,7 +110,7 @@ export const getEmployeePerformance = async (req: Request, res: Response) => {
               $cond: [
                 {
                   $and: [
-                    { $lt: ["$Tasks.DueDate", today] },
+                    { $lt: ["$Tasks.DueDate", new Date()] },
                     { $ne: ["$Tasks.Status", "Completed"] }
                   ]
                 },
@@ -125,22 +135,14 @@ export const getEmployeePerformance = async (req: Request, res: Response) => {
             }
           }
         }
-      }
+      },
+      { $sort: { week: 1 } }
     ]);
 
-    const result = stats[0] || {
-      totalTasks: 0,
-      completedTasks: 0,
-      overdueTasks: 0,
-      pendingTasks: 0,
-      inProgressTasks: 0,
-      onHoldTasks: 0,
-    };
-
-    res.json(result);
+    res.json(stats);
 
   } catch (error) {
     console.error("getEmployeePerformance error:", error);
-    res.status(500).json({ message: "Failed to fetch employee performance." });
+    res.status(500).json({ message: "Failed to fetch weekly employee performance." });
   }
 };

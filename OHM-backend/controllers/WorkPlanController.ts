@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import WorkPlan from "../models/WorkPlan";
 import { Types } from "mongoose";
+import moment from "moment";
 
 interface IUserTask {
   _id: Types.ObjectId;
@@ -9,7 +10,7 @@ interface IUserTask {
   DueDate: Date;
   AssignmentType: string;
   AssignedTo: string;
-  GroupLeader: string;
+  GroupLeader?: string;
   Status: string;
   PlanId: Types.ObjectId;
   PlanTitle: string;
@@ -17,7 +18,6 @@ interface IUserTask {
   Department: string;
 }
 
-// Allowed status values - should match your model's enum
 const allowedStatuses = ['Pending', 'In Progress', 'Completed', 'On Hold'];
 
 export const AddWorkPlan = async (req: Request, res: Response) => {
@@ -54,7 +54,6 @@ export const AddWorkPlan = async (req: Request, res: Response) => {
 
 export const getMyTasks = async (req: Request, res: Response) => {
   try {
-    // Make sure req.user and req.user.FullName are present and correctly capitalized
     if (!req.user || !req.user.FullName) {
       res.status(401).json({ message: "Unauthorized: User info missing." });
       return;
@@ -62,7 +61,11 @@ export const getMyTasks = async (req: Request, res: Response) => {
 
     const userFullName = req.user.FullName.trim();
 
+    const startOfWeek = moment().startOf('week').toDate();
+    const endOfWeek = moment().endOf('week').toDate();
+
     const plans = await WorkPlan.find({
+      WeekStartDate: {  $gte: startOfWeek, $lte: endOfWeek},
       Tasks: {
         $elemMatch: {
           $or: [
@@ -91,7 +94,7 @@ export const getMyTasks = async (req: Request, res: Response) => {
             AssignedTo: task.AssignedTo,
             GroupLeader: task.GroupLeader,
             Status: task.Status,
-            PlanId: plan._id,
+            PlanId:plan._id,
             PlanTitle: plan.PlanTitle,
             WeekStartDate: plan.WeekStartDate,
             Department: plan.Department,
@@ -132,7 +135,6 @@ export const updateTaskStatus = async (req: Request, res: Response) => {
 
     const userFullName = req.user.FullName.trim();
 
-    // Find the WorkPlan document containing the task assigned to this user
     const plan = await WorkPlan.findOne({
       "Tasks._id": taskId,
       Tasks: {
@@ -151,17 +153,14 @@ export const updateTaskStatus = async (req: Request, res: Response) => {
       return;
     }
 
-    // Find the task inside the Tasks array
     const task = plan.Tasks.id(taskId);
     if (!task) {
       res.status(404).json({ message: "Task not found inside the work plan." });
       return;
     }
 
-    // Update status
     task.Status = newStatus;
 
-    // Save the updated document
     await plan.save();
 
     res.json({ message: "Task status updated successfully.", task });

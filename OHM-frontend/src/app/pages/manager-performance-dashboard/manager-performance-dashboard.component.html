@@ -1,39 +1,39 @@
-<div class="content">
-  <main class="main-content" aria-label="Department performance overview">
-    <h2>Department Performance Overview</h2>
+<div class="department-dashboard">
+  <h2>Department Performance Overview</h2>
 
-    <section class="departments-list">
-      <article *ngFor="let dept of departments" class="department-card" [attr.aria-labelledby]="'dept-' + dept._id">
-        <h3 id="{{ 'dept-' + dept._id }}" class="department-title">{{ dept._id }}</h3>
+  <section class="departments-list" *ngIf="departments?.length">
+    <div class="department-card" *ngFor="let dept of departments">
+      <h3>{{ dept._id }}</h3>
 
-        <dl class="department-stats">
-          <div>
-            <dt>Total Tasks</dt>
-            <dd>{{ dept.totalTasks }}</dd>
+      <!-- Summary boxes -->
+      <div class="summary-boxes">
+        <div class="summary-box">Total Tasks: {{ dept.totalTasks }}</div>
+        <div class="summary-box">Completed: {{ dept.completedTasks }}</div>
+        <div class="summary-box">In Progress: {{ dept.inProgressTasks }}</div>
+        <div class="summary-box">Overdue: {{ dept.overdueTasks }}</div>
+        <div class="summary-box">Pending: {{ dept.pendingTasks }}</div>
+        <div class="summary-box">On Hold: {{ dept.onHoldTasks }}</div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-section">
+        <p>
+          Completion:
+          {{
+            dept.totalTasks > 0
+              ? (100 * dept.completedTasks / dept.totalTasks)
+              : 0
+            | number:'1.0-0'
+          }}%
+        </p>
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+             [attr.aria-valuenow]="dept.totalTasks > 0 ? (100 * dept.completedTasks / dept.totalTasks) : 0">
+          <div class="progress-fill"
+               [style.width.%]="dept.totalTasks > 0 ? (100 * dept.completedTasks / dept.totalTasks) : 0">
           </div>
-          <div>
-            <dt>Tasks Completed</dt>
-            <dd>{{ dept.completedTasks }}</dd>
-          </div>
-          <div>
-            <dt>Pending Tasks</dt>
-            <dd>{{ dept.pendingTasks }}</dd>
-          </div>
-          <div>
-            <dt>In Progress Tasks</dt>
-            <dd>{{ dept.inProgressTasks }}</dd>
-          </div>
-          <div>
-            <dt>On Hold Tasks</dt>
-            <dd>{{ dept.onHoldTasks }}</dd>
-          </div>
-          <div>
-            <dt>Overdue Tasks</dt>
-            <dd>{{ dept.overdueTasks }}</dd>
-          </div>
-        </dl>
-      </article>
-    </section>
-  </main>
+        </div>
+      </div>
+
+    </div>
+  </section>
 </div>
-

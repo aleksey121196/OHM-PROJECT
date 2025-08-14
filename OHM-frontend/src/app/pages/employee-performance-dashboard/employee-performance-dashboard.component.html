@@ -1,59 +1,14 @@
-<div class="employee-dashboard">
+<div class="dashboard-container">
   <h2>My Performance</h2>
 
-  <!-- סיכום שבוע נוכחי -->
-  <section class="summary-boxes" *ngIf="currentWeek">
-    <div class="summary-box">Tasks This Week: {{ currentWeek.totalTasks }}</div>
-    <div class="summary-box">Completed: {{ currentWeek.completedTasks }}</div>
-    <div class="summary-box">In Progress: {{ currentWeek.inProgressTasks }}</div>
-    <div class="summary-box">Overdue: {{ currentWeek.overdueTasks }}</div>
-    <div class="summary-box">Pending Tasks: {{ currentWeek.pendingTasks }}</div>
-    <div class="summary-box">On Hold: {{ currentWeek.onHoldTasks }}</div>
-  </section>
+  <div class="summary-boxes" *ngIf="currentWeek">
+    <div class="summary-box box-total">Tasks This Week: {{ currentWeek.totalTasks }}</div>
+    <div class="summary-box box-pending">Pending: {{ currentWeek.pendingTasks }}</div>
+    <div class="summary-box box-overdue">Overdue: {{ currentWeek.overdueTasks }}</div>
+    <div class="summary-box box-progress">In Progress: {{ currentWeek.inProgressTasks }}</div>
+    <div class="summary-box box-hold">On Hold: {{ currentWeek.onHoldTasks }}</div>
+    <div class="summary-box box-completed">Completed: {{ currentWeek.completedTasks }}</div>
+  </div>
 
-  <section class="progress-section" *ngIf="currentWeek">
-    <p>Weekly Completion:
-      {{
-      currentWeek.totalTasks > 0
-      ? (100 * currentWeek.completedTasks / currentWeek.totalTasks)
-      : 0
-      | number:'1.0-0'
-      }}%
-    </p>
-    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-      [attr.aria-valuenow]="currentWeek.totalTasks > 0 ? (100 * currentWeek.completedTasks / currentWeek.totalTasks) : 0">
-      <div class="progress-fill"
-        [style.width.%]="currentWeek.totalTasks > 0 ? (100 * currentWeek.completedTasks / currentWeek.totalTasks) : 0">
-      </div>
-    </div>
-  </section>
-
-  <!-- השוואה בין שבועות -->
-  <section class="weekly-comparison" *ngIf="weeklyPerformance?.length">
-    <h3>Weekly Performance Comparison</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Week</th>
-          <th>Total</th>
-          <th>Completed</th>
-          <th>In Progress</th>
-          <th>Overdue</th>
-          <th>Pending</th>
-          <th>On Hold</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let week of weeklyPerformance">
-          <td>{{ week.week }}</td>
-          <td>{{ week.totalTasks }}</td>
-          <td>{{ week.completedTasks }}</td>
-          <td>{{ week.inProgressTasks }}</td>
-          <td>{{ week.overdueTasks }}</td>
-          <td>{{ week.pendingTasks }}</td>
-          <td>{{ week.onHoldTasks }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+  <div id="performanceChart" class="chart-container"></div>
 </div>

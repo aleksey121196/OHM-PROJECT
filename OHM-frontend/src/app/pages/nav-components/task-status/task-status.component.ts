@@ -12,7 +12,7 @@ import { WorkPlanService, Task } from '../../../services/work-plan.service';
 export class TaskStatusComponent implements OnInit {
 
   tasks: Task[] = [];
-  statusOptions = ['Pending', 'In Progress', 'Completed', 'Blocked'];
+  statusOptions = ['Pending', 'In Progress', 'Completed', 'On Hold'];
 
   constructor(private workPlanService: WorkPlanService) {}
 

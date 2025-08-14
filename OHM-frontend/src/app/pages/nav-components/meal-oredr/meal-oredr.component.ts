@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { FoodOrderService } from '../../../services/food-order.service';
 import { EmployeeService } from '../../../services/employee.service';
 import { MealMenuService } from '../../../services/meal-menu.service';
-import { MealMenu } from '../../../models/meal-menu.model';
+import { MealMenu } from '../../../interfaces/meal-menu.interface';
 
 interface Recommendations {
   mainCourse?: string;

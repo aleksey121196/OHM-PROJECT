@@ -1,10 +1,8 @@
 /* Profile Card Wrapper */
 .profile-card {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 2rem;
+  padding: 18px;
   border-radius: 14px;
-   background-color: #f4f6f8;
+  background-color: #f4f6f8;
   color: #333;
   box-shadow: 0 12px 24px rgba(0,0,0,0.12);
   display: flex;
@@ -50,12 +48,12 @@
 form {
   display: flex;
   flex-direction: row;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .form-row {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   flex-wrap: wrap;
   flex-direction: column;
 }
@@ -111,7 +109,7 @@ form {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .employee-grid {

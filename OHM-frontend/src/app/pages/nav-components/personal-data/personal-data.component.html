@@ -1,52 +1,118 @@
-<main class="main-content">
-  <section class="personal-data-section" *ngIf="user" aria-label="User personal data">
-    <h2>Personal Data</h2>
+<section class="profile-card" *ngIf="user">
 
-    <div class="personal-data-card">
-      <article>
-        <header class="personal-data-header">
-          <p><strong>Full Name:</strong> {{ user.FullName }}</p>
-          <p><strong>Email:</strong> <a href="mailto:{{ user.Email }}">{{ user.Email }}</a></p>
-          <p><strong>Phone:</strong> <a href="tel:{{ user.Phone }}">{{ user.Phone }}</a></p>
-        </header>
-
-        <section class="personal-data-details">
-          <dl>
-            <div>
-              <dt>Address</dt>
-              <dd>{{ user.Address }}</dd>
-            </div>
-            <div>
-              <dt>ID</dt>
-              <dd>{{ user.Id }}</dd>
-            </div>
-            <div>
-              <dt>Job Title</dt>
-              <dd>{{ user.JobTitle }}</dd>
-            </div>
-            <div>
-              <dt>Employment Date</dt>
-              <dd>{{ user.EmploymentDate | date:'mediumDate' }}</dd>
-            </div>
-            <div>
-              <dt>Department</dt>
-              <dd>{{ user.Department }}</dd>
-            </div>
-            <div>
-              <dt>Status</dt>
-              <dd>{{ user.Status }}</dd>
-            </div>
-            <div>
-              <dt>Role</dt>
-              <dd>{{ user.Role }}</dd>
-            </div>
-            <div>
-              <dt>Employer Name</dt>
-              <dd>{{ user.EmployerName }}</dd>
-            </div>
-          </dl>
-        </section>
-      </article>
+  <!-- Header -->
+  <div class="profile-header">
+    <h1>My Profile</h1>
+    <div class="profile-actions">
+      <button type="button" (click)="toggleEdit()" class="btn-edit">
+        {{ editMode ? 'Cancel' : 'Edit' }}
+      </button>
+      <button *ngIf="editMode" type="button" (click)="onSubmit()" class="btn-save">
+        Save
+      </button>
     </div>
-  </section>
-</main>
+  </div>
+
+  <!-- Form Body -->
+  <form [formGroup]="personalForm">
+    <!-- Top Row: Name + Email -->
+    <div class="form-row">
+
+      <div class="form-group">
+        <input formControlName="FullName" required>
+        <label>Full Name</label>
+      </div>
+
+      <div class="form-group">
+        <input formControlName="Email" type="email" required>
+        <label>Email</label>
+      </div>
+
+    </div>
+
+    <!-- Second Row: Phone + Address -->
+    <div class="form-row">
+
+      <div class="form-group">
+        <input formControlName="Phone" type="tel">
+        <label>Phone</label>
+      </div>
+
+      <div class="form-group">
+        <input formControlName="Address">
+        <label>Address</label>
+      </div>
+      
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group">
+        <input formControlName="UserName">
+        <label>UserName</label>
+      </div>
+
+      <div class="form-group">
+        <input type="password" formControlName="Password" autocomplete="new-password">
+        <label>Current Password</label>
+      </div>
+
+    </div>
+
+  </form>
+
+  <div class="employee-card">
+
+    <div class="employee-grid">
+
+      <div class="employee-item">
+        <span class="label">ID :</span>
+        <span class="value">{{ user.Id }}</span>
+      </div>
+
+      <div class="employee-item">
+        <span class="label">Job Title :</span>
+        <span class="value">{{ user.JobTitle }}</span>
+      </div>
+
+    </div>
+
+    <div class="employee-grid">
+
+      <div class="employee-item">
+        <span class="label">Employment Date :</span>
+        <span class="value">{{ user.EmploymentDate | date:'mediumDate' }}</span>
+      </div>
+
+      <div class="employee-item">
+        <span class="label">Department :</span>
+        <span class="value">{{ user.Department }}</span>
+      </div>
+
+    </div>
+
+    <div class="employee-grid">
+
+      <div class="employee-item">
+        <span class="label">Status :</span>
+        <span class="value">{{ user.Status }}</span>
+      </div>
+
+      <div class="employee-item">
+        <span class="label">Role :</span>
+        <span class="value">{{ user.Role }}</span>
+      </div>
+
+    </div>
+
+    <div class="employee-grid">
+
+      <div class="employee-item">
+        <span class="label">Employer :</span>
+        <span class="value">{{ user.EmployerName }}</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>

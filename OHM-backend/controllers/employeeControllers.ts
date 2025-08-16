@@ -11,12 +11,12 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
   try {
     const employee = await Employee.findOne({
-      UserName: { $regex: new RegExp(`^${UserName}$`, 'i') }, 
+      UserName: { $regex: new RegExp(`^${UserName}$`, 'i') },
     });
 
     console.log('Employee found:', employee);
 
-    
+
     if (!employee || !(await bcrypt.compare(Password, employee.Password))) {
       res.status(401).json({ message: 'Invalid username or password' });
       return;
@@ -39,10 +39,10 @@ export const login = async (req: Request, res: Response): Promise<void> => {
         EmployerName: employee.EmployerName,
       },
       JWT_SECRET,
-      { expiresIn:'1h'}
+      { expiresIn: '1h' }
     );
 
-    console.log("generated jwt: ",token);
+    console.log("generated jwt: ", token);
 
     res.status(200).json({ token });
 
@@ -72,5 +72,53 @@ export const addEmployee = async (req: Request, res: Response) => {
   } catch (error) {
     console.error('Error adding employee:', error);
     res.status(500).json({ message: 'Failed to add employee', error });
+  }
+};
+
+export const getMyProfile = async (req: Request, res: Response) => {
+  try {
+    // req.user will come from JWT middleware
+    const userId = req.user?.Id;
+    if (!userId) {
+      res.status(401).json({ message: 'Unauthorized' });
+      return;
+    }
+    const employee = await Employee.findOne({ Id: userId }).select('-Password'); // exclude password
+    if (!employee) {
+      res.status(404).json({ message: 'Employee not found' });
+      return;
+    }
+
+    res.status(200).json(employee);
+  } catch (error) {
+    console.error('Error fetching employee:', error);
+    res.status(500).json({ message: 'Server error', error });
+  }
+};
+
+
+export const updateMyProfile = async (req: Request, res: Response) => {
+  try {
+    const userId = req.user?.Id;
+    if (!userId) {
+      res.status(401).json({ message: 'Unauthorized' });
+      return;
+    }
+   
+    const { FullName, Email, Phone, Address, UserName, Password } = req.body;
+
+    const Srounds = 10;
+    const hashpassword = await bcrypt.hash(Password, Srounds);
+
+    const updatedEmployee = await Employee.findOneAndUpdate(
+      { Id: userId },
+      { FullName, Email, Phone, Address, UserName, Password: hashpassword },
+      { new: true, runValidators: true }
+    ).select('-Password');
+
+    res.status(200).json(updatedEmployee);
+  } catch (error) {
+    console.error('Error updating employee:', error);
+    res.status(500).json({ message: 'Server error', error });
   }
 };

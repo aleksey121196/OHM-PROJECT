@@ -1,48 +1,70 @@
 [{
   "_id": {
-    "$oid": "683db99aaf62e4ce5dc59389"
+    "$oid": "68a3a199af16959b0e62f5cc"
   },
-  "PlanTitle": "creat plan test 1",
+  "PlanTitle": "testtttt",
   "WeekStartDate": {
-    "$date": "2025-06-02T00:00:00.000Z"
+    "$date": "2025-08-17T00:00:00.000Z"
   },
-  "Notes": "test 1",
   "Department": "Frontend",
   "Tasks": [
     {
-      "TaskName": "create task test 1",
-      "TaskDescription": "testing",
+      "TaskName": "testttt",
+      "TaskDescription": "new week",
       "DueDate": {
-        "$date": "2025-06-07T00:00:00.000Z"
+        "$date": "2025-08-22T00:00:00.000Z"
       },
       "AssignmentType": "individual",
-      "AssignedTo": "Aleksey Jan boo ti",
-      "GroupLeader": "Aleksey Jan boo ti",
+      "AssignedTo": "aleksey jan boo ti",
+      "GroupLeader": "",
       "Status": "In Progress",
       "_id": {
-        "$oid": "683db99aaf62e4ce5dc5938a"
-      }
-    },
-    {
-      "TaskName": "test 2",
-      "TaskDescription": "test 2",
-      "DueDate": {
-        "$date": "2025-06-07T00:00:00.000Z"
-      },
-      "AssignmentType": "individual",
-      "AssignedTo": "bob stone",
-      "GroupLeader": "bob stone",
-      "Status": "Pending",
-      "_id": {
-        "$oid": "683db99aaf62e4ce5dc5938b"
+        "$oid": "68a3a199af16959b0e62f5cd"
       }
     }
   ],
-  "createdAt": {
-    "$date": "2025-06-02T14:47:54.312Z"
+  "Notes": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a4cbdad632ca7287da0f22"
   },
-  "updatedAt": {
-    "$date": "2025-06-02T15:41:07.276Z"
+  "PlanTitle": "test manager work plan",
+  "WeekStartDate": {
+    "$date": "2025-08-17T00:00:00.000Z"
   },
+  "Department": "Frontend",
+  "Tasks": [
+    {
+      "TaskName": "T1",
+      "TaskDescription": "first name",
+      "DueDate": {
+        "$date": "2025-08-18T00:00:00.000Z"
+      },
+      "AssignmentType": "individual",
+      "AssignedTo": "aleksey jan boo ti",
+      "GroupLeader": "",
+      "Status": "Pending",
+      "_id": {
+        "$oid": "68a4cbdad632ca7287da0f23"
+      }
+    },
+    {
+      "TaskName": "T2",
+      "TaskDescription": "name num 2",
+      "DueDate": {
+        "$date": "2025-08-20T00:00:00.000Z"
+      },
+      "AssignmentType": "individual",
+      "AssignedTo": "jhon doe",
+      "GroupLeader": "",
+      "Status": "Pending",
+      "_id": {
+        "$oid": "68a4cbdad632ca7287da0f24"
+      }
+    }
+  ],
+  "Notes": "",
   "__v": 0
 }]

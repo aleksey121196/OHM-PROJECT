@@ -76,14 +76,14 @@ export const getEmployeePerformance = async (req: Request, res: Response) => {
 
     const userFullName = req.user.FullName.trim();
     const now = moment();
-    const startOfMonth = now.clone().startOf('month').toDate();
-    const endOfMonth = now.clone().endOf('month').toDate();
+    const startOfweek = now.clone().startOf('week').toDate();
+    const endOfweek = now.clone().endOf('week').toDate();
 
     const stats = await WorkPlan.aggregate([
       { $unwind: "$Tasks" },
       {
         $match: {
-          WeekStartDate: { $gte: startOfMonth, $lte: endOfMonth },
+          WeekStartDate: { $gte: startOfweek, $lte: endOfweek },
           $or: [
             { "Tasks.AssignedTo": new RegExp(`^${userFullName}$`, "i") },
             { "Tasks.GroupLeader": new RegExp(`^${userFullName}$`, "i") }

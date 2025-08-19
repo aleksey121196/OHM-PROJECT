@@ -1,44 +1,80 @@
-.department-dashboard {
-  max-width: 1100px;
-  margin: 2rem auto;
-  background: #fff;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+.dashboard-container {
+  padding: 20px;
+  border-radius: 14px;
+  background-color: #f4f6f8;
+  color: #333;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.department-card {
-  margin-bottom: 2rem;
+.dashboard-container h2 {
+  margin-bottom: 18px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 0.5rem;
+  color: #4CAF50;
 }
 
 .summary-boxes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 13px;
+  margin-bottom: 30px;
 }
 
 .summary-box {
-  background: #f9f9f9;
-  padding: 1rem;
-  text-align: center;
-  border-radius: 6px;
+  padding: 13px 18px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  font-size: 1rem;
   font-weight: 500;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.progress-section {
-  margin-top: 1rem;
+.summary-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.progress-bar {
-  width: 100%;
-  background: #eee;
-  border-radius: 6px;
-  overflow: hidden;
-  height: 16px;
+/* Color codes */
+.box-total {
+  background-color: #696969;
 }
 
-.progress-fill {
-  background: #4caf50;
-  height: 100%;
+.box-completed {
+  background-color: #4682B4;
+}
+
+.box-progress {
+  background-color: #32CD32;
+}
+
+.box-overdue {
+  background-color: #483D8B;
+}
+
+.box-pending {
+  background-color: #00BFFF;
+}
+
+.box-hold {
+  background-color: #FF8C00;
+}
+
+.chart-container {
+  background: linear-gradient(135deg, #ffffff, #f5f7fa);
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  min-height: 400px;
 }

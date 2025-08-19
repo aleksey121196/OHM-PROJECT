@@ -1,39 +1,14 @@
-<div class="department-dashboard">
-  <h2>Department Performance Overview</h2>
+<div class="dashboard-container">
+  <h2>Department Summary </h2>
 
-  <section class="departments-list" *ngIf="departments?.length">
-    <div class="department-card" *ngFor="let dept of departments">
-      <h3>{{ dept.Department }}</h3>
-
-      <!-- Summary boxes -->
-      <div class="summary-boxes">
-        <div class="summary-box">Total Tasks: {{ dept.totalTasks }}</div>
-        <div class="summary-box">Completed: {{ dept.completedTasks }}</div>
-        <div class="summary-box">In Progress: {{ dept.inProgressTasks }}</div>
-        <div class="summary-box">Overdue: {{ dept.overdueTasks }}</div>
-        <div class="summary-box">Pending: {{ dept.pendingTasks }}</div>
-        <div class="summary-box">On Hold: {{ dept.onHoldTasks }}</div>
+      <div class="summary-boxes" *ngIf="currentWeek">
+        <div class="summary-box box-total">Total Tasks: {{ currentWeek.totalTasks }}</div>
+        <div class="summary-box box-completed">Completed: {{ currentWeek.completedTasks }}</div>
+        <div class="summary-box box-progress">In Progress: {{ currentWeek.inProgressTasks }}</div>
+        <div class="summary-box box-overdue">Overdue: {{ currentWeek.overdueTasks }}</div>
+        <div class="summary-box box-pending">Pending: {{ currentWeek.pendingTasks }}</div>
+        <div class="summary-box box-hold">On Hold: {{ currentWeek.onHoldTasks }}</div>
       </div>
 
-      <!-- Progress bar -->
-      <div class="progress-section">
-        <p>
-          Completion:
-          {{
-            dept.totalTasks > 0
-              ? (100 * dept.completedTasks / dept.totalTasks)
-              : 0
-            | number:'1.0-0'
-          }}%
-        </p>
-        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-             [attr.aria-valuenow]="dept.totalTasks > 0 ? (100 * dept.completedTasks / dept.totalTasks) : 0">
-          <div class="progress-fill"
-               [style.width.%]="dept.totalTasks > 0 ? (100 * dept.completedTasks / dept.totalTasks) : 0">
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
+  <div id="performanceChart" class="chart-container"></div>
 </div>

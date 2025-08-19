@@ -2,16 +2,35 @@ import { Request, Response } from "express";
 import WorkPlan from "../models/WorkPlan";
 import moment from "moment";
 
-// Department-level performance summary
 export const getDepartmentPerformanceSummary = async (req: Request, res: Response) => {
   try {
-    const today = new Date();
+    if (!req.user || !req.user.Department) {
+      res.status(401).json({ message: "Unauthorized: Department info missing." });
+      return;
+    }
+
+    const userDepartment = req.user.Department.trim();
+    const now = moment();
+    const startOfWeek = now.clone().startOf('week').toDate();
+    const endOfWeek = now.clone().endOf('week').toDate();
 
     const summary = await WorkPlan.aggregate([
       { $unwind: "$Tasks" },
       {
+        $match: {
+          Department: userDepartment,
+          WeekStartDate: { $gte: startOfWeek, $lte: endOfWeek }
+        }
+      },
+      {
+        $addFields: {
+          week: { $isoWeek: "$WeekStartDate" }
+        }
+      },
+      {
         $group: {
-          _id: "$Department",
+          _id: "$week",
+          week: { $first: { $isoWeek: "$WeekStartDate" } },
           totalTasks: { $sum: 1 },
           completedTasks: {
             $sum: {
@@ -23,7 +42,7 @@ export const getDepartmentPerformanceSummary = async (req: Request, res: Respons
               $cond: [
                 {
                   $and: [
-                    { $lt: ["$Tasks.DueDate", today] },
+                    { $lt: ["$Tasks.DueDate", new Date()] },
                     { $ne: ["$Tasks.Status", "Completed"] }
                   ]
                 },
@@ -49,17 +68,10 @@ export const getDepartmentPerformanceSummary = async (req: Request, res: Respons
           }
         }
       },
-      { $sort: { _id: 1 } }
+      { $sort: { week: 1 } }
     ]);
 
-    // Rename _id to departmentName for frontend clarity
-    const result = summary.map(item => ({
-      departmentName: item._id,
-      ...item,
-      _id: undefined
-    }));
-
-    res.json(result);
+    res.json(summary);
   } catch (error) {
     console.error("getDepartmentPerformanceSummary error:", error);
     res.status(500).json({ message: "Failed to fetch department performance summary." });

@@ -4,11 +4,12 @@
   border-radius: 14px;
   background-color: #f4f6f8;
   color: #333;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
   gap: 2rem;
   font-family: 'Segoe UI', sans-serif;
+  overflow-y: auto;
 }
 
 /* Header with actions */
@@ -36,11 +37,14 @@
   transition: background 0.2s ease;
 }
 
-.btn-edit, .btn-save {
+.btn-edit,
+.btn-save {
   background: #4caf50;
   color: #fff;
 }
-.btn-edit:hover, .btn-save:hover {
+
+.btn-edit:hover,
+.btn-save:hover {
   background: #43a047;
 }
 
@@ -61,7 +65,7 @@ form {
 .form-group {
   flex: 1;
   position: relative;
-  
+
 }
 
 .form-group input {
@@ -91,13 +95,13 @@ form {
   font-weight: bold;
 }
 
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label {
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label {
   top: -0.8rem;
   left: 0.5rem;
   font-size: 0.7rem;
   color: #4caf50;
-  background:#fff;
+  background: #f4f6f8;
   padding: 0 0.2rem;
 }
 
@@ -105,8 +109,8 @@ form {
 .employee-card {
   border-radius: 14px;
   background: #fff;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  padding: 1.5rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -115,7 +119,7 @@ form {
 .employee-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem 2rem;
+  gap: 1rem 1rem;
 }
 
 .employee-item {
@@ -125,7 +129,7 @@ form {
 
 .employee-item .label {
   font-size: 0.8rem;
-  color:  #4caf50 ;
+  color: #4caf50;
   margin-bottom: 0.25rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -141,6 +145,11 @@ form {
 
 /* Responsive */
 @media(max-width: 768px) {
-  .form-row { flex-direction: column; }
-  .employee-grid { grid-template-columns: 1fr; }
+  .form-row {
+    flex-direction: column;
+  }
+
+  .employee-grid {
+    grid-template-columns: 1fr;
+  }
 }

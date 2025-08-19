@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import Transportation from '../models/Transportation';
+import moment from 'moment';
 
 export const addTransportation = async (req: Request, res: Response) => {
   try {
@@ -17,5 +18,23 @@ export const getAllTransportations = async (req: Request, res: Response) => {
     res.json(allRequests);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch transportation data.' });
+  }
+};
+
+export const getTodayTransportations = async (req: Request, res: Response) => {
+  try {
+    const userId = req.user.Id; // from JWT middleware
+
+    // Get today's date in the same format as stored
+    const todayStr = moment().format('YYYY-MM-DD'); // adjust format if needed
+
+    const todayRequests = await Transportation.find({
+      Id: userId,
+      date: todayStr
+    });
+
+    res.json(todayRequests);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch today\'s transportation data.' });
   }
 };

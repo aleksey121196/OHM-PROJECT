@@ -15,7 +15,6 @@ export class PersonalDataComponent implements OnInit {
   user: any;
 
   personalForm!: FormGroup;
-  staticForm!: FormGroup;
   editMode = false;
 
   constructor(private employeeService: EmployeeService, private formBuilder: FormBuilder) { }

@@ -1,15 +1,40 @@
-<main class="main-content">
-  <section class="meetings-section">
-    <h2>Meetings Reminder</h2>
 
-    <div class="meeting-card" *ngFor="let req of departmentMeetings">
-      <header class="meeting-header">
-        <p><strong>Manager Name:</strong> {{ req.ManagerName }}</p>
-        <p><strong>Date:</strong> {{ req.Date }}</p>
-        <p><strong>Department:</strong> {{ req.Department }}</p>
-        <p><strong>Meeting Time:</strong> {{ req.MeetingTime }}</p>
-        <p><strong>Topic:</strong> {{ req.Topic }}</p>
-      </header>
+<section class="meetings-card">
+
+  <div class="meetings-header">
+    <h2>Meetings Reminder</h2>
+  </div>
+
+  <div *ngFor="let req of departmentMeetings" class="meetings-info-card">
+
+    <!-- Task details -->
+    <div class="meetings-info-grid">
+      <div class="meetings-info-item">
+        <span class="label">Manager Name :</span>
+        <span class="value">{{req.ManagerName}}</span>
+      </div>
+
+      <div class="meetings-info-item">
+        <span class="label">Department :</span>
+        <span class="value">{{req.Department}}</span>
+      </div>
+
+      <div class="meetings-info-item">
+        <span class="label">Topic :</span>
+        <span class="value">{{req.Topic}}</span>
+      </div>
+
+      <div class="meetings-info-item">
+        <span class="label">Meeting Time :</span>
+        <span class="value">{{req.MeetingTime}}</span>
+      </div>
+
+      <div class="meetings-info-item">
+        <span class="label">Date :</span>
+        <span class="value">{{req.Date | date:'short'}}</span>
+      </div>
     </div>
-  </section>
-</main>
+
+  </div>
+
+</section>

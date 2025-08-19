@@ -1,0 +1,79 @@
+/* Card */
+.meetings-info-card {
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Section header */
+.meetings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4caf50;
+    padding-bottom: 0.5rem;
+    color: #4caf50;
+}
+
+.meetings-header h2 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.meetings-info-card {
+    margin-top: 2rem;
+}
+
+/* Card header row (task name + select) */
+.meetings-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Info grid */
+.meetings-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1rem;
+}
+
+.meetings-info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meetings-info-item .label {
+    font-size: 0.8rem;
+    color: #4caf50;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+.meetings-info-item .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+}
+
+
+/* Responsive */
+@media(max-width: 768px) {
+    .meetings-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meetings-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+}

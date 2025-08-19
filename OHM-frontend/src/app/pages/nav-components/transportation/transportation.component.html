@@ -1,22 +1,82 @@
-<div class="content">
-  <h2>Transportation Registration</h2>
+<section class="Transportation-card">
 
-  <form (ngSubmit)="submitTransportation()" class="form-container">
-    <label for="type"><strong>Transportation Type:</strong></label>
-    <select id="type" [(ngModel)]="transportationType" name="type" required class="form-select">
-      <option value="One-Time">One-Time</option>
-      <option value="Permanent">Permanent</option>
-    </select>
+  <div class="Transportation-header">
+    <h2>Transportation Registration</h2>
+  </div>
 
-    <label for="Date"><strong>Date:</strong></label>
-    <input type="date" id="Date" name="Date" [(ngModel)]="Date" required class="form-input" />
+  <form (ngSubmit)="submitTransportation()">
 
-    <label for="Time"><strong>Time:</strong></label>
-    <input type="time" id="Time" name="Time" [(ngModel)]="Time" required class="form-input" />
+    <div class="form-row">
 
-    <label for="destination"><strong>Destination:</strong></label>
-    <input id="destination" name="destination" [(ngModel)]="destination" required class="form-input" />
+      <div class="form-group">
+        <select type="select" id="type" [(ngModel)]="transportationType" name="type" required>
+          <option value="One-Time">One-Time</option>
+          <option value="Permanent">Permanent</option>
+        </select>
+        <label>Transportation Type</label>
+      </div>
 
-    <button type="submit" class="btn-submit">Submit</button>
+      <div class="form-group">
+        <input type="date" id="Date" name="Date" [(ngModel)]="Date" required >
+        <label>Date</label>
+      </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group">
+        <input type="text" id="destination" name="destination" [(ngModel)]="destination" required />
+        <label>Destination</label>
+      </div>
+
+      <div class="form-group">
+        <input type="time" id="Time" name="Time" [(ngModel)]="Time" required />
+        <label>Time</label>
+      </div>
+    </div>
+
+
+    <div class="Transportation-actions">
+      <button type="submit" class="btn-submit">Submit</button>
+    </div>
+
   </form>
-</div>
+
+
+  <div *ngFor="let t of transportation" class="Transportation-info-card">
+
+    <div class="Transportation-header">
+      <h2>Today</h2>
+    </div>
+
+    <div class="Transportation-info-grid">
+
+      <div class="Transportation-info-item">
+        <span class="label">transportation Type :</span>
+        <span class="value">{{t.transportationType}}</span>
+      </div>
+
+      <div class="Transportation-info-item">
+        <span class="label">Time :</span>
+        <span class="value">{{t.Time}}</span>
+      </div>
+
+    </div>
+
+    <div class="Transportation-info-grid">
+
+      <div class="Transportation-info-item">
+        <span class="label">Date :</span>
+        <span class="value">{{t.date}}</span>
+      </div>
+
+      <div class="Transportation-info-item">
+        <span class="label">Destination :</span>
+        <span class="value">{{t.destination}}</span>
+      </div>
+
+    </div>
+  </div>
+
+</section>

@@ -1,63 +1,84 @@
-<main class="main-content">
-  <section class="request-section">
-    <h2>Requests</h2>
+<section class="request-card">
 
-    <form class="request-form" (ngSubmit)="submitRequest()" autocomplete="off">
+  <div class="request-header">
+    <h2>Requests</h2>
+  </div>
+
+  <form (ngSubmit)="submitRequest()">
+
+    <div class="form-row">
+
       <div class="form-group">
-        <label for="Date">Date:</label>
         <input type="date" id="Date" name="Date" [(ngModel)]="Date" required />
+        <label>Date</label>
       </div>
 
       <div class="form-group">
-        <label for="RequestType">Request Type:</label>
+        
         <select id="RequestType" name="RequestType" [(ngModel)]="RequestType" required>
           <option value="Equipment Problem">Equipment Problem</option>
           <option value="Task Assistance">Task Assistance</option>
           <option value="Personal">Personal</option>
         </select>
+        <label>Request Type</label>
       </div>
 
-      <div class="form-group">
-        <label for="RequestDescription">Reason:</label>
-        <textarea
-          id="RequestDescription"
-          name="RequestDescription"
-          [(ngModel)]="RequestDescription"
-          rows="4"
-          required
-        ></textarea>
+    </div>
+
+    <div class="form-group">
+      <textarea id="RequestDescription" name="RequestDescription" [(ngModel)]="RequestDescription" rows="4"
+        required></textarea>
+      <label>Reason</label>
+    </div>
+
+
+    <div class="request-actions">
+      <button type="submit" class="btn-submit">Submit</button>
+    </div>
+
+  </form>
+
+  <div *ngFor="let req of reqdata" class="request-info-card">
+
+    <div class="request-header">
+      <h2>My Requests</h2>
+    </div>
+
+    <div class="request-info-grid">
+
+      <div class="request-info-item">
+        <span class="label"> Request Type :</span>
+        <span class="value">{{req.RequestType}}</span>
       </div>
 
-      <div class="btn-right">
-        <button type="submit" class="primary-btn">Submit</button>
+      <div class="request-info-item">
+        <span class="label">Date :</span>
+        <span class="value">{{req.Date | date:'short'}}</span>
       </div>
-    </form>
-  </section>
 
-  <section class="my-requests-section">
-    <h2>My Requests</h2>
+    </div>
 
-    <table *ngIf="reqdata.length" class="requests-table">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Manager Response</th>
-          <th>Response Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let req of reqdata">
-          <td>{{ req.Date | date:'short' }}</td>
-          <td>{{ req.RequestType }}</td>
-          <td>{{ req.RequestDescription }}</td>
-          <td>{{ req.Response?.Text || 'Not responded yet' }}</td>
-          <td>{{ req.Response?.ResDate ? (req.Response.ResDate | date:'short') : '-' }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="request-info-grid">
 
-    <p *ngIf="reqdata.length === 0" class="no-requests-text">You have no requests.</p>
-  </section>
-</main>
+      <div class="request-info-item">
+        <span class="label">Description :</span>
+        <span class="value">{{req.RequestDescription}}</span>
+      </div>
+
+      <div class="request-info-item">
+        <span class="label">Manager Respponse :</span>
+        <span class="value">{{req.Response?.text || 'Not responded yet'}}</span>
+      </div>
+    </div>
+
+    <div class="request-info-grid">
+
+      <div class="request-info-item">
+        <span class="label">Response Date :</span>
+        <span class="value">{{ req.Response?.ResDate ? (req.Response.ResDate | date:'short') : '-' }}</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>

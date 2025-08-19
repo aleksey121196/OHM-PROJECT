@@ -1,39 +1,65 @@
-<main class="main-content">
-  <section aria-labelledby="tasks-heading" class="tasks-section">
-    <h2 id="tasks-heading">My Assigned Tasks</h2>
+<section *ngIf="tasks && tasks.length > 0">
 
-    <section *ngIf="tasks && tasks.length > 0; else noTasks" class="tasks-list">
-      <article *ngFor="let task of tasks" [attr.aria-label]="'Task: ' + task.TaskName" class="task-item">
-        <header class="task-header">
-          <p><strong>Task Name:</strong> {{ task.TaskName }}</p>
+  <div class="Task-Status-header">
+    <h2> My Assigned Tasks </h2>
+  </div>
 
-          <p>
-            <select
-              [value]="task.Status"
-              (change)="onStatusChange(task, getSelectedValue($event))"
-              [attr.aria-label]="'Change status for ' + task.TaskName"
-              class="status-select"
-            >
-              <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
-            </select>
-          </p>
+  <div *ngFor="let task of tasks" [attr.aria-label]="'Task: ' + task.TaskName" class="Task-Status-info-card">
 
-          <p><strong>Description:</strong> {{ task.TaskDescription || 'N/A' }}</p>
-          <p><strong>Due Date:</strong> {{ task.DueDate | date }}</p>
-          <p><strong>Assignment Type:</strong> {{ task.AssignmentType }}</p>
-          <p><strong>Assigned To:</strong> {{ task.AssignedTo }}</p>
-          <p *ngIf="task.AssignmentType === 'group'">
-            <strong>Group Leader:</strong> {{ task.GroupLeader || 'N/A' }}
-          </p>
-          <p><strong>Plan Title:</strong> {{ task.PlanTitle }}</p>
-          <p><strong>Week Start:</strong> {{ task.WeekStartDate | date }}</p>
-          <p><strong>Department:</strong> {{ task.Department }}</p>
-        </header>
-      </article>
-    </section>
+    <!-- Card header row with Task Name and status select -->
+    <div class="Task-Status-card-header">
+      <h3>Task Name : <span class="value">{{ task.TaskName }}</span></h3>
+      
+      <form (change)="onStatusChange(task, getSelectedValue($event))">
+        <div class="form-group">
+          <select [value]="task.Status"
+                  [attr.aria-label]="'Change status for ' + task.TaskName"
+                  class="status-select">
+            <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+          </select>
+          <label>Task Status Update</label>
+        </div>
+      </form>
+    </div>
 
-    <ng-template #noTasks>
-      <p class="no-tasks-msg">No tasks assigned.</p>
-    </ng-template>
-  </section>
-</main>
+    <!-- Task details -->
+    <div class="Task-Status-info-grid">
+      <div class="Task-Status-info-item">
+        <span class="label">Description :</span>
+        <span class="value">{{task.TaskDescription || 'N/A'}}</span>
+      </div>
+
+      <div class="Task-Status-info-item">
+        <span class="label">Department :</span>
+        <span class="value">{{task.Department}}</span>
+      </div>
+
+      <div class="Task-Status-info-item" *ngIf="task.AssignmentType === 'group'">
+        <span class="label">Group Leader :</span>
+        <span class="value">{{task.GroupLeader || 'N/A'}}</span>
+      </div>
+
+      <div class="Task-Status-info-item">
+        <span class="label">Assignment Type :</span>
+        <span class="value">{{task.AssignmentType}}</span>
+      </div>
+
+      <div class="Task-Status-info-item">
+        <span class="label">Assigned To :</span>
+        <span class="value">{{task.AssignedTo}}</span>
+      </div>
+
+      <div class="Task-Status-info-item">
+        <span class="label">Week Start :</span>
+        <span class="value">{{task.WeekStartDate | date:'short'}}</span>
+      </div>
+
+      <div class="Task-Status-info-item">
+        <span class="label">Due Date :</span>
+        <span class="value">{{task.DueDate | date:'short'}}</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>

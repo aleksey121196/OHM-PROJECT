@@ -13,20 +13,37 @@ import { EmployeeService } from '../../../services/employee.service';
 })
 export class TransportationComponent implements OnInit {
 
-  transportationType: string = ''; 
+  transportationType: string = '';
   destination: string = '';
-  Date: String ='';
-  Time:String = ''
+  Date: String = '';
+  Time: String = ''
 
   constructor(
     private transportationService: TransportationService,
     private employeeService: EmployeeService
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  transportation: any[] = [];
+
+  ngOnInit(): void {
+    this.loadUserTransportation();
+  }
+
+
+
+  loadUserTransportation(): void {
+    this.transportationService.getTodayTransportations().subscribe({
+      next: (data) => {
+        this.transportation = data;
+      },
+      error: (err) => {
+        console.error('Failed to load transportations:', err);
+      }
+    });
+  }
 
   submitTransportation(): void {
-    
+
     const user = this.employeeService.getUserFromToken();
 
     if (!user) {
@@ -40,7 +57,7 @@ export class TransportationComponent implements OnInit {
       FullName: user.FullName,
       Phone: user.Phone,
       date: this.Date,
-      Time:this.Time,
+      Time: this.Time,
       transportationType: this.transportationType,
       destination: this.destination
     };
@@ -57,7 +74,7 @@ export class TransportationComponent implements OnInit {
   }
   clearForm() {
     this.destination = '';
-    this.Date ='';
+    this.Date = '';
     this.Time = ''
   }
 

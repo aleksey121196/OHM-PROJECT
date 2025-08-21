@@ -1,15 +1,19 @@
 <section *ngIf="tasks && tasks.length > 0">
 
+  <!-- ✅ Fixed header: shown once -->
   <div class="Task-Status-header">
-    <h2> My Assigned Tasks </h2>
+    <h2>My Assigned Tasks</h2>
   </div>
 
+  <!-- 🔁 One card per task -->
   <div *ngFor="let task of tasks" [attr.aria-label]="'Task: ' + task.TaskName" class="Task-Status-info-card">
 
-    <!-- Card header row with Task Name and status select -->
+    <!-- Task header with name and status update -->
     <div class="Task-Status-card-header">
-      <h3>Task Name : <span class="value">{{ task.TaskName }}</span></h3>
-      
+      <h3>
+        Task Name: <span class="value">{{ task.TaskName }}</span>
+      </h3>
+
       <form (change)="onStatusChange(task, getSelectedValue($event))">
         <div class="form-group">
           <select [value]="task.Status"
@@ -22,41 +26,41 @@
       </form>
     </div>
 
-    <!-- Task details -->
+    <!-- Task detail grid -->
     <div class="Task-Status-info-grid">
       <div class="Task-Status-info-item">
-        <span class="label">Description :</span>
-        <span class="value">{{task.TaskDescription || 'N/A'}}</span>
+        <span class="label">Description:</span>
+        <span class="value">{{ task.TaskDescription || 'N/A' }}</span>
       </div>
 
       <div class="Task-Status-info-item">
-        <span class="label">Department :</span>
-        <span class="value">{{task.Department}}</span>
+        <span class="label">Department:</span>
+        <span class="value">{{ task.Department }}</span>
       </div>
 
       <div class="Task-Status-info-item" *ngIf="task.AssignmentType === 'group'">
-        <span class="label">Group Leader :</span>
-        <span class="value">{{task.GroupLeader || 'N/A'}}</span>
+        <span class="label">Group Leader:</span>
+        <span class="value">{{ task.GroupLeader || 'N/A' }}</span>
       </div>
 
       <div class="Task-Status-info-item">
-        <span class="label">Assignment Type :</span>
-        <span class="value">{{task.AssignmentType}}</span>
+        <span class="label">Assignment Type:</span>
+        <span class="value">{{ task.AssignmentType }}</span>
       </div>
 
       <div class="Task-Status-info-item">
-        <span class="label">Assigned To :</span>
-        <span class="value">{{task.AssignedTo}}</span>
+        <span class="label">Assigned To:</span>
+        <span class="value">{{ task.AssignedTo }}</span>
       </div>
 
       <div class="Task-Status-info-item">
-        <span class="label">Week Start :</span>
-        <span class="value">{{task.WeekStartDate | date:'short'}}</span>
+        <span class="label">Week Start:</span>
+        <span class="value">{{ task.WeekStartDate | date:'short' }}</span>
       </div>
 
       <div class="Task-Status-info-item">
-        <span class="label">Due Date :</span>
-        <span class="value">{{task.DueDate | date:'short'}}</span>
+        <span class="label">Due Date:</span>
+        <span class="value">{{ task.DueDate | date:'short' }}</span>
       </div>
     </div>
 

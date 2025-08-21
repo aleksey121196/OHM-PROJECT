@@ -82,7 +82,8 @@ export const routes: Routes = [
     canActivate: [authGuard],
     data: { roles: ['Secretary'] },
     children: [
-      { path: '', redirectTo: 'personal-data', pathMatch: 'full' },
+      { path: '', redirectTo: 'contact-requests', pathMatch: 'full' },
+      { path: 'contact-requests', component: ContactRequestsComponent },
       { path: 'personal-data', component: PersonalDataComponent },
       { path: 'meal-order', component: MealOredrComponent },
       { path: 'transportation', component: TransportationComponent },
@@ -92,8 +93,7 @@ export const routes: Routes = [
       { path: 'meal-oredr-list', component: MealOrderListComponent },
       { path: 'employee-manag', component: EmployeeManagComponent },
       { path: 'order-managment', component: OrdersManagmentComponent },
-      { path: 'set-business-meetings', component: SetBusimessMeetingsComponent },
-      { path: 'contact-requests', component: ContactRequestsComponent }
+      { path: 'set-business-meetings', component: SetBusimessMeetingsComponent }
     ]
   }
 ];

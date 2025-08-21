@@ -1,0 +1,132 @@
+/* Card */
+.employee-requests-info-card {
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Section header */
+.employee-requests-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4caf50;
+    padding-bottom: 0.5rem;
+    color: #4caf50;
+}
+
+.employee-requests-header h2 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.employee-requests-info-card {
+    margin-top: 2rem;
+}
+
+/* Card header row (task name + select) */
+.employee-requests-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.employee-requests-card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4caf50;
+}
+
+.employee-requests-card-header .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Info grid */
+.employee-requests-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1rem;
+}
+
+.employee-requests-info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-requests-info-item .label {
+    font-size: 0.8rem;
+    color: #4caf50;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+.employee-requests-info-item .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Textarea styling */
+.response-textarea {
+  width: 50%; /* Set width to 50% */
+  padding: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  resize: vertical;
+  min-height: 50px;
+}
+
+/* Focus state for the textarea */
+.response-textarea:focus {
+  border-color: #4caf50; /* Green border on focus */
+  outline: none;
+}
+
+/* Button styling */
+.primary-btn {
+  width: 50%; /* Set width to 50% to match the textarea */
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4caf50; /* Green button */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover state */
+.primary-btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+
+
+/* Responsive */
+@media(max-width: 768px) {
+    .employee-requests-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .employee-requests-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+}

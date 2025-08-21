@@ -1,18 +1,36 @@
-<main class="main-content">
-  <section class="meetings-section">
-    <h2>Meetings Reminder</h2>
+  <section class="meetings-card">
+    <div class="meetings-header">
+      <h2>Meetings Reminder</h2>
+    </div>
 
-    <p class="loading-text" *ngIf="loading">Loading requests...</p>
-    <p class="error-message" *ngIf="error">{{ error }}</p>
+    <div *ngFor="let req of meetings" class="meetings-info-card">
+      <!-- Meeting details grid -->
+      <div class="meetings-info-grid">
+        <div class="meetings-info-item">
+          <span class="label">Client Name:</span>
+          <span class="value">{{ req.ClientName }}</span>
+        </div>
 
-    <div class="meeting-card" *ngFor="let req of meetings">
-      <header class="meeting-header">
-        <p><strong>Client Name:</strong> {{ req.ClientName }}</p>
-        <p><strong>Date:</strong> {{ req.Date }}</p>
-        <p><strong>Secretary Name:</strong> {{ req.SecretaryName }}</p>
-        <p><strong>Meeting Time:</strong> {{ req.MeetingTime }}</p>
-        <p><strong>Topic:</strong> {{ req.Topic }}</p>
-      </header>
+        <div class="meetings-info-item">
+          <span class="label">Date:</span>
+          <span class="value">{{ req.Date | date:'short' }}</span>
+        </div>
+
+        <div class="meetings-info-item">
+          <span class="label">Secretary Name:</span>
+          <span class="value">{{ req.SecretaryName }}</span>
+        </div>
+
+        <div class="meetings-info-item">
+          <span class="label">Meeting Time:</span>
+          <span class="value">{{ req.MeetingTime }}</span>
+        </div>
+
+        <div class="meetings-info-item">
+          <span class="label">Topic:</span>
+          <span class="value">{{ req.Topic }}</span>
+        </div>
+      </div>
     </div>
   </section>
-</main>
+

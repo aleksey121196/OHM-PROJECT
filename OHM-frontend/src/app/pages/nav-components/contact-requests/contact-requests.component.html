@@ -1,17 +1,30 @@
-<main class="main-content">
-  <section class="requests-section">
+<section class="contact-card">
+  <div class="contact-header">
     <h2>New Contact Requests</h2>
+  </div>
 
-    <p class="loading-text" *ngIf="loading">Loading requests...</p>
-    <p class="error-message" *ngIf="error">{{ error }}</p>
+  <div *ngFor="let req of Businessrequests" class="contact-info-card">
+    <!-- Request details -->
+    <div class="contact-info-grid">
+      <div class="contact-info-item">
+        <span class="label">Client Name :</span>
+        <span class="value">{{ req.FullName }}</span>
+      </div>
 
-    <div class="request-card" *ngFor="let req of Businessrequests">
-      <header class="request-header">
-        <p><strong>Client Name:</strong> {{ req.FullName }}</p>
-        <p><strong>Date:</strong> {{ req.Date }}</p>
-        <p><strong>Email:</strong> {{ req.Email }}</p>
-        <p><strong>Message:</strong> {{ req.Message }}</p>
-      </header>
+      <div class="contact-info-item">
+        <span class="label">Date :</span>
+        <span class="value">{{ req.Date }}</span>
+      </div>
+
+      <div class="contact-info-item">
+        <span class="label">Email :</span>
+        <span class="value">{{ req.Email }}</span>
+      </div>
+
+      <div class="contact-info-item">
+        <span class="label">Message :</span>
+        <span class="value">{{ req.Message }}</span>
+      </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>

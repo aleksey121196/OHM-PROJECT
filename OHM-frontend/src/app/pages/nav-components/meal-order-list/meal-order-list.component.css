@@ -1,0 +1,118 @@
+/* Card */
+.meal-orders-info-card {
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Section header */
+.meal-orders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4caf50;
+    padding-bottom: 0.5rem;
+    color: #4caf50;
+}
+
+.meal-orders-header h2 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.meal-orders-info-card {
+    margin-top: 2rem;
+}
+
+/* Card header row (task name + select) */
+.meal-orders-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.meal-orders-card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4caf50;
+}
+
+.meal-orders-card-header .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Info grid */
+.meal-orders-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1rem;
+}
+
+.meal-orders-info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meal-orders-info-item .label {
+    font-size: 0.8rem;
+    color: #4caf50;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+.meal-orders-info-item .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+}
+
+
+
+/* Submit Button */
+.meal-list-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-submit {
+    background: #4caf50;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #43a047;
+}
+
+
+
+
+/* Responsive */
+@media(max-width: 768px) {
+    .meal-orders-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meal-orders-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+}

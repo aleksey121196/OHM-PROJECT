@@ -1,0 +1,146 @@
+/* Card */
+.Order-info-card {
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Section header */
+.orders-section h2 {
+    font-size: 1.6rem;
+    margin: 0;
+    color: #4caf50;
+    border-bottom: 2px solid #4caf50;
+    padding-bottom: 0.5rem;
+}
+
+/* Order info card (margin-top adjustment) */
+.Order-info-card {
+    margin-top: 2rem;
+}
+
+/* Card header row (client name + status select) */
+.Order-info-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Order-info-card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4caf50;
+}
+
+.Order-info-card-header .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Info grid (details of order) */
+.Order-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1rem;
+}
+
+.Order-info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.Order-info-item .label {
+    font-size: 0.8rem;
+    color: #4caf50;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+.Order-info-item .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Form styling (status select) */
+form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+}
+
+.form-group {
+    width: auto;
+    position: relative;
+    margin-top: 0.8rem;
+}
+
+.form-group select {
+    min-width: 180px;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group select:focus {
+    border-color: #4caf50;
+    background: #fff;
+    outline: none;
+}
+
+.form-group label {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.6rem;
+    font-size: 0.85rem;
+    color: #777;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    font-weight: bold;
+}
+
+.form-group select:focus+label,
+.form-group select:not(:placeholder-shown)+label {
+    top: -0.8rem;
+    left: 0.5rem;
+    font-size: 0.7rem;
+    color: #4caf50;
+    background: #f4f6f8;
+    padding: 0 0.2rem;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .Order-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .Order-info-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    form {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    /* Adjust select field for smaller screens */
+    .form-group select {
+        width: 100%;
+    }
+}

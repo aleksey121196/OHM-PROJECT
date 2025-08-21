@@ -1,0 +1,79 @@
+/* Card Wrapper */
+
+/* Profile Card Wrapper */
+.contact-card {
+    padding: 18px;
+    border-radius: 14px;
+    background-color: #f4f6f8;
+    color: #333;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    flex-direction: column;
+    gap: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+} 
+
+.contact-info-card {
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Section header */
+.contact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4caf50;
+    padding-bottom: 0.5rem;
+    color: #4caf50;
+}
+
+.contact-header h2 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+/* Card content */
+.contact-info-card {
+    margin-top: 2rem;
+}
+
+/* Info grid */
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1rem;
+}
+
+/* Info items */
+.contact-info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info-item .label {
+    font-size: 0.8rem;
+    color: #4caf50;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+.contact-info-item .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Responsive layout */
+@media(max-width: 768px) {
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+}

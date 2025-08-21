@@ -26,7 +26,7 @@ export class MealMenuComponent implements OnInit {
     vegeterians: '',
     toppings: '',
     salads: '',
-    drinks: ''
+    drinks: '',
   };
   currentMenu: Menu | null = null;
 
@@ -57,7 +57,7 @@ export class MealMenuComponent implements OnInit {
       vegeterians: this.splitAndTrim(this.newMenu.vegeterians),
       toppings: this.splitAndTrim(this.newMenu.toppings),
       salads: this.splitAndTrim(this.newMenu.salads),
-      drinks: this.splitAndTrim(this.newMenu.drinks)
+      drinks: this.splitAndTrim(this.newMenu.drinks),
     };
 
     this.mealMenuService.createMealMenu(menuItems).subscribe(

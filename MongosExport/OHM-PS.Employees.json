@@ -5,7 +5,7 @@
   "FullName": "Aleksey Jan boo ti",
   "Email": "iosydjan@gmail.com",
   "Phone": "054-5246495",
-  "Address": "hamakim 7 st, kiryat bialik",
+  "Address": "hamakim 7 st, kiryat Bialik",
   "Id": "327232138",
   "JobTitle": "Softwear developer",
   "EmploymentDate": "2026-01-01",
@@ -49,7 +49,7 @@
   "Status": "Active",
   "UserName": "TalM",
   "Role": "Manager",
-  "Password": "$2b$10$2YYefxi0dsLMoIOffu4cU.Agnr4WbUK0nHzzgl0AZYD9qYKPm0ItC",
+  "Password": "$2b$10$DSQ1L/qCIlD7zCMOB6pdGeVPKtcfZE0jZ3tFGedbP6TXaKTixlFtu",
   "EmployerName": "OHM power solutions"
 },
 {
@@ -68,6 +68,25 @@
   "UserName": "BOBD",
   "Role": "Employee",
   "Password": "$2b$10$mi3vdr1qL3OvBNs2.7H64OFXVZCfuz2lmwEf6fsPpb7FXONtxHmx2",
+  "EmployerName": "OHM power solutions",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ff9efd6d9e0a15a5a9edf"
+  },
+  "FullName": "Getmyrpofile Test",
+  "Email": "profi@gmail.com",
+  "Phone": "1234567890",
+  "Address": "Shde boker 33, kiryat ata",
+  "Id": "224455547",
+  "JobTitle": "Cnc operator",
+  "EmploymentDate": "16/08/2025",
+  "Department": "Manufacture",
+  "Status": "Active",
+  "UserName": "Gepo",
+  "Role": "Employee",
+  "Password": "$2b$10$9iFxy08KINbkju79nxJhV.3ieUlDdeq/c9sL2Xjyhk/mac3oQmWIC",
   "EmployerName": "OHM power solutions",
   "__v": 0
 }]

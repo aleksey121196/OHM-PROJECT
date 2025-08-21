@@ -1,0 +1,84 @@
+/* Meetings Card Wrapper */
+.meetings-card {
+    padding: 18px;
+    border-radius: 14px;
+    background-color: #f4f6f8;
+    color: #333;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    flex-direction: column;
+    gap: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header with actions */
+.meetings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4caf50;
+    padding-bottom: 0.5rem;
+    color: #4caf50;
+}
+
+.meetings-header h2 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* Meetings Info Card */
+.meetings-info-card {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 14px;
+    background-color: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Meetings Info Grid */
+.meetings-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1rem;
+}
+
+/* Meetings Info Item */
+.meetings-info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meetings-info-item .label {
+    font-size: 0.9rem;
+    color: #4caf50;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+.meetings-info-item .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .meetings-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meetings-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .meetings-info-item .label {
+        font-size: 0.85rem;
+    }
+
+    .meetings-info-item .value {
+        font-size: 0.95rem;
+    }
+}

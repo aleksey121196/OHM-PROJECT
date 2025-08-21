@@ -1,38 +1,52 @@
-<main class="main-content">
-  <section class="orders-section">
-    <h2>Orders List</h2>
+<section class="orders-section">
+  <h2>Orders List</h2>
 
-    <table class="orders-table">
-      <thead>
-        <tr>
-          <th>Client</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Meeting Date</th>
-          <th>Details</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let order of orders">
-          <td>{{ order.ClientFullName }}</td>
-          <td>{{ order.ClientEmail }}</td>
-          <td>{{ order.ClientPhone }}</td>
-          <td>{{ order.MeetingDate | date }}</td>
-          <td>{{ order.OrderDetails }}</td>
-          <td>
-            <select 
-              class="status-select"
-              [value]="order.Status" 
-              (change)="updateStatus(order._id, $event)">
-              <option value="Pending">Pending</option>
-              <option value="Approved">Approved</option>
-              <option value="In Progress">In Progress</option>
-              <option value="Completed">Completed</option>
-            </select>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-</main>
+  <!-- 🔁 One card per order -->
+  <div *ngFor="let order of orders" [attr.aria-label]="'Order: ' + order.ClientFullName" class="Order-info-card">
+
+    <!-- Order header with client name and status update -->
+    <div class="Order-info-card-header">
+      <h3>
+        Client: <span class="value">{{ order.ClientFullName }}</span>
+      </h3>
+
+      <form (change)="updateStatus(order._id, $event)">
+        <div class="form-group">
+          <select [value]="order.Status" [attr.aria-label]="'Change status for ' + order.ClientFullName"
+            class="status-select">
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+          <label>Order Status Update</label>
+        </div>
+      </form>
+    </div>
+
+    <!-- Order details grid -->
+    <div class="Order-info-grid">
+      <div class="Order-info-item">
+        <span class="label">Email:</span>
+        <span class="value">{{ order.ClientEmail }}</span>
+      </div>
+
+      <div class="Order-info-item">
+        <span class="label">Phone:</span>
+        <span class="value">{{ order.ClientPhone }}</span>
+      </div>
+
+      <div class="Order-info-item">
+        <span class="label">Meeting Date:</span>
+        <span class="value">{{ order.MeetingDate | date:'short' }}</span>
+      </div>
+
+      <div class="Order-info-item">
+        <span class="label">Order Details:</span>
+        <span class="value">{{ order.OrderDetails }}</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>

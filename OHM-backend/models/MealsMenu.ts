@@ -8,7 +8,8 @@ const mealMenu = new mongoose.Schema({
     salads: [{ type: String, required: true }],
     drinks: [{ type: String, required: true }],
     
-}, {
+},{
+  timestamps:true,
   collection: 'Meal Menus'
 });
 

@@ -1,58 +1,73 @@
-<main class="main-content">
-  <section class="order-form-section">
+<section class="client-orders-card">
+  
+  <div class="client-orders-header">
     <h2>Add New Order</h2>
+  </div>
 
-    <form class="order-form" (ngSubmit)="submitOrder()" autocomplete="off">
-      <div class="form-group">
-        <input
-          type="text"
-          placeholder="Full Name"
-          [(ngModel)]="order.ClientFullName"
-          name="ClientFullName"
-          required
-        />
-      </div>
+  <form class="client-oredr-form" (ngSubmit)="submitOrder()" autocomplete="off">
 
-      <div class="form-group">
-        <input
-          type="email"
-          placeholder="Email"
-          [(ngModel)]="order.ClientEmail"
-          name="ClientEmail"
-          required
-        />
-      </div>
+    <!-- Client Full Name Field -->
+    <div class="form-group">
+      <input
+        type="text"
+        id="ClientFullName"
+        name="ClientFullName"
+        [(ngModel)]="order.ClientFullName"
+        required
+      />
+      <label for="ClientFullName">Full Name</label>
+    </div>
 
-      <div class="form-group">
-        <input
-          type="text"
-          placeholder="Phone"
-          [(ngModel)]="order.ClientPhone"
-          name="ClientPhone"
-          required
-        />
-      </div>
+    <!-- Client Email Field -->
+    <div class="form-group">
+      <input
+        type="email"
+        id="ClientEmail"
+        name="ClientEmail"
+        [(ngModel)]="order.ClientEmail"
+        required
+      />
+      <label for="ClientEmail">Email</label>
+    </div>
 
-      <div class="form-group">
-        <input
-          type="date"
-          [(ngModel)]="order.MeetingDate"
-          name="MeetingDate"
-        />
-      </div>
+    <!-- Client Phone Field -->
+    <div class="form-group">
+      <input
+        type="text"
+        id="ClientPhone"
+        name="ClientPhone"
+        [(ngModel)]="order.ClientPhone"
+        required
+      />
+      <label for="ClientPhone">Phone</label>
+    </div>
 
-      <div class="form-group">
-        <textarea
-          placeholder="Order Details"
-          [(ngModel)]="order.OrderDetails"
-          name="OrderDetails"
-          required
-        ></textarea>
-      </div>
+    <!-- Meeting Date Field -->
+    <div class="form-group">
+      <input
+        type="date"
+        id="MeetingDate"
+        name="MeetingDate"
+        [(ngModel)]="order.MeetingDate"
+      />
+      <label for="MeetingDate">Meeting Date</label>
+    </div>
 
-      <div class="btn-right">
-        <button type="submit" class="primary-btn">Submit Order</button>
-      </div>
-    </form>
-  </section>
-</main>
+    <!-- Order Details Field -->
+    <div class="form-group">
+      <textarea
+        id="OrderDetails"
+        name="OrderDetails"
+        [(ngModel)]="order.OrderDetails"
+        rows="4"
+        required
+      ></textarea>
+      <label for="OrderDetails">Order Details</label>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="client-order-actions">
+      <button type="submit" class="btn-submit">Submit Order</button>
+    </div>
+  </form>
+</section>

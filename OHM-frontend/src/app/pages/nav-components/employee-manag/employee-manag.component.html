@@ -1,63 +1,164 @@
-<main class="main-content">
-  <h2>Add New Employee</h2>
+<section class="employee-manag-card">
+  <div class="employee-manag-header">
+    <h2>Add New Employee</h2>
+  </div>
 
-  <form class="employee-form" (ngSubmit)="addEmployee()" autocomplete="off">
-
+  <form class="employee-manag-form" (ngSubmit)="addEmployee()" autocomplete="off">
+  
+    <!-- Full Name Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.FullName" name="FullName" placeholder="Full Name" required />
+      <input
+        type="text"
+        id="FullName"
+        name="FullName"
+        [(ngModel)]="newEmployee.FullName"
+        required
+      />
+      <label for="FullName">Full Name</label>
     </div>
 
+    <!-- Email Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.Email" name="Email" placeholder="Email" required />
+      <input
+        type="email"
+        id="Email"
+        name="Email"
+        [(ngModel)]="newEmployee.Email"
+        required
+      />
+      <label for="Email">Email</label>
     </div>
 
+    <!-- Phone Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.Phone" name="Phone" placeholder="Phone" />
+      <input
+        type="text"
+        id="Phone"
+        name="Phone"
+        [(ngModel)]="newEmployee.Phone"
+      />
+      <label for="Phone">Phone</label>
     </div>
 
+    <!-- Address Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.Address" name="Address" placeholder="Address" />
+      <input
+        type="text"
+        id="Address"
+        name="Address"
+        [(ngModel)]="newEmployee.Address"
+      />
+      <label for="Address">Address</label>
     </div>
 
+    <!-- Employee ID Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.Id" name="Id" placeholder="Employee ID" required />
+      <input
+        type="text"
+        id="Id"
+        name="Id"
+        [(ngModel)]="newEmployee.Id"
+        required
+      />
+      <label for="Id">Employee ID</label>
     </div>
 
+    <!-- Job Title Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.JobTitle" name="JobTitle" placeholder="Job Title" />
+      <input
+        type="text"
+        id="JobTitle"
+        name="JobTitle"
+        [(ngModel)]="newEmployee.JobTitle"
+      />
+      <label for="JobTitle">Job Title</label>
     </div>
 
+    <!-- Employment Date Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.EmploymentDate" name="EmploymentDate" placeholder="Employment Date" />
+      <input
+        type="date"
+        id="EmploymentDate"
+        name="EmploymentDate"
+        [(ngModel)]="newEmployee.EmploymentDate"
+      />
+      <label for="EmploymentDate">Employment Date</label>
     </div>
 
+    <!-- Department Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.Department" name="Department" placeholder="Department" />
+      <input
+        type="text"
+        id="Department"
+        name="Department"
+        [(ngModel)]="newEmployee.Department"
+      />
+      <label for="Department">Department</label>
     </div>
 
+    <!-- Status Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.Status" name="Status" placeholder="Status" />
+      <input
+        type="text"
+        id="Status"
+        name="Status"
+        [(ngModel)]="newEmployee.Status"
+      />
+      <label for="Status">Status</label>
     </div>
 
+    <!-- Username Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.UserName" name="UserName" placeholder="Username" required autocomplete="new-username" />
+      <input
+        type="text"
+        id="UserName"
+        name="UserName"
+        [(ngModel)]="newEmployee.UserName"
+        required
+        autocomplete="new-username"
+      />
+      <label for="UserName">Username</label>
     </div>
 
+    <!-- Role Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.Role" name="Role" placeholder="Role" />
+      <input
+        type="text"
+        id="Role"
+        name="Role"
+        [(ngModel)]="newEmployee.Role"
+      />
+      <label for="Role">Role</label>
     </div>
 
+    <!-- Password Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.Password" name="Password" placeholder="Password" type="password" required autocomplete="new-password" />
+      <input
+        type="password"
+        id="Password"
+        name="Password"
+        [(ngModel)]="newEmployee.Password"
+        required
+        autocomplete="new-password"
+      />
+      <label for="Password">Password</label>
     </div>
 
+    <!-- Employer Name Field -->
     <div class="form-group">
-      <input [(ngModel)]="newEmployee.EmployerName" name="EmployerName" placeholder="Employer Name" />
+      <input
+        type="text"
+        id="EmployerName"
+        name="EmployerName"
+        [(ngModel)]="newEmployee.EmployerName"
+      />
+      <label for="EmployerName">Employer Name</label>
     </div>
 
-    <div class="btn-right">
-      <button type="submit" class="primary-btn">Add Employee</button>
+    <!-- Submit Button -->
+    <div class="absence-actions">
+      <button type="submit" class="btn-submit">Add Employee</button>
     </div>
-    
+
   </form>
-</main>
+</section>

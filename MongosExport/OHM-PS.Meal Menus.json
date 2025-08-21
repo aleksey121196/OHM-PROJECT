@@ -1,0 +1,71 @@
+[{
+  "_id": {
+    "$oid": "687e7756951ef9b6e9bcd4f6"
+  },
+  "mainCourses": [
+    "biff",
+    "duck",
+    "shrimp"
+  ],
+  "fishes": [
+    "salamon",
+    "beluga",
+    "shark"
+  ],
+  "vegeterians": [
+    "tofu",
+    "vegy burger"
+  ],
+  "toppings": [
+    "chees",
+    "mashrums",
+    "timatos"
+  ],
+  "salads": [
+    "pod shuboy",
+    "seaser saled",
+    "chiken brest salad"
+  ],
+  "drinks": [
+    "cola",
+    "pepsi",
+    "diet"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a722b2ae64b61236585afa"
+  },
+  "mainCourses": [
+    "biff",
+    "chiken"
+  ],
+  "fishes": [
+    "musht",
+    "salamon"
+  ],
+  "vegeterians": [
+    "corn",
+    "potato"
+  ],
+  "toppings": [
+    "pinaple",
+    "oliv"
+  ],
+  "salads": [
+    "sisar",
+    "tost"
+  ],
+  "drinks": [
+    "soda",
+    "cola"
+  ],
+  "createdAt": {
+    "$date": "2025-08-21T13:44:18.354Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-21T13:44:18.354Z"
+  },
+  "__v": 0
+}]

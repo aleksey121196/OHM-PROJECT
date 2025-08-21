@@ -36,4 +36,17 @@
   "absenceType": "Sick Leave",
   "reason": "corona",
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a3772b61221b87dcbe4977"
+  },
+  "FullName": "Aleksey Jan boo ti",
+  "Id": "327232138",
+  "Department": "Frontend",
+  "fromDate": "2025-08-19",
+  "toDate": "2025-08-20",
+  "absenceType": "Sick Leave",
+  "reason": "testttttt",
+  "__v": 0
 }]

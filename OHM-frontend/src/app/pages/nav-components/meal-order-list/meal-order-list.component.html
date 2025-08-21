@@ -1,32 +1,52 @@
-<h2>Food Orders List</h2>
 <section>
-    <input type="date" [(ngModel)]="selectedDate" (change)="allOrders()">
-    <button (click)="downloadPdf()">Download to PDF</button>
+
+    <div class="meal-orders-header">
+        <h2>Food Orders List</h2>
+    </div>
+
+    <div>
+
+        <div class="meal-orders-info-card" *ngFor="let req of mealOrders">
+
+            <div class="meal-orders-info-grid">
+
+                <div class="meal-orders-info-item">
+                    <span class="label">Order Date :</span>
+                    <span class="value">{{req.OrderDate | date:'short'}}</span>
+                </div>
+
+                <div class="meal-orders-info-item">
+                    <span class="label">Employee Id :</span>
+                    <span class="value">{{req.EmployeeId}}</span>
+                </div>
+            </div>
+
+            <div class="meal-orders-info-grid">
+
+                <div class="meal-orders-info-item">
+                    <span class="label">Full Name :</span>
+                    <span class="value">{{req.FullName}}</span>
+                </div>
+
+                <div class="meal-orders-info-item">
+                    <span class="label">Order Details:</span>
+                    <span class="value">
+                        <ul>
+                            <li>Main Course: {{ req.MainCourse }}</li>
+                            <li>Fish: {{ req.Fish }}</li>
+                            <li>Vegeterian: {{ req.Vegeterian }}</li>
+                            <li>Toppings: {{ req.ToppingOne }}, {{ req.ToppingTwo }}</li>
+                            <li>Salad: {{ req.Salad }}</li>
+                            <li>Drink: {{ req.Drink }}</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="meal-list-action">
+        <button class="btn-submit" (click)="downloadPdf()">Download to PDF</button>
+    </div>
+
 </section>
-<table>
-    <thead>
-        <tr>
-            <th>Order Date</th>
-            <th>Employee ID</th>
-            <th>Full Name</th>
-            <th>Order Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let req of mealOrders">
-            <td>{{ req.OrderDate | date:'short' }}</td>
-            <td>{{ req.EmployeeId }}</td>
-            <td>{{ req.FullName }}</td>
-            <td>
-                <ul>
-                    <li>Main Course: {{ req.MainCourse }}</li>
-                    <li>Fish: {{ req.Fish }}</li>
-                    <li>Vegeterian: {{ req.Vegeterian }}</li>
-                    <li>Toppings: {{ req.ToppingOne }}, {{ req.ToppingTwo }}</li>
-                    <li>Salad: {{ req.Salad }}</li>
-                    <li>Drink: {{ req.Drink }}</li>
-                </ul>
-            </td>
-        </tr>
-    </tbody>
-</table>

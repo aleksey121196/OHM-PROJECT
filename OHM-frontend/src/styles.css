@@ -125,7 +125,7 @@ main {
   flex: 1;
   overflow-y: auto;
   padding: 1rem;
-  background-color: #fff;
+  background-color:  #f4f6f8;
   border-radius: 8px;
   box-shadow: 0 0 12px rgb(0 0 0 / 0.05);
 }
@@ -254,13 +254,9 @@ tbody tr:hover {
 .content section,
 .content article {
   margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
 }
 
-.error {
-  color: #dc2626;
-  font-weight: 700;
-  margin-top: 0.5rem;
-}
 
 @media (max-width: 900px) {
   .content {

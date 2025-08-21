@@ -1,38 +1,53 @@
-<main class="main-content">
-  <section class="employee-requests-section">
+<section>
+
+  <!-- 🔷 Fixed header (shows only once) -->
+  <div class="employee-requests-header">
     <h2>Employee Requests</h2>
+  </div>
 
-    <p class="loading-text" *ngIf="loading">Loading requests...</p>
-    <p class="error-message" *ngIf="error">{{ error }}</p>
+  <!-- 🔁 Each request still rendered in the same format -->
+  <div *ngFor="let req of requests" class="employee-requests-info-card">
 
-    <div class="request-card" *ngFor="let req of requests">
-      <article>
-        <header class="request-header">
-          <p><strong>From:</strong> {{ req.FullName }} ({{ req.Department }})</p>
-          <p><strong>Date:</strong> {{ req.Date | date:'shortDate' }}</p>
-          <p><strong>Type:</strong> {{ req.RequestType }}</p>
-        </header>
-
-        <section class="request-description">
-          <p><strong>Description:</strong> {{ req.RequestDescription }}</p>
-        </section>
-
-        <section class="request-response" *ngIf="req.Response">
-          <p><strong>Response:</strong> {{ req.Response.Text }}</p>
-          <p class="response-meta">By {{ req.Response.Responder }} on {{ req.Response.ResDate | date:'short' }}</p>
-        </section>
-
-        <section class="response-form" *ngIf="!req.Response">
-          <label for="response-{{ req._id }}">Response</label>
-          <textarea
-            [(ngModel)]="responseTexts[req._id]"
-            id="response-{{ req._id }}"
-            rows="2"
-            class="response-textarea"
-          ></textarea>
-          <button class="primary-btn" (click)="sendResponse(req._id)">Send Response</button>
-        </section>
-      </article>
+    <div class="employee-requests-card-header">
+      <h3>From : <span class="value">{{ req.FullName }}</span></h3>
     </div>
-  </section>
-</main>
+
+    <div class="employee-requests-info-grid">
+
+      <div class="employee-requests-info-item">
+        <span class="label">Date :</span>
+        <span class="value">{{ req.Date | date: 'shortDate' }}</span>
+      </div>
+
+      <div class="employee-requests-info-item">
+        <span class="label">Type :</span>
+        <span class="value">{{ req.RequestType }}</span>
+      </div>
+
+      <div class="employee-requests-info-item">
+        <span class="label">Description :</span>
+        <span class="value">{{ req.RequestDescription }}</span>
+      </div>
+
+      <div class="employee-requests-info-item" *ngIf="req.Response">
+        <span class="label">Response :</span>
+        <span class="value">{{ req.Response.Text }}</span>
+      </div>
+
+      <div class="employee-requests-info-item" *ngIf="req.Response">
+        <span class="label">Response Date :</span>
+        <span class="value">{{ req.Response.ResDate | date: 'short' }}</span>
+      </div>
+
+      <div class="employee-requests-info-item" *ngIf="!req.Response">
+        <label class="label" for="response-{{ req._id }}">Response :</label>
+        <textarea [(ngModel)]="responseTexts[req._id]" id="response-{{ req._id }}" rows="2"
+          class="response-textarea"></textarea>
+        <button class="primary-btn" (click)="sendResponse(req._id)">Send Response</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

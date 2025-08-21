@@ -1,6 +1,4 @@
-/* Card Wrapper */
 
-/* Profile Card Wrapper */
 .contact-card {
     padding: 18px;
     border-radius: 14px;
@@ -23,7 +21,6 @@
     margin-bottom: 1.5rem;
 }
 
-/* Section header */
 .contact-header {
     display: flex;
     justify-content: space-between;
@@ -38,19 +35,16 @@
     margin: 0;
 }
 
-/* Card content */
 .contact-info-card {
     margin-top: 2rem;
 }
 
-/* Info grid */
 .contact-info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem 1rem;
 }
 
-/* Info items */
 .contact-info-item {
     display: flex;
     flex-direction: column;
@@ -71,7 +65,6 @@
     color: #222;
 }
 
-/* Responsive layout */
 @media(max-width: 768px) {
     .contact-info-grid {
         grid-template-columns: 1fr;

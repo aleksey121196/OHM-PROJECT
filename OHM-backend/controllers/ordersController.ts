@@ -11,7 +11,6 @@ export const addOrder = async (req: Request, res: Response) => {
   }
 };
 
-// Get all orders
 export const getOrders = async (_req: Request, res: Response) => {
   try {
     const getorders = await orders.find();

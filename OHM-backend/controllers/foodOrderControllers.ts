@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { FoodOrder } from "../models/foodOrder";
 export const AddNewFoodOrder = async (req: Request, res: Response) => {
   try {
-    // Input validation
     const {
       EmployeeId,
       FullName,
@@ -31,12 +30,10 @@ export const AddNewFoodOrder = async (req: Request, res: Response) => {
       return;
     }
 
-    // Validate EmployeeId if provided and normalize it for saving as a string
     let employeeIdToSave: string | undefined = undefined;
     if (EmployeeId !== undefined && EmployeeId !== null) {
       const s = String(EmployeeId).trim();
       if (s.length > 0) {
-        //Limit EmployeeId length to 9 characters
         if (s.length > 9){
             res.status(400).json({ error: 'EmployeeId too long' });
             return;
@@ -45,7 +42,6 @@ export const AddNewFoodOrder = async (req: Request, res: Response) => {
       }
     }
 
-    // Parse/normalize OrderDate if provided (if not, will use default: Date.now)
     let parsedOrderDate: Date | undefined = undefined;
     if (OrderDate !== undefined && OrderDate !== null && String(OrderDate).trim().length > 0) {
       const tmp = new Date(String(OrderDate));
@@ -56,7 +52,6 @@ export const AddNewFoodOrder = async (req: Request, res: Response) => {
       parsedOrderDate = tmp;
     }
 
-    //Build the object to save
     const newFoodOrderData: any = {
       EmployeeId: employeeIdToSave,
       FullName,
@@ -84,7 +79,6 @@ export const AddNewFoodOrder = async (req: Request, res: Response) => {
 export const getUserOrderHistory = async (req: Request, res: Response) => {
   try {
     const userId = req.params.userId;
-    // מאחר ואתה שומר EmployeeId כמחרוזת — נוודא שמתקבל string תקין
     if (!userId || typeof userId !== 'string' || userId.trim().length === 0) {
       res.status(400).json({ error: 'userId required and must be a non-empty string' });
       return;
@@ -112,7 +106,6 @@ export const getMealOrders = async (req: Request, res: Response) => {
       return;
     }
 
-    // Validate date format
     const ymdRegex = /^\d{4}-\d{2}-\d{2}$/;
     let dateOnly: string;
     if (ymdRegex.test(dateRaw)) {

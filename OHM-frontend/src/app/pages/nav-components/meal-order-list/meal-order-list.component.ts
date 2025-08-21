@@ -28,7 +28,6 @@ export class MealOrderListComponent implements OnInit {
   }
 
   downloadPdf() {
-    //implement functionality
     console.log('Dowloading PDF...')
   }
 }

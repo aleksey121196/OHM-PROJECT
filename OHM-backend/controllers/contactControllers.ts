@@ -1,4 +1,3 @@
-// controllers/contactController.ts
 import { Request, Response } from 'express';
 import { ContactRequest } from '../models/ContactRequest';
 

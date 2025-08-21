@@ -27,7 +27,6 @@ export class TaskStatusComponent implements OnInit {
     });
   }
 
-  // Helper method to get the selected value safely
   getSelectedValue(event: Event): string {
     const target = event.target as HTMLSelectElement | null;
     return target?.value ?? '';

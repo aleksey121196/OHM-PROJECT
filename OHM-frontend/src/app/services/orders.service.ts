@@ -21,6 +21,6 @@ export class OrdersService {
   }
 
   updateOrderStatus(orderId: string, status: string): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${orderId}/status`, {  status });  // capital S here
+    return this.http.put(`${this.apiUrl}/${orderId}/status`, {  status });  
   }
 }

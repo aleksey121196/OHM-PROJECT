@@ -19,7 +19,7 @@ interface WeeklyDepartmentPerformance{
   standalone: true,
   imports: [CommonModule],
   templateUrl: './manager-performance-dashboard.component.html',
-  styleUrls: ['./manager-performance-dashboard.component.css'] // ✅ fixed typo: `styleUrl` ➜ `styleUrls`
+  styleUrls: ['./manager-performance-dashboard.component.css'] 
 })
 export class ManagerPerformanceDashboardComponent implements OnInit {
 
@@ -51,7 +51,6 @@ export class ManagerPerformanceDashboardComponent implements OnInit {
 
 
   ngAfterViewInit(): void {
-    // If data already loaded before view init
     if (this.WeeklyDepartmentPerformance.length > 0) {
       this.renderChart();
     }
@@ -60,7 +59,6 @@ export class ManagerPerformanceDashboardComponent implements OnInit {
   private renderChart(): void {
     if (!this.WeeklyDepartmentPerformance || this.WeeklyDepartmentPerformance.length === 0) return;
 
-    // Destroy existing chart before re-creating
     if (this.DepChart) {
       this.DepChart.destroy();
     }

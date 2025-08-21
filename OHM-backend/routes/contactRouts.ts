@@ -1,4 +1,3 @@
-// routes/contactRoutes.ts
 import express from 'express';
 import { addContactData, getBusinessRequests } from '../controllers/contactControllers';
 

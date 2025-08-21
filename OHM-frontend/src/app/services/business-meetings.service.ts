@@ -14,7 +14,7 @@ export class BusinessMeetingsService {
     };
   }
 
-  private apiUrl = 'http://localhost:3000/api/businessMeetings'; // Adjust as needed
+  private apiUrl = 'http://localhost:3000/api/businessMeetings'; 
 
   constructor(private http: HttpClient) { }
 

@@ -15,7 +15,7 @@ export class WorkPlanComponent implements OnInit {
   PlanTitle = '';
   WeekStartDate = '';
   Notes = '';
-  Department = '';  // Will get from JWT via EmployeeService
+  Department = '';  
   Tasks: any[] = [];
 
   constructor(private workPlanService: WorkPlanService, private employeeService: EmployeeService) {}

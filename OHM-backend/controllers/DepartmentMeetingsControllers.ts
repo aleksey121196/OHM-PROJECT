@@ -14,7 +14,7 @@ export const AddNewDepartmentMeeting = async (req: Request, res: Response) =>{
 export const getMeetingsByDepartment = async (req: Request, res: Response) => {
   try {
     const  MeetingByDepartment= req.user.Department;
-    const DepMeetings = await DepartmentMeetings.find({ Department: MeetingByDepartment }); // ✅ FIXED
+    const DepMeetings = await DepartmentMeetings.find({ Department: MeetingByDepartment }); 
     res.status(200).json(DepMeetings);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching Busines Meeting', error });

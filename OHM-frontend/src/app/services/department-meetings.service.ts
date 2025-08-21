@@ -15,7 +15,7 @@ export class DepartmentMeetingsService {
     };
   }
 
-  private apiUrl = 'http://localhost:3000/api/DepartmentMeetings'; // Adjust as needed
+  private apiUrl = 'http://localhost:3000/api/DepartmentMeetings'; 
 
   constructor(private http: HttpClient) { }
 

@@ -27,15 +27,13 @@ export const createMenu = async (req: Request, res: Response) => {
 
 export const getMenu = async (req: Request, res: Response) => {
     try {
-        // Get the start and end of today
-        const startOfToday = moment().startOf('day').toDate(); // Midnight today
-        const endOfToday = moment().endOf('day').toDate(); // Just before midnight today
+        const startOfToday = moment().startOf('day').toDate(); 
+        const endOfToday = moment().endOf('day').toDate(); 
 
-        // Query to fetch menus created today
         const todaysMenus = await Menu.find({
             createdAt: {
-                $gte: startOfToday,  // Greater than or equal to midnight today
-                $lte: endOfToday     // Less than or equal to just before midnight today
+                $gte: startOfToday,  
+                $lte: endOfToday     
             }
         });
 

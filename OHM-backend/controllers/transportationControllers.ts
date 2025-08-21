@@ -23,10 +23,9 @@ export const getAllTransportations = async (req: Request, res: Response) => {
 
 export const getTodayTransportations = async (req: Request, res: Response) => {
   try {
-    const userId = req.user.Id; // from JWT middleware
+    const userId = req.user.Id; 
 
-    // Get today's date in the same format as stored
-    const todayStr = moment().format('YYYY-MM-DD'); // adjust format if needed
+    const todayStr = moment().format('YYYY-MM-DD'); 
 
     const todayRequests = await Transportation.find({
       Id: userId,

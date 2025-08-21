@@ -50,7 +50,6 @@ export class EmployeePerformanceDashboardComponent implements OnInit, AfterViewI
   }
 
   ngAfterViewInit(): void {
-    // If data already loaded before view init
     if (this.weeklyPerformance.length > 0) {
       this.renderChart();
     }
@@ -59,7 +58,6 @@ export class EmployeePerformanceDashboardComponent implements OnInit, AfterViewI
   private renderChart(): void {
     if (!this.weeklyPerformance || this.weeklyPerformance.length === 0) return;
 
-    // Destroy existing chart before re-creating
     if (this.chart) {
       this.chart.destroy();
     }

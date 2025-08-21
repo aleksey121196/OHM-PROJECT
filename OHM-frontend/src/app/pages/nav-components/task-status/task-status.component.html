@@ -1,14 +1,11 @@
 <section *ngIf="tasks && tasks.length > 0">
 
-  <!-- ✅ Fixed header: shown once -->
   <div class="Task-Status-header">
     <h2>My Assigned Tasks</h2>
   </div>
 
-  <!-- 🔁 One card per task -->
   <div *ngFor="let task of tasks" [attr.aria-label]="'Task: ' + task.TaskName" class="Task-Status-info-card">
 
-    <!-- Task header with name and status update -->
     <div class="Task-Status-card-header">
       <h3>
         Task Name: <span class="value">{{ task.TaskName }}</span>
@@ -26,7 +23,6 @@
       </form>
     </div>
 
-    <!-- Task detail grid -->
     <div class="Task-Status-info-grid">
       <div class="Task-Status-info-item">
         <span class="label">Description:</span>

@@ -40,7 +40,7 @@ export class MealMenuComponent implements OnInit {
     this.mealMenuService.getMealMenu().subscribe(
       (menus: Menu[]) => {
         if (menus && menus.length > 0) {
-          this.currentMenu = menus[menus.length - 1]; // Assuming we're working with the most recent menu
+          this.currentMenu = menus[menus.length - 1]; 
         }
       },
       (error) => {

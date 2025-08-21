@@ -1,10 +1,8 @@
 <section class="orders-section">
   <h2>Orders List</h2>
 
-  <!-- 🔁 One card per order -->
   <div *ngFor="let order of orders" [attr.aria-label]="'Order: ' + order.ClientFullName" class="Order-info-card">
 
-    <!-- Order header with client name and status update -->
     <div class="Order-info-card-header">
       <h3>
         Client: <span class="value">{{ order.ClientFullName }}</span>
@@ -24,7 +22,6 @@
       </form>
     </div>
 
-    <!-- Order details grid -->
     <div class="Order-info-grid">
       <div class="Order-info-item">
         <span class="label">Email:</span>

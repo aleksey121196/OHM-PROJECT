@@ -46,7 +46,7 @@ export class RequestManagmentComponent implements OnInit{
         if (index > -1) {
           this.requests[index] = updatedRequest;
         }
-        this.responseTexts[requestId] = ''; // clear input
+        this.responseTexts[requestId] = ''; 
       },
       error: () => {
         alert('Failed to send response');

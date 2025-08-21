@@ -58,7 +58,6 @@ export const addEmployee = async (req: Request, res: Response) => {
   try {
     const { Password, ...rest } = req.body;
 
-    // Hash the password before saving
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(Password, saltRounds);
 
@@ -77,13 +76,12 @@ export const addEmployee = async (req: Request, res: Response) => {
 
 export const getMyProfile = async (req: Request, res: Response) => {
   try {
-    // req.user will come from JWT middleware
     const userId = req.user?.Id;
     if (!userId) {
       res.status(401).json({ message: 'Unauthorized' });
       return;
     }
-    const employee = await Employee.findOne({ Id: userId }).select('-Password'); // exclude password
+    const employee = await Employee.findOne({ Id: userId }).select('-Password'); 
     if (!employee) {
       res.status(404).json({ message: 'Employee not found' });
       return;

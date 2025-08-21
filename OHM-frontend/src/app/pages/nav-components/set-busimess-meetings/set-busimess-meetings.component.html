@@ -4,37 +4,31 @@
   </div>
 
   <form class="bussines-meetings-form" (ngSubmit)="submitBusinessMeeting()" autocomplete="off">
-    <!-- Date Field -->
     <div class="form-group">
       <input type="date" id="Date" name="Date" [(ngModel)]="Date" required />
       <label for="Date">Date</label>
     </div>
 
-    <!-- Meeting Time Field -->
     <div class="form-group">
       <input type="time" id="MeetingTime" name="MeetingTime" [(ngModel)]="MeetingTime" required />
       <label for="MeetingTime">Meeting Time</label>
     </div>
 
-    <!-- Client Name Field -->
     <div class="form-group">
       <input type="text" id="ClientName" name="ClientName" [(ngModel)]="ClientName" required />
       <label for="ClientName">Client Name</label>
     </div>
 
-    <!-- Manager Name Field -->
     <div class="form-group">
       <input type="text" id="ManagerName" name="ManagerName" [(ngModel)]="ManagerName" required />
       <label for="ManagerName">Manager Name</label>
     </div>
 
-    <!-- Topic Field -->
     <div class="form-group">
       <textarea id="Topic" name="Topic" [(ngModel)]="Topic" rows="4" required></textarea>
       <label for="Topic">Topic</label>
     </div>
 
-    <!-- Submit Button -->
     <div class="bussines-meetings-actions">
       <button type="submit" class="btn-submit">Submit</button>
     </div>

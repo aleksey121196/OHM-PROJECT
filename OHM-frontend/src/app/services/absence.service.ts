@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AbsenceService {
-  private apiUrl = 'http://localhost:3000/api/absence'; // Adjust as needed
+  private apiUrl = 'http://localhost:3000/api/absence'; 
 
   constructor(private http: HttpClient) {}
 

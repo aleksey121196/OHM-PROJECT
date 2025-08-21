@@ -16,7 +16,6 @@ export const getRequestsByDepartment = async (req: Request, res: Response) => {
   try {
     const managerDepartment = req.user.Department;
     const requests = await Requests.find({ Department: managerDepartment }); // ✅ FIXED
-    res.status(200).json(requests);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching requests', error });
   }
@@ -30,7 +29,7 @@ export const respondToRequest = async (req: Request, res: Response) => {
 
     const responseData = {
       Text: text,
-      Responder: req.user.FullName, // assuming your auth middleware adds this
+      Responder: req.user.FullName, 
       ResDate: new Date().toISOString()
     };
 
@@ -47,10 +46,9 @@ export const respondToRequest = async (req: Request, res: Response) => {
 };
 
 
-// מניח שהמשתמש מזוהה ויש לך את userId מתוך הטוקן או הפרמטרים
 export const getRequestsByUser = async (req: Request, res: Response) => {
   try {
-    const userId = req.user._id;  // או req.params.userId אם אתה שולח בפרמטר
+    const userId = req.user._id;    
     const requests = await Requests.find({ userId });
     res.status(200).json(requests);
   } catch (error) {

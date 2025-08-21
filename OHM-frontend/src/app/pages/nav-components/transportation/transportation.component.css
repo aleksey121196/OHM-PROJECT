@@ -1,4 +1,3 @@
-/* Profile Card Wrapper */
 .Transportation-card {
   padding: 18px;
   border-radius: 14px;
@@ -11,7 +10,6 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Header with actions */
 .Transportation-header {
   display: flex;
   justify-content: space-between;
@@ -40,7 +38,7 @@
   background: #43a047;
 }
 
-/* Form */
+
 form {
   display: flex;
   gap: 2rem;
@@ -49,7 +47,7 @@ form {
 
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 equal inputs per row */
+  grid-template-columns: 1fr 1fr; 
   gap: 2rem;
 }
 
@@ -97,7 +95,6 @@ form {
   padding: 0 0.2rem;
 }
 
-/* Employee Card - static info */
 .Transportation-info-card {
   border-radius: 14px;
   background: #fff;
@@ -135,7 +132,6 @@ form {
 }
 
 
-/* Responsive */
 @media(max-width: 768px) {
   .form-row { flex-direction: column; }
   .Transportation-info-grid { grid-template-columns: 1fr; }

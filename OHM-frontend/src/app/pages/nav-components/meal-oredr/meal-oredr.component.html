@@ -20,7 +20,6 @@
     </div>
 
     <form *ngIf="currentMenu" (ngSubmit)="submitFoodOrder()" class="absence-form">
-        <!-- Main Course Field -->
         <div class="form-group">
             <select id="MainCourse" name="MainCourse" [(ngModel)]="newOrder.MainCourse" required>
                 <option value="">Select Main Course</option>
@@ -29,7 +28,6 @@
             <label for="MainCourse">Main Course</label>
         </div>
 
-        <!-- Fish Field -->
         <div class="form-group">
             <select id="Fish" name="Fish" [(ngModel)]="newOrder.Fish" required>
                 <option value="">Select Fish</option>
@@ -38,7 +36,6 @@
             <label for="Fish">Fish</label>
         </div>
 
-        <!-- Vegetarian Field -->
         <div class="form-group">
             <select id="Vegeterian" name="Vegeterian" [(ngModel)]="newOrder.Vegeterian" required>
                 <option value="">Select Vegetarian</option>
@@ -47,7 +44,6 @@
             <label for="Vegeterian">Vegetarian</label>
         </div>
 
-        <!-- Salad Field -->
         <div class="form-group">
             <select id="Salad" name="Salad" [(ngModel)]="newOrder.Salad" required>
                 <option value="">Select Salad</option>
@@ -56,7 +52,6 @@
             <label for="Salad">Salad</label>
         </div>
 
-        <!-- Topping One Field -->
         <div class="form-group">
             <select id="ToppingOne" name="ToppingOne" [(ngModel)]="newOrder.ToppingOne" required>
                 <option value="">Select Topping One</option>
@@ -65,7 +60,6 @@
             <label for="ToppingOne">Topping One</label>
         </div>
 
-        <!-- Topping Two Field -->
         <div class="form-group">
             <select id="ToppingTwo" name="ToppingTwo" [(ngModel)]="newOrder.ToppingTwo" required>
                 <option value="">Select Topping Two</option>
@@ -74,7 +68,6 @@
             <label for="ToppingTwo">Topping Two</label>
         </div>
 
-        <!-- Drink Field -->
         <div class="form-group">
             <select id="Drink" name="Drink" [(ngModel)]="newOrder.Drink" required>
                 <option value="">Select Drink</option>
@@ -83,13 +76,11 @@
             <label for="Drink">Drink</label>
         </div>
 
-        <!-- Submit Button -->
         <div class="meal-order-actions">
             <button type="submit" class="btn-submit">Submit Order</button>
         </div>
     </form>
 
-    <!-- No Current Menu Message -->
     <div class="no-menu" *ngIf="!currentMenu">
         <p>No current menu available</p>
     </div>

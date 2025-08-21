@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class OverTimeService {
 
-  private apiUrl = 'http://localhost:3000/api/overTime'; // Adjust as needed
+  private apiUrl = 'http://localhost:3000/api/overTime'; 
 
   constructor(private http: HttpClient) {}
 

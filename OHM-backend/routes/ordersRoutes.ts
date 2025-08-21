@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.post('/', addOrder);
 router.get('/', getOrders);
-router.put('/:id/status', updateOrderStatus); // ✅ This will now work
+router.put('/:id/status', updateOrderStatus); 
 
 export default router;

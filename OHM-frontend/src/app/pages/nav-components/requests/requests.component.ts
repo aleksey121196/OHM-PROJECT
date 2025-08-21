@@ -17,7 +17,7 @@ export class RequestsComponent implements OnInit {
   RequestType: string = '';
   RequestDescription: string = '';
 
-  reqdata: any[] = []; // store all requests here
+  reqdata: any[] = []; 
 
   constructor(private requestService: RequestService, private employeeService: EmployeeService) {}
 
@@ -49,7 +49,7 @@ export class RequestsComponent implements OnInit {
       Id: user.Id,
       FullName: user.FullName,
       Department: user.Department,
-      Date: new Date(),  // use current date here
+      Date: new Date(),  
       RequestType: this.RequestType,
       RequestDescription: this.RequestDescription
     };
@@ -58,7 +58,7 @@ export class RequestsComponent implements OnInit {
       next: () => {
         alert('Request submitted successfully');
         this.clearForm();
-        this.loadRequests(); // refresh the list to show new request
+        this.loadRequests(); 
       },
       error: () => {
         alert('Failed to submit request');

@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 const { Schema, model } = mongoose;
 
-// Task schema
 const TaskSchema = new Schema({
   TaskName: { type: String, required: true, trim: true },
   TaskDescription: { type: String, required: true, trim: true },
@@ -14,10 +13,9 @@ const TaskSchema = new Schema({
     enum: ['Pending', 'In Progress', 'Completed', 'On Hold'],
     default: 'Pending' 
   },
-  CompletedAt: { type: Date } // שדה חדש לזמן סיום בפועל
+  CompletedAt: { type: Date }   
 }, { _id: true });
 
-// Weekly work plan schema
 const WeeklyWorkPlanSchema = new Schema({
   PlanTitle: { type: String, required: true, trim: true },
   WeekStartDate: { type: Date, required: true },

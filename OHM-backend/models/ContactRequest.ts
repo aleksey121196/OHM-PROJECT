@@ -1,4 +1,3 @@
-// models/ContactRequest.ts
 import mongoose from 'mongoose';
 
 const contactRequestSchema = new mongoose.Schema({

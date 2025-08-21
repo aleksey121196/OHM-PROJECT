@@ -5,7 +5,7 @@ import { authenticateJWT } from '../Middleware/auth.middleware';
 const router = express.Router();
 
 router.post('/add', authenticateJWT, addTransportation);
-router.get('/My', authenticateJWT, getTodayTransportations); // fetch only current user
-router.get('/all', getAllTransportations); // optional: fetch all for admin
+router.get('/My', authenticateJWT, getTodayTransportations); 
+router.get('/all', getAllTransportations); 
 
 export default router;

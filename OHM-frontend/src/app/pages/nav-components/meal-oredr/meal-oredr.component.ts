@@ -138,20 +138,7 @@ export class MealOredrComponent implements OnInit {
       this.createRecomendation(undefined, undefined, undefined, undefined, undefined, topSalad[0], topDrink[0]),
     ];
 
-    /*while (this.recommendations.length < 3) {
-      const defaultOptions = [
-        'Grilled Chicken Breast',
-        'Grilled Kebabs'
-      ];
-      for (const option of defaultOptions) {
-        if (!this.recommendations.includes(option)) {
-          this.recommendations.push(option);
-          if (this.recommendations.length === 3) break;
-        }
-      }
-    }
-    console.log('Recomendations:', this.recommendations);
-    */
+
   }
 
   private getTopItems(counts: { [key: string]: number }, num: number): string[] {
@@ -195,7 +182,6 @@ export class MealOredrComponent implements OnInit {
     this.newOrder.ToppingTwo = recommendation.toppingTwo || '';
     this.newOrder.Salad = recommendation.salad || '';
     this.newOrder.Drink = recommendation.drink || '';
-    //console.log('Main Course:', this.MainCourse);
   }
 
   submitFoodOrder(): void {

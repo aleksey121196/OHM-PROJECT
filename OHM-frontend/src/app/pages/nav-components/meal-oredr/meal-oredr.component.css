@@ -151,3 +151,85 @@ form {
     color: #999;
     margin-top: 20px;
 }
+
+.field-note {
+    display: block;
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    font-style: italic;
+}
+
+.field-required {
+    display: block;
+    color: #3498db;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    font-weight: bold;
+}
+
+/* Today's order styles */
+.today-order-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #4caf50;
+}
+
+.today-order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.today-order-header h3 {
+    color: #4caf50;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.order-date {
+    color: #777;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.today-order-details ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.today-order-details li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.today-order-details li:last-child {
+    border-bottom: none;
+}
+
+.today-order-details strong {
+    color: #555;
+    display: inline-block;
+    width: 120px;
+}
+
+.today-order-message {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border-left: 3px solid #4caf50;
+}
+
+.today-order-message p {
+    margin: 0;
+    color: #555;
+    font-style: italic;
+}

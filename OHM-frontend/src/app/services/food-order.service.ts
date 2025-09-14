@@ -19,5 +19,9 @@ export class FoodOrderService {
   getUserOrderHistory(userId: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/history/${userId}`);
   }
+  
+  getUserTodayOrder(userId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/today/${userId}`);
+  }
 
 }

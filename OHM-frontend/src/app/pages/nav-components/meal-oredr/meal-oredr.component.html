@@ -3,69 +3,101 @@
         <h2>Food Order Form</h2>
     </div>
 
-    <div class="recommendation-container">
-        <div *ngFor="let recommendation of recommendations; let i = index" class="recommendation-card">
-            <h3>Option {{ i + 1 }}</h3>
+    <!-- Display today's order if one exists -->
+    <div *ngIf="hasOrderForToday && todayOrder" class="today-order-container">
+        <div class="today-order-header">
+            <h3>Your Today's Order</h3>
+            <p class="order-date">Ordered on: {{ todayOrder.OrderDate | date:'medium' }}</p>
+        </div>
+        <div class="today-order-details">
             <ul>
-                <li *ngIf="recommendation.mainCourse">Main Course: {{ recommendation.mainCourse }}</li>
-                <li *ngIf="recommendation.vegeterian">Vegetarian: {{ recommendation.vegeterian }}</li>
-                <li *ngIf="recommendation.fish">Fish: {{ recommendation.fish }}</li>
-                <li *ngIf="recommendation.toppingOne">Topping One: {{ recommendation.toppingOne }}</li>
-                <li *ngIf="recommendation.toppingTwo">Topping Two: {{ recommendation.toppingTwo }}</li>
-                <li *ngIf="recommendation.salad">Salad: {{ recommendation.salad }}</li>
-                <li *ngIf="recommendation.drink">Drink: {{ recommendation.drink }}</li>
+                <li *ngIf="todayOrder.MainCourse"><strong>Main Course:</strong> {{ todayOrder.MainCourse }}</li>
+                <li *ngIf="todayOrder.Fish"><strong>Fish:</strong> {{ todayOrder.Fish }}</li>
+                <li *ngIf="todayOrder.Vegeterian"><strong>Vegetarian:</strong> {{ todayOrder.Vegeterian }}</li>
+                <li *ngIf="todayOrder.Salad"><strong>Salad:</strong> {{ todayOrder.Salad }}</li>
+                <li *ngIf="todayOrder.ToppingOne"><strong>Topping One:</strong> {{ todayOrder.ToppingOne }}</li>
+                <li *ngIf="todayOrder.ToppingTwo"><strong>Topping Two:</strong> {{ todayOrder.ToppingTwo }}</li>
+                <li *ngIf="todayOrder.Drink"><strong>Drink:</strong> {{ todayOrder.Drink }}</li>
             </ul>
-            <button type="button" class="primary-btn" (click)="applyRecomendation(recommendation)">Select</button>
+        </div>
+        <div class="today-order-message">
+            <p>You have already placed an order for today. You can place another order tomorrow.</p>
         </div>
     </div>
 
-    <form *ngIf="currentMenu" (ngSubmit)="submitFoodOrder()" class="absence-form">
+    <!-- Show recommendations and form only if no order for today -->
+    <div *ngIf="!hasOrderForToday">
+        <div class="recommendation-container">
+            <div *ngFor="let recommendation of recommendations; let i = index" class="recommendation-card">
+                <h3>Option {{ i + 1 }}</h3>
+                <ul>
+                    <li *ngIf="recommendation.mainCourse">Main Course: {{ recommendation.mainCourse }}</li>
+                    <li *ngIf="recommendation.vegeterian">Vegetarian: {{ recommendation.vegeterian }}</li>
+                    <li *ngIf="recommendation.fish">Fish: {{ recommendation.fish }}</li>
+                    <li *ngIf="recommendation.toppingOne">Topping One: {{ recommendation.toppingOne }}</li>
+                    <li *ngIf="recommendation.toppingTwo">Topping Two: {{ recommendation.toppingTwo }}</li>
+                    <li *ngIf="recommendation.salad">Salad: {{ recommendation.salad }}</li>
+                    <li *ngIf="recommendation.drink">Drink: {{ recommendation.drink }}</li>
+                </ul>
+                <button type="button" class="primary-btn" (click)="applyRecomendation(recommendation)">Select</button>
+            </div>
+        </div>
+
+        <form *ngIf="currentMenu" (ngSubmit)="submitFoodOrder()" class="absence-form">
         <div class="form-group">
-            <select id="MainCourse" name="MainCourse" [(ngModel)]="newOrder.MainCourse" required>
+            <select id="MainCourse" name="MainCourse" [(ngModel)]="newOrder.MainCourse" (ngModelChange)="updateDisabledFields()" [disabled]="fieldsDisabled.MainCourse" [required]="!fieldsDisabled.MainCourse">
                 <option value="">Select Main Course</option>
                 <option *ngFor="let item of currentMenu.mainCourses" [value]="item">{{ item }}</option>
             </select>
             <label for="MainCourse">Main Course</label>
+            <small *ngIf="fieldsDisabled.MainCourse" class="field-note">Not available with current selection</small>
         </div>
 
         <div class="form-group">
-            <select id="Fish" name="Fish" [(ngModel)]="newOrder.Fish" required>
+            <select id="Fish" name="Fish" [(ngModel)]="newOrder.Fish" (ngModelChange)="updateDisabledFields()" [disabled]="fieldsDisabled.Fish" [required]="!fieldsDisabled.Fish">
                 <option value="">Select Fish</option>
                 <option *ngFor="let item of currentMenu.fishes" [value]="item">{{ item }}</option>
             </select>
             <label for="Fish">Fish</label>
+            <small *ngIf="fieldsDisabled.Fish" class="field-note">Not available with current selection</small>
         </div>
 
         <div class="form-group">
-            <select id="Vegeterian" name="Vegeterian" [(ngModel)]="newOrder.Vegeterian" required>
+            <select id="Vegeterian" name="Vegeterian" [(ngModel)]="newOrder.Vegeterian" (ngModelChange)="updateDisabledFields()" [disabled]="fieldsDisabled.Vegeterian" [required]="!fieldsDisabled.Vegeterian">
                 <option value="">Select Vegetarian</option>
                 <option *ngFor="let item of currentMenu.vegeterians" [value]="item">{{ item }}</option>
             </select>
             <label for="Vegeterian">Vegetarian</label>
+            <small *ngIf="fieldsDisabled.Vegeterian" class="field-note">Not available with current selection</small>
         </div>
 
         <div class="form-group">
-            <select id="Salad" name="Salad" [(ngModel)]="newOrder.Salad" required>
+            <select id="Salad" name="Salad" [(ngModel)]="newOrder.Salad" (ngModelChange)="updateDisabledFields()" [disabled]="fieldsDisabled.Salad" [required]="!fieldsDisabled.Salad">
                 <option value="">Select Salad</option>
                 <option *ngFor="let item of currentMenu.salads" [value]="item">{{ item }}</option>
             </select>
             <label for="Salad">Salad</label>
+            <small *ngIf="fieldsDisabled.Salad" class="field-note">Not available with current selection</small>
         </div>
 
         <div class="form-group">
-            <select id="ToppingOne" name="ToppingOne" [(ngModel)]="newOrder.ToppingOne" required>
+            <select id="ToppingOne" name="ToppingOne" [(ngModel)]="newOrder.ToppingOne" [disabled]="fieldsDisabled.ToppingOne" [required]="!fieldsDisabled.ToppingOne && (newOrder.MainCourse || newOrder.Fish || newOrder.Vegeterian)">
                 <option value="">Select Topping One</option>
                 <option *ngFor="let item of currentMenu.toppings" [value]="item">{{ item }}</option>
             </select>
             <label for="ToppingOne">Topping One</label>
+            <small *ngIf="fieldsDisabled.ToppingOne" class="field-note">Not available with current selection</small>
+            <small *ngIf="!fieldsDisabled.ToppingOne && (newOrder.MainCourse || newOrder.Fish || newOrder.Vegeterian)" class="field-required">Required with your selection</small>
         </div>
 
         <div class="form-group">
-            <select id="ToppingTwo" name="ToppingTwo" [(ngModel)]="newOrder.ToppingTwo" required>
+            <select id="ToppingTwo" name="ToppingTwo" [(ngModel)]="newOrder.ToppingTwo" [disabled]="fieldsDisabled.ToppingTwo" [required]="!fieldsDisabled.ToppingTwo && (newOrder.MainCourse || newOrder.Fish || newOrder.Vegeterian)">
                 <option value="">Select Topping Two</option>
                 <option *ngFor="let item of currentMenu.toppings" [value]="item">{{ item }}</option>
             </select>
             <label for="ToppingTwo">Topping Two</label>
+            <small *ngIf="fieldsDisabled.ToppingTwo" class="field-note">Not available with current selection</small>
+            <small *ngIf="!fieldsDisabled.ToppingTwo && (newOrder.MainCourse || newOrder.Fish || newOrder.Vegeterian)" class="field-required">Required with your selection</small>
         </div>
 
         <div class="form-group">
@@ -81,7 +113,8 @@
         </div>
     </form>
 
-    <div class="no-menu" *ngIf="!currentMenu">
+    <div class="no-menu" *ngIf="!currentMenu && !hasOrderForToday">
         <p>No current menu available</p>
     </div>
+    </div> <!-- Close the !hasOrderForToday div -->
 </section>

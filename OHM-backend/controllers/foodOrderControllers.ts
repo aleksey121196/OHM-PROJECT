@@ -16,17 +16,24 @@ export const AddNewFoodOrder = async (req: Request, res: Response) => {
     } = req.body;
 
     const isValidString = (v: any) => typeof v === 'string' && v.length <= 100;
+    const isValidOptionalString = (v: any) => v === undefined || v === null || v === '' || isValidString(v);
 
     if (
-      !isValidString(MainCourse) ||
-      !isValidString(Fish) ||
-      !isValidString(Vegeterian) ||
-      !isValidString(ToppingOne) ||
-      !isValidString(ToppingTwo) ||
-      !isValidString(Salad) ||
+      !isValidOptionalString(MainCourse) ||
+      !isValidOptionalString(Fish) ||
+      !isValidOptionalString(Vegeterian) ||
+      !isValidOptionalString(ToppingOne) ||
+      !isValidOptionalString(ToppingTwo) ||
+      !isValidOptionalString(Salad) ||
       !isValidString(Drink)
     ) {
       res.status(400).json({ error: 'Invalid input data' });
+      return;
+    }
+    
+    // Validate that at least one main option is selected
+    if (!MainCourse && !Fish && !Vegeterian && !Salad) {
+      res.status(400).json({ error: 'At least one main option (Main Course, Fish, Vegeterian, or Salad) must be selected' });
       return;
     }
 
@@ -55,12 +62,12 @@ export const AddNewFoodOrder = async (req: Request, res: Response) => {
     const newFoodOrderData: any = {
       EmployeeId: employeeIdToSave,
       FullName,
-      MainCourse,
-      Fish,
-      Vegeterian,
-      ToppingOne,
-      ToppingTwo,
-      Salad,
+      MainCourse: MainCourse || "",
+      Fish: Fish || "",
+      Vegeterian: Vegeterian || "",
+      ToppingOne: ToppingOne || "",
+      ToppingTwo: ToppingTwo || "",
+      Salad: Salad || "",
       Drink
     };
     if (parsedOrderDate) newFoodOrderData.OrderDate = parsedOrderDate;
@@ -133,5 +140,40 @@ export const getMealOrders = async (req: Request, res: Response) => {
     console.error('getMealOrders error:', error);
     res.status(500).json({ message: 'Failed to fetch orders', error });
     return;
+  }
+};
+
+export const getUserTodayOrder = async (req: Request, res: Response) => {
+  try {
+    const userId = req.params.userId;
+    if (!userId || typeof userId !== 'string' || userId.trim().length === 0) {
+      res.status(400).json({ error: 'Invalid user ID' });
+      return;
+    }
+
+    // Get today's date at midnight (start of day) in local time
+    const today = new Date();
+    const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
+    
+    // Get tomorrow's date at midnight (end of day) in local time
+    const endOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 59, 999);
+
+    // Find order for today
+    const todayOrder = await FoodOrder.findOne({
+      EmployeeId: userId,
+      OrderDate: {
+        $gte: startOfDay,
+        $lte: endOfDay
+      }
+    });
+
+    if (todayOrder) {
+      res.status(200).json({ hasOrder: true, order: todayOrder });
+    } else {
+      res.status(200).json({ hasOrder: false });
+    }
+  } catch (error) {
+    console.error('getUserTodayOrder error:', error);
+    res.status(500).json({ error: 'Failed to check today\'s order' });
   }
 };

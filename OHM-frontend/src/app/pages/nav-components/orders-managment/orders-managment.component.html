@@ -45,6 +45,7 @@
         id="MeetingDate"
         name="MeetingDate"
         [(ngModel)]="order.MeetingDate"
+        [min]="todayString"
       />
       <label for="MeetingDate">Meeting Date</label>
     </div>

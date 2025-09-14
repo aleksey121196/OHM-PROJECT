@@ -19,6 +19,8 @@ export class RequestsComponent implements OnInit {
 
   reqdata: any[] = []; 
 
+  todayString = new Date().toISOString().split('T')[0];
+
   constructor(private requestService: RequestService, private employeeService: EmployeeService) {}
 
   ngOnInit(): void {

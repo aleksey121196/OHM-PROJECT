@@ -5,7 +5,7 @@
 
     <form class="meetings-form" (ngSubmit)="submitDepartmentMeeting()" autocomplete="off">
       <div class="form-group">
-        <input type="date" id="Date" name="Date" [(ngModel)]="Date" required />
+        <input type="date" id="Date" name="Date" [(ngModel)]="Date" [min]="todayString" required />
         <label for="Date">Date</label>
       </div>
 

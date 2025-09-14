@@ -4,141 +4,83 @@
   </div>
 
   <form class="employee-manag-form" (ngSubmit)="addEmployee()" autocomplete="off">
-  
+
     <div class="form-group">
-      <input
-        type="text"
-        id="FullName"
-        name="FullName"
-        [(ngModel)]="newEmployee.FullName"
-        required
-      />
+      <input type="text" id="FullName" name="FullName" [(ngModel)]="newEmployee.FullName" required />
       <label for="FullName">Full Name</label>
     </div>
 
     <div class="form-group">
-      <input
-        type="email"
-        id="Email"
-        name="Email"
-        [(ngModel)]="newEmployee.Email"
-        required
-      />
+      <input type="email" id="Email" name="Email" [(ngModel)]="newEmployee.Email" required />
       <label for="Email">Email</label>
     </div>
 
     <div class="form-group">
-      <input
-        type="text"
-        id="Phone"
-        name="Phone"
-        [(ngModel)]="newEmployee.Phone"
-      />
+      <input type="text" id="Phone" name="Phone" [(ngModel)]="newEmployee.Phone" />
       <label for="Phone">Phone</label>
     </div>
 
     <div class="form-group">
-      <input
-        type="text"
-        id="Address"
-        name="Address"
-        [(ngModel)]="newEmployee.Address"
-      />
+      <input type="text" id="Address" name="Address" [(ngModel)]="newEmployee.Address" />
       <label for="Address">Address</label>
     </div>
 
     <div class="form-group">
-      <input
-        type="text"
-        id="Id"
-        name="Id"
-        [(ngModel)]="newEmployee.Id"
-        required
-      />
+      <input type="text" id="Id" name="Id" [(ngModel)]="newEmployee.Id" required />
       <label for="Id">Employee ID</label>
     </div>
 
     <div class="form-group">
-      <input
-        type="text"
-        id="JobTitle"
-        name="JobTitle"
-        [(ngModel)]="newEmployee.JobTitle"
-      />
+       <select id="JobTitle" name="JobTitle" [(ngModel)]="newEmployee.JobTitle" required>
+        <option value="" disabled selected>Select a JobTitle</option>
+        <option *ngFor="let dept of JobTitleOptions" [value]="dept">{{ dept }}</option>
+      </select>
       <label for="JobTitle">Job Title</label>
     </div>
 
     <div class="form-group">
-      <input
-        type="date"
-        id="EmploymentDate"
-        name="EmploymentDate"
-        [(ngModel)]="newEmployee.EmploymentDate"
-      />
+      <input type="date" id="EmploymentDate" name="EmploymentDate" [(ngModel)]="newEmployee.EmploymentDate" />
       <label for="EmploymentDate">Employment Date</label>
     </div>
 
     <div class="form-group">
-      <input
-        type="text"
-        id="Department"
-        name="Department"
-        [(ngModel)]="newEmployee.Department"
-      />
+      <select id="Department" name="Department" [(ngModel)]="newEmployee.Department" required>
+        <option value="" disabled selected>Select a Department</option>
+        <option *ngFor="let dept of DepartmentOptions" [value]="dept">{{ dept }}</option>
+      </select>
       <label for="Department">Department</label>
     </div>
 
     <div class="form-group">
-      <input
-        type="text"
-        id="Status"
-        name="Status"
-        [(ngModel)]="newEmployee.Status"
-      />
+       <select id="Status" name="Status" [(ngModel)]="newEmployee.Status" required>
+        <option value="" disabled selected>Select a Status</option>
+        <option *ngFor="let dept of StatusOptions" [value]="dept">{{ dept }}</option>
+      </select>
       <label for="Status">Status</label>
     </div>
 
     <div class="form-group">
-      <input
-        type="text"
-        id="UserName"
-        name="UserName"
-        [(ngModel)]="newEmployee.UserName"
-        required
-        autocomplete="new-username"
-      />
+      <input type="text" id="UserName" name="UserName" [(ngModel)]="newEmployee.UserName" required
+        autocomplete="new-username" />
       <label for="UserName">Username</label>
     </div>
 
     <div class="form-group">
-      <input
-        type="text"
-        id="Role"
-        name="Role"
-        [(ngModel)]="newEmployee.Role"
-      />
+      <select id="Role" name="Role" [(ngModel)]="newEmployee.Role" required>
+        <option value="" disabled selected>Select a Role</option>
+        <option *ngFor="let dept of RoleOptions" [value]="dept">{{ dept }}</option>
+      </select>
       <label for="Role">Role</label>
     </div>
 
     <div class="form-group">
-      <input
-        type="password"
-        id="Password"
-        name="Password"
-        [(ngModel)]="newEmployee.Password"
-        required
-        autocomplete="new-password"
-      />
+      <input type="password" id="Password" name="Password" [(ngModel)]="newEmployee.Password" required
+        autocomplete="new-password" />
       <label for="Password">Password</label>
     </div>
 
     <div class="form-group">
-      <input
-        type="text"
-        id="EmployerName"
-        name="EmployerName"
-        [(ngModel)]="newEmployee.EmployerName"
-      />
+      <input type="text" id="EmployerName" name="EmployerName" [(ngModel)]="newEmployee.EmployerName" />
       <label for="EmployerName">Employer Name</label>
     </div>
 

@@ -17,6 +17,7 @@ export class TransportationComponent implements OnInit {
   destination: string = '';
   Date: String = '';
   Time: String = ''
+  todayString = new Date().toISOString().split('T')[0];
 
   constructor(
     private transportationService: TransportationService,

@@ -10,6 +10,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   styleUrl: './employee-manag.component.css'
 })
 export class EmployeeManagComponent {
+  DepartmentOptions = ['Frontend', 'Backend', 'Fullstack', 'DevOps', 'QA', 'HR', 'Sales', 'Marketing','Administrative','Manufacture'];
+  JobTitleOptions = ['Cnc operator','Backend developer','Qa','Softwear Manager','secretary','Softwear developer'];
+  StatusOptions = ['Active','Non active'];
+  RoleOptions= ['Employee','Secretary','Manager'];
  newEmployee = {
     FullName: '',
     Email: '',

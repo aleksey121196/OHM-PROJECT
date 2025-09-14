@@ -6,7 +6,7 @@
   <form (ngSubmit)="submitOverTime()">
 
     <div class="form-group">
-      <input type="date" id="Date" name="Date" [(ngModel)]="Date" required />
+      <input type="date" id="Date" name="Date" [(ngModel)]="Date" [min]="todayString" required />
       <label>Date</label>
 
     </div>

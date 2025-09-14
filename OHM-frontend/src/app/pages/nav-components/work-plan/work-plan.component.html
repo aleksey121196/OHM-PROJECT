@@ -13,7 +13,7 @@
     </div>
 
     <div class="form-group">
-      <input type="date" id="week-start" name="weekStart" [(ngModel)]="WeekStartDate" required />
+      <input type="date" id="week-start" name="weekStart" [(ngModel)]="WeekStartDate" [min]="todayString" required />
       <label for="week-start">Week Start Date:</label>
 
     </div>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="form-group">
-          <input type="date" id="due-date-{{i}}" name="dueDate{{i}}" [(ngModel)]="task.DueDate" required />
+          <input type="date" id="due-date-{{i}}" name="dueDate{{i}}" [(ngModel)]="task.DueDate" [min]="todayString" required />
           <label for="due-date-{{i}}">Due Date:</label>
 
         </div>

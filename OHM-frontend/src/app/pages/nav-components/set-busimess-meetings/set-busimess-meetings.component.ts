@@ -17,6 +17,7 @@ export class SetBusimessMeetingsComponent implements OnInit{
     Date: string = '';
     MeetingTime: string = '' ;
     Topic: String = '';
+    todayString = new Date().toISOString().split('T')[0];
 
 
   constructor(private businessMeetingsService: BusinessMeetingsService, private employeeService: EmployeeService){}

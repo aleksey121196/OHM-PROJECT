@@ -15,6 +15,7 @@ export class SetDepartmentMeetingsComponent implements OnInit{
     Date: string = '';
     MeetingTime: string = '';
     Topic: string = '';
+    todayString = new Date().toISOString().split('T')[0];
 
   constructor(private departmentMeetingsService: DepartmentMeetingsService, private employeeService: EmployeeService){}
 

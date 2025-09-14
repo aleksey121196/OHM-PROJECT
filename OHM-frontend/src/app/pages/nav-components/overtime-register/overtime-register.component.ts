@@ -16,6 +16,7 @@ export class OvertimeRegisterComponent implements OnInit{
    
     Date: String= '';
     ExitTime: String= '';
+    todayString = new Date().toISOString().split('T')[0];
   
     constructor(private overTimeService: OverTimeService, private employeeService:EmployeeService) {}
   

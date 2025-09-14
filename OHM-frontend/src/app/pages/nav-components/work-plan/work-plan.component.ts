@@ -17,6 +17,7 @@ export class WorkPlanComponent implements OnInit {
   Notes = '';
   Department = '';  
   Tasks: any[] = [];
+  todayString = new Date().toISOString().split('T')[0];
 
   constructor(private workPlanService: WorkPlanService, private employeeService: EmployeeService) {}
 

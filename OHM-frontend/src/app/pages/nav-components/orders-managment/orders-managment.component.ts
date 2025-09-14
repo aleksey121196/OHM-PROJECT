@@ -1,16 +1,18 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OrdersService } from '../../../services/orders.service';
 
 @Component({
   selector: 'app-orders-managment',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './orders-managment.component.html',
   styleUrl: './orders-managment.component.css'
 })
 export class OrdersManagmentComponent {
-order = {
+  todayString = new Date().toISOString().split('T')[0];
+  
+  order = {
     ClientFullName: '',
     ClientEmail: '',
     ClientPhone: '',
@@ -18,7 +20,7 @@ order = {
     OrderDetails: '',
   };
 
-  constructor(private ordersService: OrdersService) {}
+  constructor(private ordersService: OrdersService) { }
 
   submitOrder(): void {
     this.ordersService.addOrder(this.order).subscribe({

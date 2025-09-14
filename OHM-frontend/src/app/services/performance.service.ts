@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 
-export interface WeekSeries{
+/*export interface WeekSeries{
   days: string[];
   thisWeek: number[];
   lastWeek: number[];
 }
+  */
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class PerformanceService {
     return this.http.get(`${this.baseUrl}/employee-summary`);
   }
 
-  getEmployeeWeekly(): Observable<WeekSeries> {
+  /*getEmployeeWeekly(): Observable<WeekSeries> {
     return this.http.get<WeekSeries>(`${this.baseUrl}/employee-weekly`).pipe(
       map(r => ({
         days: r.days,
@@ -33,4 +34,6 @@ export class PerformanceService {
       }))
     );
   }
+  */
 }
+
